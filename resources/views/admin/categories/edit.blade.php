@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-md">
-                    <image-uploader src="{{ $category->getFirstMediaUrl('catalog') }}"></image-uploader>
+                    <image-uploader src="{{ $category->getFirstMediaUrl('category') }}"></image-uploader>
                 </div>
             </div>
 

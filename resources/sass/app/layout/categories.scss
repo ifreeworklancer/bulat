@@ -1,0 +1,18 @@
+.category {
+  display: block;
+  position: relative;
+  margin-bottom: $grid-gutter-width;
+
+  &__image {
+    height: rem-calc(368);
+    background-position: 50% 50%;
+    background-size: auto 100%;
+    transition: 1s ease;
+  }
+
+  &:hover {
+    .category__image {
+      transform: scale(1.05);
+    }
+  }
+}

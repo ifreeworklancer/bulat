@@ -1,0 +1,27 @@
+.read-more {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background-color: $secondary;
+    content: '';
+    z-index: -1;
+    transition: 0.35s;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &:after {
+      width: calc(100% + 20px);
+      right: -10px;
+      top: -20%;
+      height: 140%;
+      border-bottom-color: lighten($secondary, 30%);
+    }
+  }
+}

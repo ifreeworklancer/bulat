@@ -1,0 +1,15 @@
+.container--auth {
+  min-height: 100vh;
+}
+
+.auth {
+  &-background {
+    position: fixed;
+    left: 50%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}

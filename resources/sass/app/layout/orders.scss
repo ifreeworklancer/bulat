@@ -1,0 +1,9 @@
+.order {
+  &--declined {
+    opacity: 0.5;
+  }
+
+  &--completed {
+    border-color: $success !important;
+  }
+}

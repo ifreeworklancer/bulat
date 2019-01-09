@@ -1,0 +1,72 @@
+#app-header {
+  position: relative;
+  font-family: $headings-font-family;
+  font-size: rem-calc(14);
+  z-index: 100;
+
+  &.is-light {
+    a {
+      color: #fff;
+
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
+
+  .breadcrumbs {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: $body-color;
+    background-color: #f7f7f7;
+    padding: rem-calc(8) rem-calc(20);
+  }
+
+  .nav {
+    font-size: rem-calc(13);
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .navbar {
+    padding: rem-calc(20);
+
+    &--left {
+      background-color: $primary;
+      color: #fff;
+
+      a {
+        color: currentColor;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+
+    &--right {
+      padding-right: 0;
+    }
+  }
+}
+
+.locale-selector {
+  display: flex;
+
+  &__item {
+    padding: rem-calc(3) rem-calc(5);
+
+    &.is-active {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}
+
+.container-fluid {
+  &--header {
+    max-width: 1600px;
+  }
+}

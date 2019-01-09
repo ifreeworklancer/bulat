@@ -1,0 +1,25 @@
+#app-footer {
+  color: #fff;
+  background-color: $dark;
+
+  a {
+    color: currentColor;
+    &:hover {
+      color: $gold;
+    }
+  }
+}
+
+.footer-info {
+  padding: 60px 0;
+}
+
+.copyrights {
+  background-color: $primary;
+  font-size: rem-calc(14);
+  color: #858585;
+}
+
+.subscription-form {
+  max-width: 450px;
+}

@@ -1,0 +1,11 @@
+@import "config/variables", "config/fonts";
+// Bootstrap
+@import "~bootstrap/scss/bootstrap", "~flickity/dist/flickity.css", "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+// Common
+@import "common/rem-calc", "common/placeholders";
+// Base
+@import "base/links", "base/buttons";
+// Layout
+@import "layout/base", "layout/header", "layout/footer", "layout/articles", "layout/products", "layout/orders", "layout/categories", "layout/auth";
+// Modules
+@import "modules/read-more", "modules/breadcrumbs", "modules/filters", "modules/slider", "modules/search", "modules/infobar", "modules/pagination";

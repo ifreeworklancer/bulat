@@ -1,0 +1,11 @@
+.pagination {
+  justify-content: center;
+}
+
+.page-item {
+  margin: 0 rem-calc(5);
+  .page-link {
+    border: none;
+    line-height: 1;
+  }
+}

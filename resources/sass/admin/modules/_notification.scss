@@ -1,0 +1,15 @@
+.notification {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+}
+
+.indicator {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    left: -4px;
+    top: -4px;
+}

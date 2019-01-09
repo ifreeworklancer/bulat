@@ -1,0 +1,13 @@
+.search {
+  .material-icons {
+    position: absolute;
+    left: rem-calc(10);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.form-control--search {
+  background-color: $gray-200;
+  padding-left: 40px;
+}

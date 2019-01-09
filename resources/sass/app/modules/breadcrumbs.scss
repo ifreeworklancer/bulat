@@ -1,0 +1,9 @@
+.breadcrumbs {
+  font-family: $font-family-base;
+  a:hover {
+    text-decoration: underline;
+  }
+  &-separator {
+    @extend .px-1;
+  }
+}

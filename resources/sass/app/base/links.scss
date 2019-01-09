@@ -1,0 +1,8 @@
+a {
+  transition: 0.35s;
+
+  &.text-primary:hover,
+  &.text-dark:hover {
+    color: $gold !important;
+  }
+}

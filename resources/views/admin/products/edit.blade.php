@@ -8,15 +8,14 @@
             @method('patch')
 
             <div class="row">
-                <div class="col-md-8 col-lg-9">
+                <div class="col-lg-9">
                     <block-editor title="{{ $product->translate('title') }}">
                         @foreach(config('app.locales') as $lang)
                             <fieldset slot="{{ $lang }}">
                                 <div class="form-group{{ $errors->has($lang.'.title') ? ' is-invalid' : '' }}">
                                     <label for="title">Название товара</label>
                                     <input type="text" class="form-control" id="title" name="{{$lang}}[title]"
-                                           value="{{ old($lang.'.title') ?? $product->translate('title', $lang) }}"
-                                           required>
+                                           value="{{ old($lang.'.title') ?? $product->translate('title', $lang) }}" required>
                                     @if($errors->has($lang.'.title'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first($lang.'.title') }}

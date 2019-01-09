@@ -7,7 +7,7 @@
             @csrf
 
             <div class="row">
-                <div class="col-md-8 col-lg-9">
+                <div class="col-lg-9">
                     <block-editor title="Новый товар">
                         @foreach(config('app.locales') as $lang)
                             <fieldset slot="{{ $lang }}">

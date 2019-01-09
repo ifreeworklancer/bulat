@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row mb-2" v-if="images.length">
+        <div class="row images-list mb-2" v-if="images.length">
             <div class="col-md-6 col-lg-4" v-for="(image, index) in images">
                 <div class="image-preview rounded"
                      :style="{backgroundImage: `url(${image.src})`}">
@@ -80,6 +80,14 @@
 <style lang="scss" scoped>
     .previews {
         margin: -0.5rem;
+    }
+
+    .images-list {
+        margin: -5px;
+
+        [class^="col"] {
+            padding: 5px;
+        }
     }
 
     .image-preview {

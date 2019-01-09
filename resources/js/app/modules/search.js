@@ -7,9 +7,6 @@
 
     const icon = searchButton.text() === 'search' ? 'close' : 'search';
     searchButton.text(icon);
-
-    searchForm.animate({
-      top: icon === 'close' ? 0 : '-75px'
-    });
+    searchForm.toggleClass('is-visible');
   })
 })(jQuery);

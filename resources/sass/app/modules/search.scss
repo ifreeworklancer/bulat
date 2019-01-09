@@ -26,8 +26,15 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: -75px;
+    top: 0;
     color: $body-color;
+    transform: scaleY(-1);
+    transform-origin: center top;
+    transition: 0.65s;
+
+    &.is-visible {
+      transform: scale(1);
+    }
 
     .form-control {
       color: $body-color;

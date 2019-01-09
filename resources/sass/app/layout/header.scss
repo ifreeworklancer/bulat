@@ -3,6 +3,7 @@
   font-family: $headings-font-family;
   font-size: rem-calc(14);
   z-index: 100;
+  height: 75px;
 
   &.is-light {
     a {
@@ -12,6 +13,13 @@
         color: $gold;
       }
     }
+  }
+
+  &.is-fixed {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
   }
 
   .breadcrumbs {
@@ -28,10 +36,25 @@
     font-size: rem-calc(13);
     text-transform: uppercase;
     position: relative;
+
+    &-link {
+      padding: 0 rem-calc(15);
+      line-height: 75px;
+      background-color: transparent;
+
+      &[data-search] {
+        width: 75px;
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: lighten($primary, 10%);
+      }
+    }
   }
 
   .navbar {
-    padding: rem-calc(20);
+    padding: 0;
 
     &--left {
       background-color: $primary;

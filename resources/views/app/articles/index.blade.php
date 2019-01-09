@@ -33,25 +33,22 @@
             <div class="row">
                 @forelse($articles as $article)
                     <div class="{{ $loop->index !== 0 ? 'col-md-6' : '' }} {{ in_array($loop->index, [0, 3]) ? 'col-lg-8' : 'col-lg-4' }}">
-                        <article class="article-preview">
-                            <a href="{{ route('app.articles.show', $article) }}"
-                               class="mb-3 lozad article-preview__image{{ in_array($loop->index, [0, 1, 2, 3]) ? ' article-preview__image--large' : '' }}"
-                               data-background-image="{{ $article->preview }}"></a>
+                        <a href="{{ route('app.articles.show', $article) }}" class="article-preview no-shadow">
+                            <figure class="lozad article-preview__image{{ in_array($loop->index, [0, 1, 2, 3]) ? ' article-preview__image--large' : '' }}"
+                                    data-background-image="{{ $article->preview }}"></figure>
 
-                            <div class="px-3">
-                                <h2>
-                                    <a href="{{ route('app.articles.show', $article) }}">
-                                        {{ $article->translate('title') }}
-                                    </a>
-                                </h2>
+                            <div class="p-3 bg-white position-relative">
+                                <h5>
+                                    {{ $article->translate('title') }}
+                                </h5>
                                 <p>
                                     {{ remove_tags($article->translate('body'), (in_array($loop->index, [0, 3]) ? 220 : 100)) }}
                                 </p>
-                                <a href="{{ route('app.articles.show', $article) }}" class="read-more">
+                                <span class="read-more">
                                     @lang('pages.articles.readmore')
-                                </a>
+                                </span>
                             </div>
-                        </article>
+                        </a>
                     </div>
                 @empty
                     <div class="col-sm text-center">

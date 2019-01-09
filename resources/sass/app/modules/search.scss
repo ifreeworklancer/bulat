@@ -1,4 +1,6 @@
 .search {
+  position: relative;
+
   .material-icons {
     position: absolute;
     left: rem-calc(10);
@@ -10,4 +12,26 @@
 .form-control--search {
   background-color: $gray-200;
   padding-left: 40px;
+}
+
+.form-control--global-search {
+  background-color: $primary !important;
+  border-color: transparent;
+  padding-left: 40px;
+  height: 75px;
+}
+
+.nav {
+  .search {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -75px;
+    color: $body-color;
+
+    .form-control {
+      color: $body-color;
+      font-family: $font-family-base;
+    }
+  }
 }

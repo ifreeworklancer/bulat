@@ -8,6 +8,8 @@ Route::get('contacts', 'PagesController@contacts')->name('contacts');
 Route::get('locale/{lang}', 'LocaleController@switch')->name('locale');
 Route::view('thanks', 'app.pages.thanks')->name('thanks');
 
+Route::get('search', 'SearchController@index')->name('search');
+
 Route::group([
 	'as' => 'catalog.',
 ], function () {

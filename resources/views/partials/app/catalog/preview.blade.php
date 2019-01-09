@@ -1,5 +1,4 @@
-<a href="{{ route('app.catalog.show', $product) }}"
-   class="product-preview d-block">
+<a href="{{ route('app.catalog.show', $product) }}" class="product-preview">
     <figure class="product-preview__image lozad"
             data-background-image="{{ $product->preview }}"></figure>
     <div class="product-preview__info p-3">

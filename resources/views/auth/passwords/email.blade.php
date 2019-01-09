@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['header_class' => 'is-light'])
+@extends('layouts.auth', ['header_class' => 'is-light is-fixed'])
 
 @section('content')
     {{--@if (session('status'))--}}

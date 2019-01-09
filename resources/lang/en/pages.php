@@ -16,6 +16,11 @@ return [
 		'title' => 'Contacts',
 	],
 
+	'search' => [
+		'title' => 'Search results',
+		'not_found' => 'No results found for your search&nbsp;«<strong>:query</strong>»',
+	],
+
 	'thanks' => [
 		'title' => 'Thank You!',
 		'product' => [
@@ -66,6 +71,6 @@ return [
 		'popular' => 'Popular goods',
 		'catalog' => 'Go to catalog',
 		'buy' => 'Buy',
-		'ordered' => 'Already ordered'
+		'ordered' => 'Already ordered',
 	],
 ];

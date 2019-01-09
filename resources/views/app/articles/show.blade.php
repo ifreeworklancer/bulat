@@ -54,7 +54,7 @@
                         <h4>@lang('pages.articles.popular')</h4>
 
                         @foreach($related as $item)
-                            @include('partials.app.articles.preview', ['article' => $item])
+                            @include('partials.app.articles.preview', ['article' => $item, 'class' => 'no-shadow'])
                         @endforeach
                     </div>
                 @endif

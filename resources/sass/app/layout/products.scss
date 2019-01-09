@@ -1,9 +1,10 @@
 .product-preview {
+  display: block;
   position: relative;
   overflow: hidden;
+  margin-bottom: $grid-gutter-width;
   box-shadow: 0 2px 10px -3px rgba($primary, 0.15);
   transition: 1s ease;
-  margin-bottom: $grid-gutter-width;
 
   &__image {
     height: rem-calc(468);
@@ -24,10 +25,17 @@
     font-size: rem-calc(12);
   }
 
+  h5 {
+    transition: 0.35s;
+  }
+
   &:hover {
     box-shadow: 0 5px 60px -20px rgba($primary, 0.25);
     .product-preview__image {
       transform: scale(1.05);
+    }
+    h5 {
+      color: $gold;
     }
   }
 }

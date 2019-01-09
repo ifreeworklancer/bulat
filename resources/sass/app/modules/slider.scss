@@ -1,6 +1,8 @@
 .slide {
   position: relative;
   width: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
 
   &__entry {
     position: absolute;

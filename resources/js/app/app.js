@@ -1,6 +1,8 @@
+import lozad from 'lozad'
+
 require('./bootstrap');
 require('./modules/tabs');
 require('./modules/sliders');
 
-// const Turbolinks = require("turbolinks");
-// Turbolinks.start();
+const observer = lozad();
+observer.observe();

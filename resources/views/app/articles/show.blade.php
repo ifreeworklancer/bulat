@@ -14,7 +14,7 @@
 
 @section('content')
 
-    <figure class="article-image" style="background-image: url('{{ $article->banner }}');">
+    <figure class="article-image lozad" data-background-image="{{ $article->banner }}">
         <div class="infobar d-flex">
             <div class="infobar-item">
                 <div class="infobar-item__heading">@lang('pages.articles.date')</div>

@@ -9,12 +9,12 @@
                         <div class="mr-3 flex-shrink-0">
                             @if (in_array($order->status, ['processing', 'no_dial']))
                                 <a href="{{ route('app.catalog.show', $order->product) }}">
-                                    <img src="{{ $order->product->getFirstMediaUrl('products', 'thumb') }}"
-                                         width="100" alt="">
+                                    <img data-src="{{ $order->product->getFirstMediaUrl('products', 'thumb') }}"
+                                         width="100" class="lozad" alt="">
                                 </a>
                             @else
-                                <img src="{{ $order->product->getFirstMediaUrl('products', 'thumb') }}"
-                                     width="100" alt="">
+                                <img data-src="{{ $order->product->getFirstMediaUrl('products', 'thumb') }}"
+                                     width="100" class="lozad" alt="">
                             @endif
                         </div>
                         <div class="flex-grow-0">

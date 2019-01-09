@@ -1,6 +1,6 @@
 <section id="articles">
-    <figure class="tabs-image d-none d-md-block"
-            style="background-image: url('{{ $articles->first()->banner }}')"></figure>
+    <figure class="tabs-image d-none d-md-block lozad"
+            data-background-image="{{ $articles->first()->banner }}"></figure>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 ml-auto">

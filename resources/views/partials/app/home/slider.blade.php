@@ -1,8 +1,8 @@
 <section id="home-slider" class="p-0">
     <div class="slider">
         @foreach($slides as $slide)
-            <div class="slide{{ $slide->has_background ? ' slide--has-background' : '' }}"
-                 style="background: url({{ $slide->banner }}) 50% 50% / cover no-repeat;">
+            <div class="lozad slide {{ $slide->has_background ? ' slide--has-background' : '' }}"
+                 data-background-image="{{ $slide->banner }}">
                 <div class="slide__entry">
                     <h2 class="h3 mb-2 text-uppercase">{{ $slide->translate('title') }}</h2>
                     <p class="mb-0 ml-4">{{ $slide->translate('description') }}</p>

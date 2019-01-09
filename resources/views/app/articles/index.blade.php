@@ -35,8 +35,8 @@
                     <div class="{{ $loop->index !== 0 ? 'col-md-6' : '' }} {{ in_array($loop->index, [0, 3]) ? 'col-lg-8' : 'col-lg-4' }}">
                         <article class="article-preview">
                             <a href="{{ route('app.articles.show', $article) }}"
-                               class="mb-3 article-preview__image{{ in_array($loop->index, [0, 1, 2, 3]) ? ' article-preview__image--large' : '' }}"
-                               style="background-image: url('{{ $article->preview }}');"></a>
+                               class="mb-3 lozad article-preview__image{{ in_array($loop->index, [0, 1, 2, 3]) ? ' article-preview__image--large' : '' }}"
+                               data-background-image="{{ $article->preview }}"></a>
 
                             <div class="px-3">
                                 <h2>

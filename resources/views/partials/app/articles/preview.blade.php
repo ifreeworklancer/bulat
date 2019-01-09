@@ -1,7 +1,7 @@
 <article class="article-preview">
     <a href="{{ route('app.articles.show', $article) }}"
-       class="mb-3 article-preview__image"
-       style="background-image: url('{{ $article->preview }}');"></a>
+       class="mb-3 article-preview__image lozad"
+       data-background-image="{{ $article->preview }}"></a>
 
     <div class="px-3">
         <h6>

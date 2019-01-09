@@ -21,7 +21,7 @@
                     <h1 class="h5">{{ $product->translate('title') }}</h1>
 
                     <div class="position-relative mb-5">
-                        <img src="{{ $product->banner }}" alt="{{ $product->translate('title') }}">
+                        <img data-src="{{ $product->banner }}" class="lozad" alt="{{ $product->translate('title') }}">
 
                         <div class="infobar d-flex">
                             <div class="infobar-item">
@@ -83,8 +83,8 @@
                             <div class="col-md-6 col-lg-4">
                                 <a href="{{ $photo->getUrl('banner') }}"
                                    data-fancybox="gallery"
-                                   class="product-item__gallery-item"
-                                   style="background-image: url({{$photo->getUrl('preview')}});">
+                                   class="product-item__gallery-item lozad"
+                                   data-background-image="{{$photo->getUrl('preview')}}">
                                 </a>
                             </div>
                         @endforeach

@@ -1,7 +1,7 @@
 <a href="{{ route('app.catalog.show', $product) }}"
    class="product-preview d-block">
-    <figure class="product-preview__image"
-            style="background-image: url({{ $product->preview }})"></figure>
+    <figure class="product-preview__image lozad"
+            data-background-image="{{ $product->preview }}"></figure>
     <div class="product-preview__info p-3">
         <h5>{{ $product->translate('title') }}</h5>
 

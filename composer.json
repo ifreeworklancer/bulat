@@ -16,7 +16,7 @@
         "laravel/tinker": "^1.0",
         "pragmarx/countries": "^0.5.9",
         "spatie/laravel-medialibrary": "^7.5",
-        "talanoff/impression-admin": "1.0.5"
+        "talanoff/impression-admin": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -1,12 +1,12 @@
 require('./bootstrap');
+require('simplebar');
+import 'simplebar/dist/simplebar.css';
 
-import DataTables from './components/DataTables';
 import Editor from './components/Editor';
 
 new Vue({
   el: '#app',
   components: {
-    ...DataTables,
     ...Editor,
   },
   mounted() {

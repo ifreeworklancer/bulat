@@ -17,4 +17,7 @@ Route::resource('users', 'UsersController')->except(['create', 'store']);
 Route::resource('slides', 'SlidesController')->except(['show']);
 Route::resource('settings', 'SettingsController')->only(['index', 'update']);
 
+Route::resource('questions', 'QuestionsController')->except(['show']);
+Route::resource('answers', 'AnswersController')->except(['show']);
+
 Route::delete('media/{media}', 'MediaController@destroy')->name('media.delete');

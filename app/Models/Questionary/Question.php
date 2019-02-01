@@ -14,8 +14,4 @@ class Question extends Model
       'slug',
       'order',
     ];
-
-    public static function questions(){
-        return self::where('order', '>', 0)->get();
-    }
 }

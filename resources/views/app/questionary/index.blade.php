@@ -14,14 +14,15 @@
                 @csrf
 
                 @foreach ($questions as $question)
-                    <h2>{{ $question->translate('title') }}</h2>
+                    <h5 class="mb-2">{{ $question->title }}</h5>
 
                     <div class="form-group">
-                        <label for="answer-{{ $loop->iteration }}">@lang('pages.questionary.answer')</label>
-                        <input type="text" class="form-control" id="answer-{{ $loop->iteration }}"
-                               name="answers[{{$question->translate('title')}}]" required>
+                        <textarea class="form-control" id="answer-{{ $loop->iteration }}"
+                                  name="answers[{{$question->title}}]">{{ old('answers.' . $question->title) }}</textarea>
                     </div>
                 @endforeach
+
+                <images-uploader></images-uploader>
 
                 <div class="mt-4">
                     <button class="btn btn-primary">@lang('pages.questionary.save')</button>

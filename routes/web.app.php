@@ -39,10 +39,12 @@ Route::group([
 	Route::post('cities', 'ProfileController@getCities')->name('cities');
 	Route::patch('update', 'ProfileController@update')->name('update');
 });
+
 Route::group([
-    'as' =>'questionary.',
-], function (){
-    Route::get('questionary','AnswersController@index')->name('index');
-    Route::post('questionary','AnswersController@store')->name('store');
+	'as' => 'questionary.',
+	'middleware' => ['auth'],
+], function () {
+	Route::get('questionary', 'AnswersController@index')->name('index');
+	Route::post('questionary', 'AnswersController@store')->name('store');
 });
 

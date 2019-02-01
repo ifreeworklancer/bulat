@@ -6,7 +6,7 @@
                      :style="{backgroundImage: `url(${image.src})`}">
                     <a @click.prevent="removeImage(index, image.remove)" v-if="image !== ''"
                        class="btn btn-danger btn-delete d-flex justify-content-center align-items-center">
-                        <i class="i-trash text-white"></i>
+                        <i class="material-icons text-white">delete</i>
                     </a>
                 </div>
             </div>
@@ -60,19 +60,9 @@
           }
         }
       },
-      removeImage(index, route) {
-        if (!!route) {
-          axios.delete(route);
-        }
-
+      removeImage(index) {
         this.images.splice(index, 1);
       }
-    },
-    mounted() {
-      // if (this.src) {
-      //     const images = JSON.parse(this.src);
-      //     this.images.push(...images);
-      // }
     }
   }
 </script>

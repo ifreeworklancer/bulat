@@ -30,10 +30,6 @@ class Navigation
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),
 			],
-            (object)[
-                'name' => trans('navigation.header.questionary'),
-                'route' => route('app.questionary.index')
-            ]
 		];
 	}
 

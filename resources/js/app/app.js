@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import lozad from 'lozad'
-import ImageUploader from './components/MultiImageUploader'
+import ImagesUploader from './components/MultiImageUploader'
 
 new Vue({
   el: '#app',
   components: {
-    ImageUploader
+    ImagesUploader
   },
   mounted() {
     require('./bootstrap');

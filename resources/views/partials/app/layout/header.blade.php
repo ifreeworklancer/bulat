@@ -9,9 +9,16 @@
                         </a>
                     @endforeach
 
+                    @auth
+                        <a href="{{ route('app.questionary.index') }}" class="nav-link">
+                            @lang('navigation.header.questionary')
+                        </a>
+                    @endauth
+
                     <form action="{{ route('app.search') }}" class="search">
                         <button class="btn btn-search material-icons">search</button>
-                        <input type="text" name="q" autocomplete="none" class="form-control form-control--global-search" placeholder="{{ trans('pages.catalog.search.placeholder') }}" required>
+                        <input type="text" name="q" autocomplete="none" class="form-control form-control--global-search"
+                               placeholder="{{ trans('pages.catalog.search.placeholder') }}" required>
                     </form>
                 </nav>
 

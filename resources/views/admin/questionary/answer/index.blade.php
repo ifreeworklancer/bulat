@@ -10,7 +10,7 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th class="text-center">Автор</th>
+                <th>Автор</th>
                 <th>Дата создания</th>
                 <th></th>
             </tr>
@@ -19,9 +19,8 @@
             <tbody>
             @forelse($answers as $answer)
                 <tr>
-
-                    <td>{{ $answer->id }}</td>
-                    <td class="text-center">
+                    <td style="width: 26px">{{ $answer->id }}</td>
+                    <td>
                         <a href="{{ route('admin.answers.edit', $answer) }}" class="underline">
                         {{ $answer->user->name }}
                         </a>

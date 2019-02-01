@@ -20,7 +20,7 @@
 </head>
 <body>
 @includeIf('partials.app.layout.header')
-<main>
+<main id="app">
     <div class="container container--auth d-flex flex-column justify-content-center">
         <div class="row">
             <div class="col-md-6">

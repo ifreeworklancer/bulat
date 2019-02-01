@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'DashboardController@index')->name('index');
+//Route::get('/', 'DashboardController@index')->name('index');
+Route::get('/', function() {
+	return redirect()->route('admin.orders.index');
+});
 
 Route::resource('articles', 'ArticlesController')->except(['show']);
 Route::resource('groups', 'GroupsController')->except(['show']);

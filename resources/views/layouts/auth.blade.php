@@ -15,7 +15,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('styles')
 </head>
 <body>
@@ -31,7 +30,7 @@
     <figure class="auth-background d-none d-md-block"
     style="background-image: url({{ $image }});"></figure>
 </main>
-
+<script src="{{ asset('js/app.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

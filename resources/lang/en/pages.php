@@ -73,4 +73,10 @@ return [
 		'buy' => 'Buy',
 		'ordered' => 'Already ordered',
 	],
+
+    'questionary' => [
+        'title' => 'Questionary',
+        'answer' => 'Your answer',
+        'save' => 'Save',
+    ]
 ];

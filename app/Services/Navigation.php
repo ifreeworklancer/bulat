@@ -30,6 +30,10 @@ class Navigation
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),
 			],
+            (object)[
+                'name' => trans('navigation.header.questionary'),
+                'route' => route('app.questionary.index')
+            ]
 		];
 	}
 
@@ -91,6 +95,23 @@ class Navigation
 				'icon' => 'i-users',
 				'submenu' => null,
 			]),
+            new NavigationElement([
+                'name' => 'Анкета',
+                'route' => 'question',
+                'icon' => 'i-book',
+                'compare' => ['questions', 'answers'],
+                'submenu' =>[
+                    'questions' => [
+                        'name' => 'Вопросы',
+                        'route' => 'admin.questions.index',
+                    ],
+                    'answers' => [
+                        'name' => 'Ответы',
+                        'route' => 'admin.answers.index',
+                    ],
+                ],
+            ]),
+
 //			new NavigationElement([
 //				'name' => 'Настройки',
 //				'route' => 'settings',

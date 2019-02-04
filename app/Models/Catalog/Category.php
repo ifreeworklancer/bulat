@@ -2,6 +2,7 @@
 
 namespace App\Models\Catalog;
 
+use App\Traits\FiltrableTrait;
 use App\Traits\SluggableTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -14,11 +15,13 @@ use Talanoff\ImpressionAdmin\Traits\Translatable;
 
 class Category extends Model implements HasMedia
 {
-	use SluggableTrait, Translatable, HasMediaTrait;
+	use SluggableTrait, Translatable, HasMediaTrait, FiltrableTrait;
 
 	protected $fillable = [
 		'slug',
 	];
+
+	protected $filtrable = 'category';
 
 	public function products(): BelongsToMany
 	{

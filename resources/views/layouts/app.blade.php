@@ -20,7 +20,7 @@
 <body>
 @includeIf('partials.app.layout.icons')
 @include('partials.app.layout.header')
-<main id="app">
+<main id="app" v-cloak>
     @yield('content')
 </main>
 @include('partials.app.layout.footer')

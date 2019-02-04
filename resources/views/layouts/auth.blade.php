@@ -20,7 +20,7 @@
 <body>
 @includeIf('partials.app.layout.icons')
 @includeIf('partials.app.layout.header')
-<main id="app">
+<main id="app" v-cloak>
     <div class="container container--auth d-flex flex-column justify-content-center">
         <div class="row">
             <div class="col-md-6">

@@ -19,6 +19,12 @@ main {
   flex: 1;
 }
 
+[v-cloak] {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+}
+
 section {
   padding: 2.5rem 0;
   position: relative;

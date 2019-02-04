@@ -1,4 +1,4 @@
-<section id="articles">
+<section id="articles" class="mt-0">
     <figure class="tabs-image d-none d-md-block lozad"
             data-background-image="{{ $articles->first()->banner }}"></figure>
     <div class="container">

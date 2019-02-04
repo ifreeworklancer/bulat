@@ -1,4 +1,4 @@
-<section id="categories" class="pb-0">
+<section id="categories">
     <div class="container">
         <h2 class="h1 text-center mb-5">
             @lang('pages.home.categories.title')

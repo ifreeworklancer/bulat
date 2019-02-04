@@ -12,6 +12,7 @@ new Vue({
     require('./modules/tabs');
     require('./modules/sliders');
     require('./modules/search');
+    require('./modules/menu');
 
     const observer = lozad();
     observer.observe();

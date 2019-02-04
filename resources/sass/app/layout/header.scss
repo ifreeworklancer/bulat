@@ -71,6 +71,21 @@
 
     &--right {
       padding-right: 0;
+      line-height: 1.25;
+    }
+  }
+}
+
+.nav-link {
+  &--logo {
+    svg {
+      fill: #fff;
+    }
+
+    &:hover {
+      svg {
+        fill: $gold;
+      }
     }
   }
 }
@@ -91,5 +106,10 @@
 .container-fluid {
   &--header {
     max-width: 1600px;
+    padding-left: 0;
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding-left: $grid-gutter-width;
+    }
   }
 }

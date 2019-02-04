@@ -7,7 +7,8 @@ return [
 		'articles' => 'Articles',
 		'about' => 'About Us',
 		'contacts' => 'Contacts',
-        'questionary' =>'Questionary',
+		'questionary' => 'Questionary',
+		'dashboard' => 'Dashboard',
 	],
 
 	'profile' => [

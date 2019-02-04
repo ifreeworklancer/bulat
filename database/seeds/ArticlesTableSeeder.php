@@ -48,7 +48,7 @@ class ArticlesTableSeeder extends Seeder
 			$article->tags()->attach(Tag::inRandomOrder()->take(rand(3, 6))->pluck('id')->all());
 
 			$article->clearMediaCollection('articles');
-			$article->addMediaFromUrl($faker->imageUrl(1280, 768))
+			$article->addMediaFromUrl($faker->imageUrl(1920, 1080))
 					->toMediaCollection('articles');
 		}
 	}

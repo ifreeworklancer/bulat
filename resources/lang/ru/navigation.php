@@ -7,7 +7,8 @@ return [
 		'articles' => 'Статьи',
 		'about' => 'О нас',
 		'contacts' => 'Контакты',
-        'questionary' => 'Анкета',
+		'questionary' => 'Анкета',
+		'dashboard' => 'Панель управления',
 	],
 
 	'profile' => [

@@ -1,0 +1,42 @@
+.menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  z-index: 500;
+  background-color: $primary;
+
+  transition: 0.5s;
+  transform: translateY(-100%);
+  pointer-events: none;
+
+
+  &.is-active {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  @media (min-width: map_get($grid-breakpoints, lg)) {
+    position: static;
+    flex-direction: row;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.menu-toggle {
+  font-size: rem-calc(28);
+  line-height: 1.25;
+}
+
+.menu-close {
+  position: absolute;
+  right: $grid-gutter-width / 2;
+  top: $grid-gutter-width / 2;
+  cursor: pointer;
+}

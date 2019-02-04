@@ -18,6 +18,7 @@
     @stack('styles')
 </head>
 <body>
+@includeIf('partials.app.layout.icons')
 @include('partials.app.layout.header')
 <main id="app">
     @yield('content')

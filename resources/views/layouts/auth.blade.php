@@ -18,6 +18,7 @@
     @stack('styles')
 </head>
 <body>
+@includeIf('partials.app.layout.icons')
 @includeIf('partials.app.layout.header')
 <main id="app">
     <div class="container container--auth d-flex flex-column justify-content-center">
@@ -27,8 +28,7 @@
             </div>
         </div>
     </div>
-    <figure class="auth-background d-none d-md-block"
-    style="background-image: url({{ $image }});"></figure>
+    <figure class="auth-background d-none d-md-block" style="background-image: url({{ $image }});"></figure>
 </main>
 <script src="{{ asset('js/app.js') }}"></script>
 @stack('scripts')

@@ -3,6 +3,10 @@
 return [
 	'home' => [
 		'title' => 'Главная',
+		'categories' => [
+			'title' => 'В нашем арсенале',
+			'button' => 'Весь каталог',
+		],
 		'articles' => [
 			'button' => 'Все статьи',
 		],
@@ -74,9 +78,9 @@ return [
 		'ordered' => 'Уже заказано',
 	],
 
-    'questionary' => [
-        'title' => 'Анкета',
-        'answer' => 'Ваш ответ',
-        'save' => 'Сохранить',
-    ]
+	'questionary' => [
+		'title' => 'Анкета',
+		'answer' => 'Ваш ответ',
+		'save' => 'Сохранить',
+	],
 ];

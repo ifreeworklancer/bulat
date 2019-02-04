@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="list-group" id="list-tab" role="tablist">
+                    <div class="list-group mb-3" id="list-tab" role="tablist">
                         <a class="list-group-item list-group-item-action active"
                            id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
                             @lang('navigation.profile.profile')

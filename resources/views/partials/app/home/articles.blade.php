@@ -18,7 +18,8 @@
                 @endforeach
 
                 <div class="mt-2">
-                    <a href="{{ route('app.articles.index') }}" class="btn btn-primary">
+                    <a href="{{ route('app.articles.index') }}" class="btn btn-primary h4 px-4 py-3 mb-0">
+                        <i class="material-icons mr-2">assignment</i>
                         @lang('pages.home.articles.button')
                     </a>
                 </div>

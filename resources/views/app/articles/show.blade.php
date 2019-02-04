@@ -45,7 +45,9 @@
                             {{ $article->translate('title') }}
                         </h1>
 
-                        {!! $article->translate('body') !!}
+                        <div class="text-primary">
+                            {!! $article->translate('body') !!}
+                        </div>
                     </article>
                 </div>
 

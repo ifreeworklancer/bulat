@@ -17,6 +17,8 @@ class CreateAnswersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->json('answers');
+            $table->enum('status', \App\Models\Questionary\Answer::$statuses)
+				->default('processing');
             $table->timestamps();
 
             $table->foreign('user_id')

@@ -14,22 +14,29 @@ class Answer extends Model implements HasMedia
 {
 	use HasMediaTrait;
 
-    protected $fillable = [
-        'user_id',
-        'answers'
-    ];
+	public static $statuses = [
+		'processing',
+		'confirmed',
+		'declined',
+	];
 
-    protected $casts = [
-        'answers' => 'array'
-    ];
+	protected $fillable = [
+		'user_id',
+		'answers',
+		'status',
+	];
 
-    /**
-     * @return BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+	protected $casts = [
+		'answers' => 'array',
+	];
+
+	/**
+	 * @return BelongsTo
+	 */
+	public function user(): BelongsTo
+	{
+		return $this->belongsTo(User::class);
+	}
 
 	public function registerMediaCollections()
 	{

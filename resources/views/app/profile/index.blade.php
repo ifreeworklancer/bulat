@@ -48,7 +48,9 @@
                         <div class="tab-pane fade" id="list-favorites" role="tabpanel" aria-labelledby="list-favorites-list">
                             @include('partials.app.profile.favorites')
                         </div>
-                        <div class="tab-pane fade" id="list-applications" role="tabpanel" aria-labelledby="list-applications-list">...</div>
+                        <div class="tab-pane fade" id="list-applications" role="tabpanel" aria-labelledby="list-applications-list">
+                            @include('partials.app.profile.applications')
+                        </div>
                         <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
                             @include('partials.app.profile.orders')
                         </div>

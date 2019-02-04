@@ -17,6 +17,16 @@ return [
 		'articles' => 'Избранные статьи',
 	],
 
+	'applications' => [
+		'created_at' => 'Создано',
+		'status' => 'Статус',
+		'statuses' => [
+			'processing' => 'В обработке',
+			'confirmed' => 'Подтверждено',
+			'declined' => 'Отклонено',
+		],
+	],
+
 	'not_found' => 'Ничего не найдено...',
 
 	'login' => 'Войти',

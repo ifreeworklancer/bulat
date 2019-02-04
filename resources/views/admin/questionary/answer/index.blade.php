@@ -12,6 +12,7 @@
                 <th>#</th>
                 <th>Автор</th>
                 <th>Дата создания</th>
+                <th>Статус</th>
                 <th></th>
             </tr>
             </thead>
@@ -26,6 +27,9 @@
                         </a>
                     </td>
                     <td width="150">{{ $answer->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
+                    <td width="120" class="text-{{ $answer->status == 'confirmed' ? 'success' : ($answer->status == 'declined' ? 'danger' : 'default') }}">
+                        @lang('profile.applications.statuses.' . $answer->status)
+                    </td>
                     <td width="100">
                         <a href="{{ route('admin.answers.edit', $answer) }}"
                            class="btn btn-warning btn-squire">

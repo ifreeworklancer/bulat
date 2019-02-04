@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Catalog\Order;
+use App\Models\Questionary\Answer;
 use App\Models\Questionary\Question;
 use Illuminate\Support\Facades\Auth;
 use Talanoff\ImpressionAdmin\Elements\NavigationElement;
@@ -55,6 +56,23 @@ class Navigation
 				'unread' => Order::whereIn('status', ['processing', 'no_dial'])->count(),
 			]),
 			new NavigationElement([
+				'name' => 'Анкета',
+				'route' => 'question',
+				'icon' => 'i-book',
+				'compare' => ['questions', 'answers'],
+				'unread' => Answer::where('status', ['processing'])->count(),
+				'submenu' => [
+					'questions' => [
+						'name' => 'Вопросы',
+						'route' => 'admin.questions.index',
+					],
+					'answers' => [
+						'name' => 'Ответы',
+						'route' => 'admin.answers.index',
+					],
+				],
+			]),
+			new NavigationElement([
 				'name' => 'Каталог',
 				'route' => 'products',
 				'icon' => 'i-versions',
@@ -101,22 +119,6 @@ class Navigation
 				'route' => 'users',
 				'icon' => 'i-users',
 				'submenu' => null,
-			]),
-			new NavigationElement([
-				'name' => 'Анкета',
-				'route' => 'question',
-				'icon' => 'i-book',
-				'compare' => ['questions', 'answers'],
-				'submenu' => [
-					'questions' => [
-						'name' => 'Вопросы',
-						'route' => 'admin.questions.index',
-					],
-					'answers' => [
-						'name' => 'Ответы',
-						'route' => 'admin.answers.index',
-					],
-				],
 			]),
 
 			//			new NavigationElement([

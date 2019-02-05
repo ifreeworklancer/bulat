@@ -17,7 +17,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="preload" href="{{ asset('css/admin.css') }}" as="style">
-    <link rel="preload" href="{{ asset('css/admin.js') }}" as="script">
+    <link rel="preload" href="{{ asset('js/admin.js') }}" as="script">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
 
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">

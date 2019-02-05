@@ -41,7 +41,7 @@
                     <table class="table">
                         @if ($user->profile->phone_1)
                             <tr>
-                                <td>Телефон 1</td>
+                                <td><nobr>Телефон 1</nobr></td>
                                 <td>
                                     <a href="tel:{{$user->profile->phone_1}}" class="mr-2">
                                         {{ $user->profile->phone_1 }}
@@ -52,7 +52,7 @@
 
                         @if ($user->profile->phone_2)
                             <tr>
-                                <td>Телефон 2</td>
+                                <td><nobr>Телефон 2</nobr></td>
                                 <td>
                                     <a href="tel:{{$user->profile->phone_2}}">
                                         {{ $user->profile->phone_2 }}

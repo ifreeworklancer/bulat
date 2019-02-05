@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleSavingRequest;
 use App\Models\Article\Article;
 use App\Models\Article\Group;
 use App\Models\Article\Tag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,13 +21,20 @@ class ArticlesController extends Controller
 	public function index(Request $request): View
 	{
 		$tags = collect([]);
-		$articles = Article::with('tags');
+		$articles = Article::with(['tags', 'translates']);
 
 		if ($request->filled('tags')) {
 			$ids = explode(',', $request->input('tags'));
-			$tags = Tag::whereIn('id', $ids)->get();
+			$tags = Tag::whereIn('slug', $ids)->get();
 			$articles = $articles->whereHas('tags', function ($q) use ($ids) {
-				$q->whereIn('id', $ids);
+				$q->whereIn('slug', $ids);
+			});
+		}
+
+		if ($request->filled('q')) {
+			$query = $request->input('q');
+			$articles = $articles->whereHas('translates', function (Builder $builder) use ($query) {
+				$builder->where('title', 'like', "%{$query}%");
 			});
 		}
 

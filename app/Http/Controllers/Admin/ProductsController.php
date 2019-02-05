@@ -6,19 +6,41 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductSavingRequest;
 use App\Models\Catalog\Category;
 use App\Models\Catalog\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductsController extends Controller
 {
 	/**
+	 * @param Request $request
 	 * @return View
 	 */
-	public function index(): View
+	public function index(Request $request): View
 	{
+		$tags = collect([]);
+		$products = Product::latest('id')->with(['categories', 'translates']);
+
+		if ($request->filled('category')) {
+			$ids = explode(',', $request->input('category'));
+			$tags = Category::whereIn('slug', $ids)->get();
+			$products = $products->whereHas('categories', function ($q) use ($ids) {
+				$q->whereIn('slug', $ids);
+			});
+		}
+
+		if ($request->filled('q')) {
+			$query = $request->input('q');
+			$products = $products->whereHas('translates', function (Builder $builder) use ($query) {
+				$builder->where('title', 'like', "%{$query}%");
+			});
+		}
+
 		return \view('admin.products.index', [
-			'products' => Product::latest('id')->with('categories')->paginate(20),
+			'products' => $products->paginate(20),
 			'categories' => Category::latest('id')->get(),
+			'tags' => $tags
 		]);
 	}
 

@@ -18,6 +18,7 @@ return [
 
 	'name' => 'Имя',
 	'email' => 'E-Mail',
+	'phone' => 'Телефон',
 	'password' => 'Пароль',
 	'confirm_password' => 'Подтвердите пароль',
 	'remember' => 'Запомнить меня',

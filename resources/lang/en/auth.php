@@ -18,6 +18,7 @@ return [
 
 	'name' => 'Name',
 	'email' => 'E-Mail Address',
+	'phone' => 'Phone number',
 	'password' => 'Password',
 	'confirm_password' => 'Confirm password',
 	'remember' => 'Remember Me',

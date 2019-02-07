@@ -16,4 +16,4 @@
 @endif
 
 <br>
-<p>-----<br>{{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
+<p>-----<br>{{ \Carbon\Carbon::now()->formatLocalized('%d %B %Y') }}</p>

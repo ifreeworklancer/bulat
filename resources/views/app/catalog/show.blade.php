@@ -72,7 +72,16 @@
 
                     <div class="text-primary">
                         <p class="lead">{{ $product->translate('description') }}</p>
-                        {!! $product->translate('body') !!}
+                        {!! $product->body !!}
+
+                        <div class="mt-4">
+                            <button class="btn btn-primary h4 px-4 py-3 mb-0"
+                                    data-toggle="modal"
+                                    data-target="#questionModal">
+                                <i class="material-icons mr-2">chat</i>
+                                @lang('pages.product.question')
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,54 +129,8 @@
         </section>
     @endif
 
-    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog"
-         aria-labelledby="buyModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{{ $product->translate('title') }}</h5>
-                    <i class="material-icons close" data-dismiss="modal" aria-label="Close">close</i>
-                </div>
-                <div class="modal-body">
-                    <form action="{{ route('app.catalog.buy', $product) }}" method="post">
-                        @csrf
-
-                        @guest
-                            <div class="form-group{{ $errors->has('name') ? ' is-invalid' : '' }}">
-                                <label for="name">@lang('forms.name')</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                       value="{{ old('name') }}" required>
-                                @if($errors->has('name'))
-                                    <div class="mt-1 text-danger">
-                                        {{ $errors->first('name') }}
-                                    </div>
-                                @endif
-                            </div>
-
-                            <div class="form-group{{ $errors->has('contact') ? ' is-invalid' : '' }}">
-                                <label for="contact">@lang('forms.contact')</label>
-                                <input type="text" class="form-control" id="contact" name="contact"
-                                       value="{{ old('contact') }}"
-                                       required>
-                                @if($errors->has('contact'))
-                                    <div class="mt-1 text-danger">
-                                        {{ $errors->first('contact') }}
-                                    </div>
-                                @endif
-                            </div>
-                        @endguest
-
-                        <div class="form-group">
-                            <label for="message">@lang('forms.message')</label>
-                            <textarea class="form-control" id="message" name="message">{{ old('message') }}</textarea>
-                        </div>
-
-                        <button class="btn btn-primary">@lang('forms.buttons.buy')</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('app.catalog.order-modal')
+    @include('app.catalog.question-modal')
 
 @endsection
 

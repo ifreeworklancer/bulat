@@ -24,6 +24,7 @@ Route::group([
 		Route::get('lot/{product}', 'CatalogController@show')->name('show');
 		Route::post('lot/{product}/favorites', 'CatalogController@toggleFavorites')->name('favorites');
 		Route::post('lot/{product}', 'OrderController')->name('buy');
+		Route::post('lot/{product}/question', 'CatalogController@question')->name('question');
 	});
 
 	Route::group([

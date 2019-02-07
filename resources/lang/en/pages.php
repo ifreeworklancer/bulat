@@ -31,6 +31,7 @@ return [
 			'added' => 'Your purchase request for <strong>:product</strong> has been sent successfully. Expect to call our manager.',
 			'exists' => 'You have already added a request for <strong>:product.</strong> Expect to call our manager.',
 		],
+		'question' => 'Your question about <strong>:product</strong> has been submitted to the site administration.'
 	],
 
 	'articles' => [
@@ -76,6 +77,7 @@ return [
 		'catalog' => 'Go to catalog',
 		'buy' => 'Buy',
 		'ordered' => 'Already ordered',
+		'question' => 'Ask a question',
 	],
 
     'questionary' => [

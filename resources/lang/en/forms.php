@@ -7,5 +7,6 @@ return [
 
 	'buttons' => [
 		'buy' => 'Buy',
+		'question' => 'Ask a question',
 	],
 ];

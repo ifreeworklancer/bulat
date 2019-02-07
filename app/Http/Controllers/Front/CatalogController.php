@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AskQuestion;
 use App\Models\Additional\Page;
 use App\Models\Catalog\Category;
 use App\Models\Catalog\Product;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class CatalogController extends Controller
@@ -88,6 +91,25 @@ class CatalogController extends Controller
 		return \response()->json([
 			'status' => $message,
 		]);
+	}
+
+	/**
+	 * @param Request $request
+	 * @param Product $product
+	 * @return RedirectResponse
+	 */
+	public function question(Request $request, Product $product): RedirectResponse
+	{
+		$data = [
+			'user' => Auth::check() ? Auth::user() : $request->only('name', 'contact'),
+			'message' => $request->input('message'),
+		];
+		Mail::send(new AskQuestion($data, $product));
+
+		session()->put('product', $product);
+		session()->put('message', 'pages.thanks.question');
+
+		return redirect()->route('app.thanks');
 	}
 
 	/**

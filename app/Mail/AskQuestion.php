@@ -41,7 +41,7 @@ class AskQuestion extends Mailable
 	public function build()
 	{
 		return $this
-			->to(env('ADMIN_EMAIL'))
+			->to('talanov.o@gmail.com')
 			->subject('Вопрос по товару')
 			->view('mail.question');
 	}

@@ -101,7 +101,7 @@ class CatalogController extends Controller
 	public function question(Request $request, Product $product): RedirectResponse
 	{
 		$data = [
-			'user' => Auth::check() ? Auth::user() : $request->only('name', 'contact'),
+			'user' => Auth::check() ? Auth::user() : (object)$request->only('name', 'contact'),
 			'message' => $request->input('message'),
 		];
 		Mail::send(new AskQuestion($data, $product));

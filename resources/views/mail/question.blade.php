@@ -2,7 +2,7 @@
 @if ($data->user instanceof \App\Models\User\User)
     <p>{{ $data->user->name }}, {{ $data->user->phone }} <{{ $data->user->email }}></p>
 @else
-    <p>{{ $data->name }}, {{ $data->contact }}</p>
+    <p>{{ $data->user->name }}, {{ $data->user->contact }}</p>
 @endif
 
 <h4>Товар:</h4>

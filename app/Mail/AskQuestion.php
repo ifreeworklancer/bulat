@@ -11,7 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class AskQuestion extends Mailable
 {
-	use Queueable, SerializesModels;
+	use SerializesModels;
 	/**
 	 * @var Request
 	 */

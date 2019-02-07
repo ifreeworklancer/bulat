@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class OrderCreate extends Mailable
 {
-    use Queueable, SerializesModels;
+	use SerializesModels;
 	/**
 	 * @var Order
 	 */
@@ -21,21 +21,21 @@ class OrderCreate extends Mailable
 	 *
 	 * @param Order $order
 	 */
-    public function __construct(Order $order)
-    {
+	public function __construct(Order $order)
+	{
 		$this->order = $order;
 	}
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this
+	/**
+	 * Build the message.
+	 *
+	 * @return $this
+	 */
+	public function build()
+	{
+		return $this
 			->to(config('app.admin_email'))
 			->subject('Заказ с сайта')
 			->view('mail.order');
-    }
+	}
 }

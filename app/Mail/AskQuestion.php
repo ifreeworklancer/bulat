@@ -29,7 +29,7 @@ class AskQuestion extends Mailable
 	 */
 	public function __construct($data, Product $product)
 	{
-		$this->data = $data;
+		$this->data = (object)$data;
 		$this->product = $product;
 	}
 

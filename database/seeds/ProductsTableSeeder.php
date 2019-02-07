@@ -50,7 +50,8 @@ class ProductsTableSeeder extends Seeder
 
 			$product->clearMediaCollection('products');
 			for ($img = rand(2, 4); $img; $img--) {
-				$product->addMediaFromUrl($faker->imageUrl(1280, 768))->toMediaCollection('products');
+				$product->addMediaFromUrl($faker->imageUrl(1920, 1080))
+						->toMediaCollection('products');
 			}
 		}
 	}

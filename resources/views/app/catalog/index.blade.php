@@ -11,7 +11,7 @@
 @section('content')
 
     <section id="content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4 col-lg-3">
                     @include('partials.app.catalog.filters')

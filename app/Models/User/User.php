@@ -5,6 +5,7 @@ namespace App\Models\User;
 use App\Models\Additional\Application;
 use App\Models\Additional\Favorite;
 use App\Models\Catalog\Order;
+use App\Models\Questionary\Answer;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -89,12 +90,17 @@ class User extends Authenticatable
 		return $this->hasMany(Favorite::class);
 	}
 
+    public function answers(): HasMany
+    {
+        return $this->hasMany(Answer::class);
+	}
+
 	/**
 	 * @return HasMany
 	 */
 	public function applications(): HasMany
 	{
-		return $this->hasMany(Application::class);
+		return $this->hasMany(Answer::class)->latest('id');
 	}
 
 	/**

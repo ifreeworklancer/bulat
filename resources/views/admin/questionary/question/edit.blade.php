@@ -9,15 +9,44 @@
                 <div class="col-lg-9">
                     <block-editor title="{{ $question->translate('title') }}">
                         @foreach(config('app.locales') as $lang)
-                            <div slot="{{ $lang }}">
-                                <div class="form-group{{ $errors->has($lang . '.title') ? ' is-invalid' : '' }}">
+                            <fieldset slot="{{ $lang }}">
+                                <div class="form-group{{ $errors->has($lang.'.title') ? ' is-invalid' : '' }}">
                                     <label for="title">Вопрос</label>
                                     <input type="text" class="form-control" id="title"
                                            name="{{$lang}}[title]"
-                                           value="{{ old($lang . '.title') ?? $question->translate('title') }}"
+                                           value="{{ old($lang.'.title') ?? $question->translate('title', $lang) }}"
                                            required>
                                 </div>
-                            </div>
+
+                                @if($question->variants->count())
+                                    <label>Варианты ответов:</label>
+
+                                    @foreach($question->variants as $variant)
+                                        <div class="form-group d-flex align-items-center">
+                                            <div class="mr-2 text-primary">
+                                                #{{ $loop->iteration }}
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <input type="text" class="form-control" id="variant"
+                                                       name="variant[{{$variant->id}}][{{$lang}}]"
+                                                       value="{{ old($lang.'.title') ?? $variant->translate('title', $lang) }}">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    @foreach(range(1, 4) as $variant)
+                                        <div class="form-group d-flex align-items-center">
+                                            <div class="mr-2 text-primary">
+                                                <label for="variant-{{ $variant }}" class="mb-0">#{{$variant}}</label>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <input type="text" class="form-control" id="variant-{{ $variant }}"
+                                                       name="variant[{{$variant}}][{{$lang}}]">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </fieldset>
                         @endforeach
                     </block-editor>
                 </div>

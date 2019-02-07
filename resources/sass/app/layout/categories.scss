@@ -1,13 +1,21 @@
+.categories {
+  margin-bottom: -$grid-gutter-width * 1.5;
+}
+
 .category {
   display: block;
   position: relative;
-  margin-bottom: $grid-gutter-width;
+  margin-bottom: $grid-gutter-width * 1.5;
 
   &__image {
-    height: rem-calc(368);
+    height: rem-calc(268);
     background-position: 50% 50%;
-    background-size: auto 100%;
+    background-size: cover;
     transition: 1s ease;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      height: rem-calc(368);
+    }
   }
 
   &:hover {

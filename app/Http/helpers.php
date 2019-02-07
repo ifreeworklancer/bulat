@@ -12,7 +12,6 @@ if (!function_exists('build_filter_url')) {
 		if (!$array || !is_array($array)) {
 			return null;
 		}
-
 		return route($route ?? app('router')->currentRouteName(), array_merge(request()->except('page'), $array));
 	}
 }

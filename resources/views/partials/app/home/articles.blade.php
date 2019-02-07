@@ -1,4 +1,4 @@
-<section id="articles">
+<section id="articles" class="mt-0">
     <figure class="tabs-image d-none d-md-block lozad"
             data-background-image="{{ $articles->first()->banner }}"></figure>
     <div class="container">
@@ -18,7 +18,8 @@
                 @endforeach
 
                 <div class="mt-2">
-                    <a href="{{ route('app.articles.index') }}" class="btn btn-primary">
+                    <a href="{{ route('app.articles.index') }}" class="btn btn-primary h4 px-4 py-3 mb-0">
+                        <i class="material-icons mr-2">assignment</i>
                         @lang('pages.home.articles.button')
                     </a>
                 </div>

@@ -14,17 +14,49 @@
                 @csrf
 
                 @foreach ($questions as $question)
-                    <h2>{{ $question->translate('title') }}</h2>
+                    <div class="d-flex mb-4">
+                        <div class="text-secondary">
+                            #{{ $loop->iteration }}
+                        </div>
 
-                    <div class="form-group">
-                        <label for="answer-{{ $loop->iteration }}">@lang('pages.questionary.answer')</label>
-                        <input type="text" class="form-control" id="answer-{{ $loop->iteration }}"
-                               name="answers[{{$question->translate('title')}}]" required>
+                        <div class="ml-3 flex-grow-1">
+                            <label for="answer-{{ $loop->iteration }}" class="d-block mb-2 text-primary">
+                                <strong>{{ $question->translate('title') }}</strong>
+                            </label>
+                            @if($question->variants->count())
+
+                                @foreach($question->variants as $variant)
+
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="variant-{{$variant->id}}"
+                                               name="answers[{{$question->title}}][]"
+                                               value="{{ $variant->title }}">
+                                        <label class="custom-control-label nowrap"
+                                               for="variant-{{$variant->id}}">
+                                            {{ $variant->translate('title') }}
+                                        </label>
+                                    </div>
+
+                                @endforeach
+
+                            @else
+                                <div class="form-group">
+                                    <textarea class="form-control" id="answer-{{ $loop->iteration }}"
+                                              name="answers[{{$question->title}}]">{{ old('answers.' . $question->title) }}</textarea>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 @endforeach
 
-                <div class="mt-4">
-                    <button class="btn btn-primary">@lang('pages.questionary.save')</button>
+                <images-uploader></images-uploader>
+
+                <div class="mt-4 text-center">
+                    <button class="btn btn-primary h4 px-4 py-3 mb-0">
+                        <i class="material-icons mr-2">send</i>
+                        @lang('pages.questionary.save')
+                    </button>
                 </div>
             </form>
         </div>

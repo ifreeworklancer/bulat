@@ -1,28 +1,24 @@
 <div class="row mb-4 collapse{{ request()->has('tags') ? ' show' : '' }}" id="filters">
-    @foreach($tags as $key => $group)
+    @foreach($groups as $group)
         <div class="col-sm">
             <h6 class="mb-2 nowrap">
-                {{ $groups->find($key)->translate('title') }}
+                {{ $group->title }}
             </h6>
 
-            <ul class="list-unstyled smaller" id="group-{{ $key }}">
-                @foreach($group as $tag)
+            <ul class="list-unstyled smaller">
+                @foreach($group->tags as $tag)
                     <li>
-                        @if (request()->has('tags') && in_array($tag->id, explode(',',request()->get('tags'))))
-                            <a href="{{ urldecode(route('app.articles.index', $tag->removeFromQueryFilter())) }}"
-                               class="d-inline-flex align-items-center">
-                                <i class="material-icons mr-2">check_box</i>
-                                <s>{{ $tag->translate('title') }}</s>
-                            </a>
-                        @else
-                            <a href="{{ urldecode(route('app.articles.index', $tag->buildQueryFilter())) }}"
-                               class="d-inline-flex align-items-center">
-                                <i class="material-icons mr-2">
+                        <a href="{{ $tag->query_filter }}"
+                           class="d-inline-flex align-items-center">
+                            <i class="material-icons mr-2">
+                                @if (request()->has('tags') && in_array($tag->slug, explode(',',request()->get('tags'))))
+                                    check_box
+                                @else
                                     check_box_outline_blank
-                                </i>
-                                {{ $tag->translate('title') }}
-                            </a>
-                        @endif
+                                @endif
+                            </i>
+                            {{ $tag->title }}
+                        </a>
                     </li>
                 @endforeach
             </ul>

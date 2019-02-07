@@ -7,6 +7,7 @@ use App\Models\Additional\Page;
 use App\Models\Article\Article;
 use App\Models\Article\Group;
 use App\Models\Article\Tag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,19 +23,23 @@ class ArticlesController extends Controller
 	{
 		$page = Page::whereSlug('articles')->first();
 		$articles = Article::latest();
-		$groups = Group::has('tags')->get();
-		$tags = Tag::with('group')->get()->groupBy('group_id');
+		$groups = Group::has('tags')->with('tags')->get();
+		$tags = $groups->pluck('tags')->flatten();
 
 		if ($request->filled('tags')) {
-			$ids = explode(',', $request->input('tags'));
-			$articles = $articles->whereHas('tags', function ($q) use ($ids) {
-				$q->whereIn('id', $ids);
+			$slugs = explode(',', $request->input('tags'));
+			$ids = $tags->filter(function($t) use ($slugs) {
+				return in_array($t->slug, $slugs);
+			})->pluck('id');
+
+			$articles = $articles->whereHas('tags', function (Builder $builder) use ($ids) {
+				$builder->whereIn('id', $ids);
 			});
 		}
 
 		$articles = $articles->paginate(10);
 
-		return \view('app.articles.index', compact('page', 'articles', 'tags', 'groups'));
+		return \view('app.articles.index', compact('page', 'articles', 'groups'));
 	}
 
 	/**

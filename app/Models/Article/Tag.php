@@ -2,6 +2,7 @@
 
 namespace App\Models\Article;
 
+use App\Traits\FiltrableTrait;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,12 +11,14 @@ use Talanoff\ImpressionAdmin\Traits\Translatable;
 
 class Tag extends Model
 {
-	use Translatable, SluggableTrait;
+	use Translatable, SluggableTrait, FiltrableTrait;
 
 	protected $fillable = [
 		'slug',
 		'group_id',
 	];
+
+	protected $filtrable = 'tags';
 
 	/**
 	 * @return BelongsTo
@@ -31,35 +34,5 @@ class Tag extends Model
 	public function articles(): BelongsToMany
 	{
 		return $this->belongsToMany(Article::class);
-	}
-
-	/**
-	 * Add tag to query string filter
-	 * @return array
-	 */
-	public function buildQueryFilter()
-	{
-		$tags = request()->filled('tags') ? explode(',', request()->get('tags')) : [];
-		if (!in_array($this->id, $tags)) {
-			array_push($tags, $this->id);
-		}
-		sort($tags);
-
-		return ['tags' => implode(',', $tags)];
-	}
-
-	/**
-	 * Remove tag from query string filter
-	 * @return array
-	 */
-	public function removeFromQueryFilter()
-	{
-		$tags = explode(',', request()->get('tags', ''));
-		if (($key = array_search($this->id, $tags)) !== false) {
-			unset($tags[$key]);
-		}
-		sort($tags);
-
-		return count($tags) ? ['tags' => implode(',', $tags)] : [];
 	}
 }

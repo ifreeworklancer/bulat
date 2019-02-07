@@ -3,6 +3,10 @@
 return [
 	'home' => [
 		'title' => 'Home',
+		'categories' => [
+			'title' => 'In our arsenal',
+			'button' => 'Entire catalog',
+		],
 		'articles' => [
 			'button' => 'All articles',
 		],

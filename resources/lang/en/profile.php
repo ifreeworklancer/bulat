@@ -17,6 +17,16 @@ return [
 		'articles' => 'Favorite articles',
 	],
 
+	'applications' => [
+		'created_at' => 'Created at',
+		'status' => 'Status',
+		'statuses' => [
+			'processing' => 'Processing',
+			'confirmed' => 'Confirmed',
+			'declined' => 'Declined',
+		],
+	],
+
 	'not_found' => 'Nothing found...',
 
 	'login' => 'Login',

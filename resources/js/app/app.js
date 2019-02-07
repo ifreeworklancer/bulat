@@ -1,9 +1,20 @@
+import Vue from 'vue'
 import lozad from 'lozad'
+import ImagesUploader from './components/MultiImageUploader'
 
-require('./bootstrap');
-require('./modules/tabs');
-require('./modules/sliders');
-require('./modules/search');
+new Vue({
+  el: '#app',
+  components: {
+    ImagesUploader
+  },
+  mounted() {
+    require('./bootstrap');
+    require('./modules/tabs');
+    require('./modules/sliders');
+    require('./modules/search');
+    require('./modules/menu');
 
-const observer = lozad();
-observer.observe();
+    const observer = lozad();
+    observer.observe();
+  }
+});

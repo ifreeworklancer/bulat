@@ -32,9 +32,9 @@
                     </td>
                     <td width="150">{{ $user->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
                     <td width="100">
-                        <a href="{{ route('admin.users.edit', $user) }}"
+                        <a href="{{ route('admin.users.show', $user) }}"
                            class="btn btn-warning btn-squire">
-                            <i class="i-pencil"></i>
+                            <i class="i-user"></i>
                         </a>
                         <button class="btn btn-danger btn-squire">
                             <i class="i-trash"></i>

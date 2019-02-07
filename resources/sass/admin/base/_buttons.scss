@@ -1,9 +1,19 @@
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   &-squire {
     height: 30px;
     width: 30px;
     line-height: 30px;
     font-size: 1.05rem;
     padding: 0;
+  }
+
+  &:not(.btn-squire) {
+    [class^="i-"] {
+      margin-right: 10px;
+    }
   }
 }

@@ -13,18 +13,20 @@
     </title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="{{ asset('css/app.css') }}" as="style">
+    <link rel="preload" href="{{ asset('js/app.js') }}" as="script">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('styles')
 </head>
 <body>
+@includeIf('partials.app.layout.icons')
 @include('partials.app.layout.header')
-<main>
+<main id="app" v-cloak>
     @yield('content')
 </main>
 @include('partials.app.layout.footer')
-
+<script src="{{ asset('js/app.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

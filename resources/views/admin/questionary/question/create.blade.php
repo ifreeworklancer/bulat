@@ -16,6 +16,20 @@
                                            name="{{$lang}}[title]"
                                            value="{{ old($lang . '.title') }}" required>
                                 </div>
+
+                                <label>Варианты ответов:</label>
+
+                                @foreach(range(1, 4) as $variant)
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="mr-2 text-primary">
+                                            <label for="variant-{{ $variant }}" class="mb-0">#{{$variant}}</label>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <input type="text" class="form-control" id="variant-{{ $variant }}"
+                                                   name="variant[{{$variant}}][{{$lang}}]">
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         @endforeach
                     </block-editor>

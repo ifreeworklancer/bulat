@@ -3,17 +3,18 @@
 namespace App\Services;
 
 use App\Models\Catalog\Order;
+use App\Models\Questionary\Answer;
+use App\Models\Questionary\Question;
+use Illuminate\Support\Facades\Auth;
 use Talanoff\ImpressionAdmin\Elements\NavigationElement;
 
 class Navigation
 {
 	public function frontend()
 	{
-		return [
-			(object) [
-				'name' => trans('navigation.header.home'),
-				'route' => route('app.home'),
-			],
+		$questionary = [];
+
+		$items = [
 			(object)[
 				'name' => trans('navigation.header.catalog'),
 				'route' => route('app.catalog.index'),
@@ -30,11 +31,18 @@ class Navigation
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),
 			],
-            (object)[
-                'name' => trans('navigation.header.questionary'),
-                'route' => route('app.questionary.index')
-            ]
 		];
+
+		if (Auth::check() && Question::count()) {
+			$questionary = [
+				(object)[
+					'name' => trans('navigation.header.questionary'),
+					'route' => route('app.questionary.index')
+				]
+			];
+		}
+
+		return array_merge($items, $questionary);
 	}
 
 	public function backend()
@@ -46,6 +54,23 @@ class Navigation
 				'icon' => 'i-wallet',
 				'submenu' => null,
 				'unread' => Order::whereIn('status', ['processing', 'no_dial'])->count(),
+			]),
+			new NavigationElement([
+				'name' => 'Анкета',
+				'route' => 'question',
+				'icon' => 'i-book',
+				'compare' => ['questions', 'answers'],
+				'unread' => Answer::where('status', ['processing'])->count(),
+				'submenu' => [
+					'questions' => [
+						'name' => 'Вопросы',
+						'route' => 'admin.questions.index',
+					],
+					'answers' => [
+						'name' => 'Ответы',
+						'route' => 'admin.answers.index',
+					],
+				],
 			]),
 			new NavigationElement([
 				'name' => 'Каталог',
@@ -95,28 +120,12 @@ class Navigation
 				'icon' => 'i-users',
 				'submenu' => null,
 			]),
-            new NavigationElement([
-                'name' => 'Анкета',
-                'route' => 'question',
-                'icon' => 'i-book',
-                'compare' => ['questions', 'answers'],
-                'submenu' =>[
-                    'questions' => [
-                        'name' => 'Вопросы',
-                        'route' => 'admin.questions.index',
-                    ],
-                    'answers' => [
-                        'name' => 'Ответы',
-                        'route' => 'admin.answers.index',
-                    ],
-                ],
-            ]),
 
-//			new NavigationElement([
-//				'name' => 'Настройки',
-//				'route' => 'settings',
-//				'submenu' => null,
-//			]),
+			//			new NavigationElement([
+			//				'name' => 'Настройки',
+			//				'route' => 'settings',
+			//				'submenu' => null,
+			//			]),
 		];
 	}
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionSavingRequest;
 use App\Models\Questionary\Question;
+use App\Models\Questionary\Variant;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
 class QuestionsController extends Controller
@@ -13,7 +14,7 @@ class QuestionsController extends Controller
     /**
      * @return View
      */
-    public function index():View
+    public function index(): View
     {
         return \view('admin.questionary.question.index', [
             'questions' => Question::latest('id')->paginate(20),
@@ -23,10 +24,11 @@ class QuestionsController extends Controller
     /**
      * @return View
      */
-    public function create():View
+    public function create(): View
     {
-        return \view('admin.questionary.question.create',[
+        return \view('admin.questionary.question.create', [
             'questions' => Question::get(),
+            'variants' => Variant::get(),
         ]);
 
     }
@@ -39,7 +41,6 @@ class QuestionsController extends Controller
     {
         return \view('admin.questionary.question.edit', [
             'question' => $question,
-            'questions' => Question::latest('id')->get(),
         ]);
     }
 
@@ -52,6 +53,19 @@ class QuestionsController extends Controller
         /** @var Question $question */
         $question = Question::create($request->only('order'));
         $question->makeTranslation();
+
+        if ($request->filled('variant')) {
+            foreach ($request->input('variant') as $key => $item) {
+                $variant = $question->variants()->create();
+
+                foreach (config('app.locales') as $lang) {
+                    $variant->translates()->create([
+                        'lang' => $lang,
+                        'title' => $request->input('variant')[$key][$lang]
+                    ]);
+                }
+            }
+        }
 
         return \redirect()->route('admin.questions.edit', $question);
     }
@@ -69,6 +83,16 @@ class QuestionsController extends Controller
         /** @var Question $question */
         $question->update($request->only('order'));
         $question->updateTranslation();
+//dd($request->all());
+        if ($request->filled('variant')) {
+            foreach ($question->variants as $variant) {
+                foreach (config('app.locales') as $lang) {
+                    $variant->translates()->where('lang', $lang)->update([
+                        'title' => $request->input('variant')[$variant->id][$lang]
+                    ]);
+                }
+            }
+        }
 
         return \redirect()->route('admin.questions.edit', $question);
     }
@@ -81,7 +105,7 @@ class QuestionsController extends Controller
     public function destroy(Question $question): RedirectResponse
     {
         $question->delete();
-        return \redirect()->route('admin.answers.index');
+        return \redirect()->route('admin.questions.index');
     }
 
 

@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="list-group" id="list-tab" role="tablist">
+                    <div class="list-group mb-3" id="list-tab" role="tablist">
                         <a class="list-group-item list-group-item-action active"
                            id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
                             @lang('navigation.profile.profile')
@@ -48,7 +48,9 @@
                         <div class="tab-pane fade" id="list-favorites" role="tabpanel" aria-labelledby="list-favorites-list">
                             @include('partials.app.profile.favorites')
                         </div>
-                        <div class="tab-pane fade" id="list-applications" role="tabpanel" aria-labelledby="list-applications-list">...</div>
+                        <div class="tab-pane fade" id="list-applications" role="tabpanel" aria-labelledby="list-applications-list">
+                            @include('partials.app.profile.applications')
+                        </div>
                         <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
                             @include('partials.app.profile.orders')
                         </div>

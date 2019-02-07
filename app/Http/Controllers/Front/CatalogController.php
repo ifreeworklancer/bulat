@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Additional\Page;
 use App\Models\Catalog\Category;
 use App\Models\Catalog\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -117,8 +118,10 @@ class CatalogController extends Controller
 	private function handleFilters(Request $request, $products)
 	{
 		if ($request->filled('category')) {
-			$products = $products->whereHas('categories', function ($q) use ($request) {
-				$q->whereSlug($request->input('category'));
+			$ids = Category::whereIn('slug', explode(',', $request->input('category')))->pluck('id');
+
+			$products = $products->whereHas('categories', function (Builder $builder) use ($ids) {
+				$builder->whereIn('id', $ids);
 			});
 		}
 

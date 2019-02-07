@@ -8,24 +8,48 @@ use App\Models\User\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class AnswersController extends Controller
 {
-    public function index()
-    {
-        return \view('admin.questionary.answer.index', [
-            'answers' => Answer::latest('id')->with('user')->paginate(20),
-        ]);
-    }
+	/**
+	 * @return View
+	 */
+	public function index(): View
+	{
+		return \view('admin.questionary.answer.index', [
+			'answers' => Answer::latest('id')->with('user')->paginate(20),
+		]);
+	}
 
-    public function edit(Answer $answer)
-    {
-        return  \view('admin.questionary.answer.edit', compact('answer'));
-    }
+	/**
+	 * @param Answer $answer
+	 * @return View
+	 */
+	public function edit(Answer $answer): View
+	{
+		return \view('admin.questionary.answer.edit', compact('answer'));
+	}
 
-    public function destroy(Answer $answer): RedirectResponse
-    {
-        $answer->delete();
-        return \redirect()->route('admin.answers.index');
-    }
+	/**
+	 * @param Request $request
+	 * @param Answer $answer
+	 * @return RedirectResponse
+	 */
+	public function update(Request $request, Answer $answer): RedirectResponse
+	{
+		$answer->update($request->only('status'));
+		return \back();
+	}
+
+	/**
+	 * @param Answer $answer
+	 * @return RedirectResponse
+	 * @throws \Exception
+	 */
+	public function destroy(Answer $answer): RedirectResponse
+	{
+		$answer->delete();
+		return \redirect()->route('admin.answers.index');
+	}
 }

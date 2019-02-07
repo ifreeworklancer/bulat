@@ -9,8 +9,43 @@
                 <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
                     Создать новый товар
                 </a>
+
+                @if (count(request()->query()) && (count(request()->except('page'))))
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-dark ml-4">
+                        <i class="i-reload"></i>
+                        Сбросить фильтры
+                    </a>
+                @endif
             </div>
         </div>
+
+        <form class="my-4 d-flex">
+            <div class="mr-2 flex-grow-1">
+                <input type="text" name="q" value="{{ request()->get('q', null) }}" class="form-control"
+                       placeholder="Поиск по товарам">
+            </div>
+            <button class="btn btn-primary">
+                <i class="i-search"></i>
+                Найти
+            </button>
+        </form>
+
+        @if ($tags->count())
+            <div class="mb-5 d-flex" style="font-size: 14px;">
+                @foreach($tags as $tag)
+                    <div class="d-inline-flex align-items-center bg-secondary text-white flex-nowrap rounded mr-2">
+                        <span class="py-1 px-2">
+                            {{ $tag->translate('title') }}
+                        </span>
+                        <a href="{{ $tag->query_filter }}"
+                           class="p-2 bg-dark text-white bg-secondary text-white rounded-right"
+                           style="line-height: 15px;">
+                            &times;
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
 
         <table class="table table-striped">
             <thead>
@@ -27,14 +62,17 @@
             @forelse($products as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
-                    <td>
+                    <td width="280">
                         <a href="{{ route('admin.products.edit', $product) }}" class="underline">
                             {{ $product->translate('title') }}
                         </a>
                     </td>
                     <td>
                         @forelse($product->categories as $category)
-                            <span class="bg-secondary text-white py-1 px-2 rounded small mr-1 nowrap">{{ $category->translate('title') }}</span>
+                            <a href="{{ $category->query_filter }}"
+                               class="bg-secondary text-white py-1 px-2 rounded small mr-1 nowrap">
+                                {{ $category->title }}
+                            </a>
                         @empty
                             ---
                         @endforelse
@@ -53,7 +91,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">Товары пока не добавлены</td>
+                    <td colspan="6" class="text-center">Товары пока не добавлены</td>
                 </tr>
             @endforelse
         </table>

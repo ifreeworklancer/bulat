@@ -1,12 +1,11 @@
-(function ($) {
-  const searchButton = $('[data-search]');
-  const searchForm = $('.nav .search');
+(function () {
+  const searchButton = document.querySelector('[data-search]');
+  const searchForm = document.querySelector('.nav .search');
 
-  searchButton.on('click', (e) => {
+  searchButton.addEventListener('click', (e) => {
     e.preventDefault();
-
-    const icon = searchButton.text() === 'search' ? 'close' : 'search';
-    searchButton.text(icon);
-    searchForm.toggleClass('is-visible');
+    let icon = searchButton.innerText === 'search' ? 'close' : 'search';
+    searchButton.innerText = icon;
+    searchForm.classList.toggle('is-visible');
   })
-})(jQuery);
+})();

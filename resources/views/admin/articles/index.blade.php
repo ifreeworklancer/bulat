@@ -9,18 +9,36 @@
                 <a href="{{ route('admin.articles.create') }}" class="btn btn-primary">
                     Создать новую статью
                 </a>
+                @if (count(request()->query()) && (count(request()->except('page'))))
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-dark ml-4">
+                        <i class="i-reload"></i>
+                        Сбросить фильтры
+                    </a>
+                @endif
             </div>
         </div>
+
+        <form class="my-4 d-flex">
+            <div class="mr-2 flex-grow-1">
+                <input type="text" name="q" value="{{ request()->get('q', null) }}" class="form-control"
+                       placeholder="Поиск по статьям">
+            </div>
+            <button class="btn btn-primary">
+                <i class="i-search"></i>
+                Найти
+            </button>
+        </form>
 
         @if ($tags->count())
             <div class="mb-5 d-flex" style="font-size: 14px;">
                 @foreach($tags as $tag)
                     <div class="d-inline-flex align-items-center bg-secondary text-white flex-nowrap rounded mr-2">
-                        <span class="py-1 px-2 small">
+                        <span class="py-1 px-2">
                             {{ $tag->translate('title') }}
                         </span>
-                        <a href="{{ urldecode(route('admin.articles.index', $tag->removeFromQueryFilter())) }}"
-                           class="p-2 bg-dark text-white bg-secondary text-white rounded-right" style="line-height: 10px;">
+                        <a href="{{ $tag->query_filter }}"
+                           class="p-2 bg-dark text-white bg-secondary text-white rounded-right"
+                           style="line-height: 15px;">
                             &times;
                         </a>
                     </div>
@@ -45,14 +63,14 @@
                     <td>{{ $article->id }}</td>
                     <td>
                         <a href="{{ route('admin.articles.edit', $article) }}" class="underline">
-                            {{ $article->translate('title') }}
+                            {{ $article->title }}
                         </a>
                     </td>
                     <td>
                         @forelse($article->tags as $tag)
-                            <a href="{{ urldecode(route('admin.articles.index', $tag->buildQueryFilter())) }}"
+                            <a href="{{ $tag->query_filter }}"
                                class="bg-secondary text-white py-1 px-2 rounded small mr-1 nowrap">
-                                {{ $tag->translate('title') }}
+                                {{ $tag->title }}
                             </a>
                         @empty
                             ---

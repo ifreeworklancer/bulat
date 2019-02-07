@@ -45,6 +45,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="d-flex align-items-center mb-4">
                         <div>
@@ -54,7 +55,7 @@
 
                         <div class="ml-auto">
                             @if (!$processing)
-                                <button class="btn btn-primary"
+                                <button class="btn btn-primary h4 px-4 py-3 mb-0"
                                         data-toggle="modal"
                                         data-target="#buyModal">
                                     <i class="material-icons mr-2">account_balance_wallet</i>
@@ -69,8 +70,10 @@
                         </div>
                     </div>
 
-                    <p class="lead">{{ $product->translate('description') }}</p>
-                    {!! $product->translate('body') !!}
+                    <div class="text-primary">
+                        <p class="lead">{{ $product->translate('description') }}</p>
+                        {!! $product->translate('body') !!}
+                    </div>
                 </div>
             </div>
 

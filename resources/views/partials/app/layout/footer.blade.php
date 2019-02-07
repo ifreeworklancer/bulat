@@ -1,9 +1,15 @@
 <footer id="app-footer">
     <div class="container">
-        <div class="d-flex">
-            <div class="footer-logo pr-3"></div>
+        <div class="d-flex align-items-center footer-info">
+            <div class="footer-logo pr-5">
+                <a href="{{ url('/') }}" class="nav-link nav-link--logo">
+                    <svg width="160" height="160">
+                        <use xlink:href="#helmet"></use>
+                    </svg>
+                </a>
+            </div>
 
-            <div class="footer-info flex-grow-1">
+            <div class="flex-grow-1">
                 <nav class="row font-weight-bold mb-5">
                     @foreach(app('nav')->frontend() as $item)
                         <div class="col">
@@ -14,7 +20,7 @@
                     @endforeach
                 </nav>
 
-                <form action="" method="post" class="subscription-form mx-auto">
+                <form action="" method="post" class="subscription-form">
                     <p class="mb-0"><strong>@lang('common.footer.subscription.title')</strong></p>
 
                     <label for="subscription">@lang('common.footer.subscription.label')</label>
@@ -37,6 +43,7 @@
                     <a href="https://impressionbureau.pro" class="nowrap text-secondary" target="_blank">
                         Impression.Bureau
                     </a>
+                    <sup>2019</sup>
                 </div>
             </div>
         </div>

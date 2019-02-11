@@ -54,4 +54,6 @@ Route::group([
 		Route::post('questionary', 'AnswersController@store')->name('store');
 	});
 
+	Route::post('subscribe', 'SubscribeController')->name('subscribe');
+
 });

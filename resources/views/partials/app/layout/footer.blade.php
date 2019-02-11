@@ -20,12 +20,14 @@
                     @endforeach
                 </nav>
 
-                <form action="" method="post" class="subscription-form">
+                <form action="{{ route('app.subscribe') }}" method="post" class="subscription-form">
+                    @csrf
+
                     <p class="mb-0"><strong>@lang('common.footer.subscription.title')</strong></p>
 
                     <label for="subscription">@lang('common.footer.subscription.label')</label>
                     <div class="form-group mb-0 d-flex">
-                        <input type="email" class="form-control">
+                        <input type="email" name="email" class="form-control">
                         <button class="btn btn-primary">@lang('common.footer.subscription.button')</button>
                     </div>
                 </form>
@@ -34,18 +36,8 @@
     </div>
 
     <div class="copyrights py-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md">&copy; {{ date('Y') }} @lang('common.footer.copyright')</div>
-                <div class="col-md"></div>
-                <div class="col-md">
-                    @lang('common.footer.developer')
-                    <a href="https://impressionbureau.pro" class="nowrap text-secondary" target="_blank">
-                        Impression.Bureau
-                    </a>
-                    <sup>2019</sup>
-                </div>
-            </div>
+        <div class="container text-center">
+            &copy; {{ date('Y') }} @lang('common.footer.copyright')
         </div>
     </div>
 </footer>

@@ -78,6 +78,7 @@
 
 .nav-link {
   &--logo {
+    transition: 0.5s;
     svg {
       fill: #fff;
     }

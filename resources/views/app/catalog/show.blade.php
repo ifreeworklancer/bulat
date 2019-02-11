@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 pl-md-4">
                     <div class="d-flex align-items-center mb-4">
                         <div>
                             <small class="text-muted mr-3">@lang('pages.product.sku')</small>

@@ -43,7 +43,7 @@
     },
     methods: {
       viewHandler(e) {
-        if (e.percentTop <= 0.5 && (!!this.pagination.next && this.pagination.next > 1)) {
+        if (!this.loading && e.percentTop <= 0.5 && (!!this.pagination.next && this.pagination.next > 1)) {
           this.getItems();
         }
       },

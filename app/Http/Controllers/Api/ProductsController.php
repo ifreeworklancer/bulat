@@ -19,7 +19,7 @@ class ProductsController extends Controller
 		$products = $this->handleFilters($request, $products);
 
 		return response()->json(
-			new ProductCollection($products->paginate(12))
+			new ProductCollection($products->paginate(6))
 		);
 	}
 

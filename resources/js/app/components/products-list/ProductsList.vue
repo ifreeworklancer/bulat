@@ -43,7 +43,7 @@
     },
     methods: {
       viewHandler(e) {
-        if (!this.loading && e.type === 'exit' && (!!this.pagination.next && this.pagination.next > 1)) {
+        if (e.type === 'exit' && (!!this.pagination.next && this.pagination.next > 1)) {
           this.getItems();
         }
       },

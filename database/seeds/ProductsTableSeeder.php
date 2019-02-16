@@ -15,7 +15,7 @@ class ProductsTableSeeder extends Seeder
 	{
 		$faker = \Faker\Factory::create('ru');
 
-		for ($i = 0; $i < 10; $i++) {
+		for ($i = 0; $i < 30; $i++) {
 			$data = [
 				'ru' => [
 					'title' => ucfirst($faker->words(rand(2, 3), true)),

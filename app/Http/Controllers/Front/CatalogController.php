@@ -33,17 +33,10 @@ class CatalogController extends Controller
 	 */
 	public function index(Request $request): View
 	{
-		$products = Product::query();
-
-		list($search, $products) = $this->handleSearch($request, $products);
-
-		$products = $this->handleFilters($request, $products);
-
 		return \view('app.catalog.index', [
-			'products' => $products->paginate(6),
 			'categories' => Category::latest('id')->get(),
 			'page' => $this->page,
-			'search' => $search,
+			'search' => $request->input('search'),
 		]);
 	}
 
@@ -110,61 +103,5 @@ class CatalogController extends Controller
 		session()->put('message', 'pages.thanks.question');
 
 		return redirect()->route('app.thanks');
-	}
-
-	/**
-	 * @param Request $request
-	 * @param \Illuminate\Database\Eloquent\Builder $products
-	 * @return array
-	 */
-	private function handleSearch(Request $request, \Illuminate\Database\Eloquent\Builder $products): array
-	{
-		$search = null;
-
-		if ($request->filled('search')) {
-			$search = $request->input('search');
-			$products = $products->whereHas('translates', function ($q) use ($search) {
-				$q->where('lang', app()->getLocale())
-				  ->where('title', 'like', '%' . $search . '%')
-				  ->orWhere('description', 'like', '%' . $search . '%');
-			});
-		}
-		return [$search, $products];
-	}
-
-	/**
-	 * @param Request $request
-	 * @param $products
-	 * @return mixed
-	 */
-	private function handleFilters(Request $request, $products)
-	{
-		if ($request->filled('category')) {
-			$ids = Category::whereIn('slug', explode(',', $request->input('category')))->pluck('id');
-
-			$products = $products->whereHas('categories', function (Builder $builder) use ($ids) {
-				$builder->whereIn('id', $ids);
-			});
-		}
-
-		if ($request->filled('order')) {
-			switch ($request->get('order')) {
-				case 'cheap':
-					$products = $products->orderBy('price');
-					break;
-				case 'expensive':
-					$products = $products->orderByDesc('price');
-					break;
-				case 'most_viewed':
-					$products = $products->orderByDesc('views_count');
-					break;
-				default:
-					$products = $products->latest('id');
-					break;
-			}
-		} else {
-			$products = $products->latest('id');
-		}
-		return $products;
 	}
 }

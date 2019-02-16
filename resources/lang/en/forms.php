@@ -2,8 +2,8 @@
 
 return [
 	'name' => 'Your name',
-	'contact' => 'Phone or e-mail',
-	'message' => 'Message (optional)',
+	'contact' => 'У-mail',
+	'message' => 'Question?',
 
 	'buttons' => [
 		'buy' => 'Buy',

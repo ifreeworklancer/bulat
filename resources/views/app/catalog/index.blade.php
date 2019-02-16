@@ -31,17 +31,21 @@
 
                         @include('partials.app.catalog.search')
 
-                        <div class="row">
-                            @forelse($products as $product)
-                                <div class="col-md-6 col-lg-4">
-                                    @include('partials.app.catalog.preview')
-                                </div>
-                            @empty
-                                <div class="col">@lang('pages.catalog.not_found')</div>
-                            @endforelse
-                        </div>
+                        <products-list
+                                :query="{{ json_encode(request()->query()) }}"
+                                nothing="{{ trans('pages.catalog.not_found') }}"></products-list>
 
-                        {{ $products->appends(request()->except('page'))->links() }}
+                        {{--<div class="row">--}}
+                        {{--@forelse($products as $product)--}}
+                        {{--<div class="col-md-6 col-lg-4">--}}
+                        {{--                                    @include('partials.app.catalog.preview')--}}
+                        {{--</div>--}}
+                        {{--@empty--}}
+                        {{----}}
+                        {{--@endforelse--}}
+                        {{--</div>--}}
+
+                        {{--{{ $products->appends(request()->except('page'))->links() }}--}}
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 <template>
     <div class="row" v-view="viewHandler">
-        <product-item
-                v-if="items.length"
-                v-for="product in items"
-                :product="product"
-                :key="product.id"/>
+            <product-item
+                    v-if="items.length"
+                    v-for="product in items"
+                    :product="product"
+                    :key="product.id"/>
 
         <div class="col-12" v-show="loading">
             <div class="lds-ripple">
@@ -43,7 +43,7 @@
     },
     methods: {
       viewHandler(e) {
-        if (e.type === 'exit' && (!!this.pagination.next && this.pagination.next > 1)) {
+        if (e.percentCenter < 0 && !this.loading && (!!this.pagination.next && this.pagination.next > 1)) {
           this.getItems();
         }
       },

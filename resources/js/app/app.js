@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import lozad from 'lozad'
 import checkView from 'vue-check-view'
-Vue.use(checkView)
 
-import ImagesUploader from './components/MultiImageUploader'
-import ProductsList from './components/products-list/ProductsList'
+import ImagesUploader from './components/MultiImageUploader';
+import ProductsList from './components/products-list/ProductsList';
+
+Vue.use(checkView);
 
 new Vue({
   el: '#app',

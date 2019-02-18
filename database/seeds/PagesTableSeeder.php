@@ -16,6 +16,7 @@ class PagesTableSeeder extends Seeder
 			'articles',
 			'contacts',
 			'catalog',
+			'terms-and-conditions',
 		];
 
 		foreach ($pages as $slug) {

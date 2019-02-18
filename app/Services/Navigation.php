@@ -20,10 +20,6 @@ class Navigation
 				'route' => route('app.catalog.index'),
 			],
 			(object)[
-				'name' => trans('navigation.header.articles'),
-				'route' => route('app.articles.index'),
-			],
-			(object)[
 				'name' => trans('navigation.header.about'),
 				'route' => route('app.about'),
 			],
@@ -31,6 +27,10 @@ class Navigation
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),
 			],
+			(object)[
+				'name' => trans('navigation.header.terms'),
+				'route' => route('app.terms')
+			]
 		];
 
 		if (Auth::check() && Question::count()) {

@@ -31,49 +31,6 @@
     background-color: #f7f7f7;
     padding: rem-calc(8) rem-calc(20);
   }
-
-  .nav {
-    font-size: rem-calc(13);
-    text-transform: uppercase;
-    position: relative;
-
-    &-link {
-      padding: 0 rem-calc(15);
-      line-height: 75px;
-      background-color: transparent;
-
-      &[data-search] {
-        width: 75px;
-        text-align: center;
-      }
-
-      &:hover {
-        background-color: lighten($primary, 10%);
-      }
-    }
-  }
-
-  .navbar {
-    padding: 0;
-
-    &--left {
-      background-color: $primary;
-      color: #fff;
-
-      a {
-        color: currentColor;
-
-        &:hover {
-          color: $secondary;
-        }
-      }
-    }
-
-    &--right {
-      padding-right: 0;
-      line-height: 1.25;
-    }
-  }
 }
 
 .nav-link {

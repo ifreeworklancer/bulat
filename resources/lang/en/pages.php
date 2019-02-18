@@ -20,6 +20,10 @@ return [
 		'title' => 'Contacts',
 	],
 
+	'terms-and-conditions' => [
+		'title' => 'Terms and conditions'
+	],
+
 	'search' => [
 		'title' => 'Search results',
 		'not_found' => 'No results found for your search&nbsp;«<strong>:query</strong>»',

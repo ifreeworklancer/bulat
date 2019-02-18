@@ -9,23 +9,27 @@
                         </svg>
                     </a>
 
-                    <div class="menu">
-                        <a href="{{ url('/') }}" class="nav-link nav-link--logo">
-                            <svg width="40" height="40">
-                                <use xlink:href="#helmet"></use>
-                            </svg>
-                        </a>
+                    <ul class="menu">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link nav-link--logo">
+                                <svg width="40" height="40">
+                                    <use xlink:href="#helmet"></use>
+                                </svg>
+                            </a>
+                        </li>
 
                         @foreach(app('nav')->frontend() as $item)
-                            <a href="{{ $item->route }}" class="nav-link">
-                                {{ $item->name }}
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{ $item->route }}" class="nav-link">
+                                    {!! $item->name !!}
+                                </a>
+                            </li>
                         @endforeach
 
-                        <div class="d-lg-none menu-close" data-menu-close>
+                        <li class="d-lg-none menu-close" data-menu-close>
                             <i class="material-icons">close</i>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
 
                     <div class="d-lg-none pl-3">
                         <a href="#menu" class="material-icons menu-toggle" data-menu>menu</a>

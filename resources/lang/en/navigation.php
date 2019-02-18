@@ -9,6 +9,7 @@ return [
 		'contacts' => 'Contacts',
 		'questionary' => 'Questionary',
 		'dashboard' => 'Dashboard',
+		'terms' => 'Terms And<br>Conditions',
 	],
 
 	'profile' => [

@@ -11,6 +11,8 @@
   z-index: 500;
   background-color: $primary;
   font-size: 1rem;
+  list-style: none;
+  margin: 0;
 
   transition: 0.5s;
   transform: translateY(-100%);
@@ -40,4 +42,57 @@
   right: $grid-gutter-width / 2;
   top: $grid-gutter-width / 2;
   cursor: pointer;
+}
+
+#app-header {
+  .nav {
+    font-size: rem-calc(13);
+    text-transform: uppercase;
+    position: relative;
+
+    &-item {
+      height: 75px;
+
+      &:hover {
+        background-color: lighten($primary, 10%);
+      }
+    }
+
+    &-link {
+      padding: 0 rem-calc(15);
+      line-height: 1.05;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+
+      &[data-search] {
+        width: 75px;
+        text-align: center;
+      }
+    }
+  }
+
+  .navbar {
+    padding: 0;
+
+    &--left {
+      background-color: $primary;
+      color: #fff;
+
+      a {
+        color: currentColor;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+
+    &--right {
+      padding-right: 0;
+      line-height: 1.25;
+    }
+  }
 }

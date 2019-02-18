@@ -10,6 +10,7 @@ Route::group([
 	Route::get('/', 'PagesController@index')->name('home');
 	Route::get('about', 'PagesController@about')->name('about');
 	Route::get('contacts', 'PagesController@contacts')->name('contacts');
+	Route::get('terms-and-conditions', 'PagesController@termsAndConditions')->name('terms');
 	Route::get('locale/{lang}', 'LocaleController@switch')->name('locale');
 	Route::view('thanks', 'app.pages.thanks')->name('thanks');
 

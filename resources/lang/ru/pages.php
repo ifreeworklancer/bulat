@@ -20,6 +20,10 @@ return [
 		'title' => 'Контакты',
 	],
 
+	'terms-and-conditions' => [
+		'title' => 'Условия использования'
+	],
+
 	'search' => [
 		'title' => 'Результаты поиска',
 		'not_found' => 'Ничего не найдено по Вашему запросу&nbsp;«<strong>:query</strong>»',

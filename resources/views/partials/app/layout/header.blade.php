@@ -9,7 +9,7 @@
                         </svg>
                     </a>
 
-                    <ul class="menu">
+                    <ul class="menu list-unstyled">
                         <li class="nav-item">
                             <a href="{{ url('/') }}" class="nav-link nav-link--logo">
                                 <svg width="40" height="40">

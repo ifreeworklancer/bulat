@@ -20,6 +20,7 @@ Route::group([
 		'as' => 'catalog.',
 	], function () {
 		Route::get('catalog', 'CatalogController@index')->name('index');
+		Route::get('catalog/all', 'CatalogController@all')->name('all');
 		Route::post('catalog', 'CatalogController@index')->name('search');
 		Route::get('lot/{product}', 'CatalogController@show')->name('show');
 		Route::post('lot/{product}/favorites', 'CatalogController@toggleFavorites')->name('favorites');

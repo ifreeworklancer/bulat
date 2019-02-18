@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import lozad from 'lozad'
-import checkView from 'vue-check-view'
+// import checkView from 'vue-check-view'
 
 import ImagesUploader from './components/MultiImageUploader';
-import ProductsList from './components/products-list/ProductsList';
+// import ProductsList from './components/products-list/ProductsList';
 
-Vue.use(checkView);
+// Vue.use(checkView);
 
 new Vue({
   el: '#app',
   components: {
     ImagesUploader,
-    ProductsList
+    // ProductsList
   },
   mounted() {
     require('./bootstrap');

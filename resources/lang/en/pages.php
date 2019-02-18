@@ -47,6 +47,7 @@ return [
 	'catalog' => [
 		'title' => 'Catalog',
 		'not_found' => 'Products not found.',
+		'all' => 'All',
 		'search' => [
 			'button' => 'Find',
 			'placeholder' => 'Search',

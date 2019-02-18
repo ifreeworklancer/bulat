@@ -47,6 +47,7 @@ return [
 	'catalog' => [
 		'title' => 'Каталог',
 		'not_found' => 'Подукты не найдены.',
+		'all' => 'Все',
 		'search' => [
 			'button' => 'Найти',
 			'placeholder' => 'Поиск',

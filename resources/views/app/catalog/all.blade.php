@@ -40,16 +40,6 @@
                                 @lang('pages.catalog.not_found')
                             @endforelse
                         </div>
-
-                        <div class="d-flex mt-4">
-                            {{ $products->appends(request()->except('page'))->links() }}
-                            <div class="ml-auto">
-                                <a href="{{ route('app.catalog.all') }}" class="btn btn-primary ml-3">
-                                    <i class="material-icons mr-3">all_inclusive</i>
-                                    @lang('pages.catalog.all')
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

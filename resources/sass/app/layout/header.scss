@@ -111,6 +111,7 @@
 
     @media (min-width: map_get($grid-breakpoints, lg)) {
       padding-left: $grid-gutter-width;
+      padding-right: $grid-gutter-width;
     }
   }
 }

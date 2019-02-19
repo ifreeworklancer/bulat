@@ -14,7 +14,7 @@
                     @foreach(app('nav')->frontend() as $item)
                         <div class="col">
                             <a href="{{ $item->route }}">
-                                {{ $item->name }}
+                                {!! $item->name !!}
                             </a>
                         </div>
                     @endforeach
@@ -35,9 +35,7 @@
         </div>
     </div>
 
-    <div class="copyrights py-3">
-        <div class="container text-center">
-            &copy; {{ date('Y') }} @lang('common.footer.copyright')
-        </div>
+    <div class="copyrights container text-center py-3">
+        &copy; {{ date('Y') }} @lang('common.footer.copyright')
     </div>
 </footer>

@@ -35,7 +35,9 @@
         </div>
     </div>
 
-    <div class="copyrights container text-center py-3">
-        &copy; {{ date('Y') }} @lang('common.footer.copyright')
+    <div class="copyrights py-3">
+        <div class="container text-center">
+            &copy; {{ date('Y') }} @lang('common.footer.copyright')
+        </div>
     </div>
 </footer>

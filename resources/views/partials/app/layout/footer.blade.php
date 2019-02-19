@@ -1,6 +1,6 @@
 <footer id="app-footer">
     <div class="container">
-        <div class="d-flex align-items-center footer-info">
+        <div class="d-md-flex align-items-center footer-info">
             <div class="footer-logo pr-5">
                 <a href="{{ url('/') }}" class="nav-link nav-link--logo">
                     <svg width="160" height="160">

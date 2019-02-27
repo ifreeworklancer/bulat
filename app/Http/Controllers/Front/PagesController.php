@@ -15,7 +15,7 @@ class PagesController extends Controller
 	public function index(): View
 	{
 		$articles = Article::latest()->take(3)->get();
-		$slides = Slider::find(1)->slides;
+		$slides = optional(Slider::find(1))->slides;
 		$categories = Category::has('products')->inRandomOrder()->get();
 
 		return \view('app.pages.home', compact('articles', 'slides', 'categories'));

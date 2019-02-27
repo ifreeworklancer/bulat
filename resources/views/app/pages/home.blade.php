@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @includeWhen($slides->count(), 'partials.app.home.slider')
+    @includeWhen(isset($slides) && $slides->count(), 'partials.app.home.slider')
     @includeWhen($categories->count(), 'partials.app.home.categories')
     @includeWhen($articles->count(), 'partials.app.home.articles')
 

@@ -24,9 +24,9 @@ class SlideSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+//            'ru.title' => 'required',
             'en.title' => 'required',
-			'ru.description' => 'required',
+//			'ru.description' => 'required',
 			'en.description' => 'required',
 			'image' => 'sometimes|required|image|max:5000'
         ];

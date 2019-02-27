@@ -24,7 +24,7 @@ class ArticleSavingRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'ru.title' => 'required',
+//			'ru.title' => 'required',
 			'en.title' => 'required',
 			'image' => 'image|max:2000',
 		];

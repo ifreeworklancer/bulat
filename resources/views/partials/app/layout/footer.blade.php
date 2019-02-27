@@ -6,6 +6,10 @@
                     <svg width="160" height="160">
                         <use xlink:href="#helmet"></use>
                     </svg>
+                    <br>
+                    <svg width="200" height="40">
+                        <use xlink:href="#logo"></use>
+                    </svg>
                 </a>
             </div>
 

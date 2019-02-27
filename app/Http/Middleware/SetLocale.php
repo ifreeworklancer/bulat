@@ -35,11 +35,7 @@ class SetLocale
 //			setlocale(LC_TIME, 'ru_RU.utf-8');
 //		}
 
-		if (app('router')->currentRouteNamed('admin.*')) {
-			app()->setLocale('ru');
-		} else {
-			app()->setLocale('en');
-		}
+		app()->setLocale('en');
 
 		return $next($request);
     }

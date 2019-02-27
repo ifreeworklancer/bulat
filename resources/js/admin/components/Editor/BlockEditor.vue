@@ -5,21 +5,19 @@
 
             <div class="lang-switcher btn-group ml-auto" v-if="multilang !== 'false'">
                 <button type="button" class="btn btn-sm"
-                        v-for="(lang, index) in langs" :key="index"
-                        :class="current === index ? 'btn-primary' : 'btn-dark'"
-                        @click.prevent="current = index">
-                    {{ lang }}
+                        v-if="locales.length > 1"
+                        v-for="(lang, index) in locales" :key="index"
+                        :class="current === lang ? 'btn-primary' : 'btn-dark'"
+                        @click.prevent="current = lang">
+                    {{ langs[lang] }}
                 </button>
             </div>
         </div>
 
         <div class="block-editor__body">
             <template v-if="multilang !== 'false'">
-                <div v-show="current === 0">
-                    <slot name="ru"></slot>
-                </div>
-                <div v-show="current === 1">
-                    <slot name="en"></slot>
+                <div v-for="locale in locales" v-show="current === locale">
+                    <slot :name="locale"></slot>
                 </div>
             </template>
 
@@ -29,22 +27,23 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            title: String,
-            multilang: String
-        },
-        data() {
-            return {
-                current: 0,
-                langs: [
-                    'Русский',
-                    'English'
-                ]
-            }
-        },
-        mounted() {
-
+  export default {
+    props: {
+      title: String,
+      multilang: String
+    },
+    data() {
+      return {
+        current: 'en',
+        locales: JSON.parse(document.querySelector('[name="locales"]').content),
+        langs: {
+          ru: 'Русский',
+          en: 'English'
         }
+      }
+    },
+    mounted() {
+      this.current = this.locales[0]
     }
+  }
 </script>

@@ -24,7 +24,7 @@ class ProductSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+//            'ru.title' => 'required',
 			'en.title' => 'required',
 			'files' => 'array'
         ];

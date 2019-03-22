@@ -1,4 +1,4 @@
-@extends('layouts.admin', ['page_title' => $slide->translate('title')])
+@extends('layouts.admin', ['page_title' => 'Слайд'])
 
 @section('content')
 

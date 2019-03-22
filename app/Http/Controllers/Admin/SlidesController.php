@@ -51,7 +51,6 @@ class SlidesController extends Controller
 	{
 		/** @var Slide $slide */
 		$slide = Slide::create($this->handleRequest($request));
-		$slide->makeTranslation();
 
 		if ($request->hasFile('image')) {
 			$slide->addMediaFromRequest('image')->toMediaCollection('slides');
@@ -69,7 +68,6 @@ class SlidesController extends Controller
 	{
 		/** @var Slide $slide */
 		$slide->update($this->handleRequest($request));
-		$slide->makeTranslation();
 
 		if ($request->hasFile('image')) {
 			$slide->clearMediaCollection('slides');

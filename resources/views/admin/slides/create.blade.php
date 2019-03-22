@@ -5,28 +5,6 @@
     <form action="{{ route('admin.slides.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
-        <block-editor title="Новый слайд">
-            @foreach(config('app.locales') as $lang)
-                <div slot="{{ $lang }}">
-
-                    <div class="form-group{{ $errors->has($lang . '.title') ? ' is-invalid' : '' }}">
-                        <label for="title">Заголовок</label>
-                        <input type="text" class="form-control" id="title"
-                               name="{{$lang}}[title]"
-                               value="{{ old($lang . '.title') }}" required>
-                    </div>
-
-                    <div class="form-group{{ $errors->has($lang . '.description') ? ' is-invalid' : '' }}">
-                        <label for="subtitle">Описание</label>
-                        <input type="text" class="form-control" id="subtitle"
-                               name="{{$lang}}[description]"
-                               value="{{ old($lang . '.description') }}" required>
-                    </div>
-
-                </div>
-            @endforeach
-        </block-editor>
-
         <image-uploader class="mt-3"></image-uploader>
 
         <input type="hidden" name="slider_id" value="1">

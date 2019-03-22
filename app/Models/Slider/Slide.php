@@ -8,11 +8,10 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
-use Talanoff\ImpressionAdmin\Traits\Translatable;
 
 class Slide extends Model implements HasMedia
 {
-	use Translatable, HasMediaTrait;
+	use HasMediaTrait;
 
 	protected $fillable = [
 		'slider_id',

@@ -17,7 +17,6 @@
             <tr>
                 <th>#</th>
                 <th>Изобр.</th>
-                <th>Заголовок</th>
                 <th>Расположение</th>
                 <th></th>
             </tr>
@@ -27,13 +26,8 @@
             @forelse($slides as $slide)
                 <tr>
                     <td width="20">{{ $slide->id }}</td>
-                    <td width="60">
-                        <img src="{{ $slide->thumb }}" width="60" alt="">
-                    </td>
-                    <td>
-                        <a href="{{ route('admin.slides.edit', $slide) }}" class="underline">
-                            {{ $slide->translate('title') }}
-                        </a>
+                    <td width="120">
+                        <img src="{{ $slide->thumb }}" width="120" alt="">
                     </td>
                     <td>{{ $slide->slider->name }}</td>
                     <td width="100">

@@ -40,7 +40,7 @@ class LoginController extends Controller
 
 	public function showLoginForm()
 	{
-		$image = Media::where('collection_name', 'category')->inRandomOrder()->first()->getFullUrl();
+		$image = optinal(Media::where('collection_name', 'category')->inRandomOrder()->first())->getFullUrl();
 		return view('auth.login', compact('image'));
 	}
 }

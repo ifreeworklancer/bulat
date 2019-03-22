@@ -55,6 +55,11 @@
 @endsection
 
 @push('scripts')
+    <form method="post" id="delete" style="display: none">
+        @csrf
+        @method('delete')
+    </form>
+
     <script>
       function deleteItem(route) {
         const form = document.getElementById('delete');

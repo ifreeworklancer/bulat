@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
 			RolesTableSeeder::class,
 			UsersTableSeeder::class,
 			PagesTableSeeder::class,
-//			SlidersTableSeeder::class,
+			SlidersTableSeeder::class,
 //			CategoriesTableSeeder::class,
 //			ProductsTableSeeder::class,
 //			GroupsTableSeeder::class,

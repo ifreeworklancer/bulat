@@ -54,13 +54,15 @@
 
         {{ $questions->appends(request()->except('page'))->links() }}
     </section>
+
+@endsection
+
+@push('scripts')
     <form method="post" id="delete" style="display: none">
         @csrf
         @method('delete')
     </form>
 
-@endsection
-@push('scripts')
     <script>
         function deleteItem(route) {
             const form = document.getElementById('delete');

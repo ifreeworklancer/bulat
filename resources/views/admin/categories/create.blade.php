@@ -3,7 +3,7 @@
 @section('content')
 
     <section id="content">
-        <form action="{{ route('admin.categories.store') }}" method="post">
+        <form action="{{ route('admin.categories.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="row">

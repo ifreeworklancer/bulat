@@ -3,7 +3,7 @@
 @section('content')
 
     <section id="content">
-        <form action="{{ route('admin.categories.update', $category) }}" method="post">
+        <form action="{{ route('admin.categories.update', $category) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
 

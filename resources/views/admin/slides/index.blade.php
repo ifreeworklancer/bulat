@@ -25,7 +25,7 @@
             <tbody>
             @forelse($slides as $slide)
                 <tr>
-                    <td width="20">{{ $loop->interation }}</td>
+                    <td width="20">{{ $loop->iteration }}</td>
                     <td width="120">
                         <img src="{{ $slide->thumb }}" width="120" alt="">
                     </td>

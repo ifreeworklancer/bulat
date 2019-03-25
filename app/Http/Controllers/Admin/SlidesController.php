@@ -17,7 +17,7 @@ class SlidesController extends Controller
 	public function index(): View
 	{
 		return \view('admin.slides.index', [
-			'slides' => Slide::paginate(20),
+			'slides' => Slide::latest()->paginate(20),
 		]);
 	}
 

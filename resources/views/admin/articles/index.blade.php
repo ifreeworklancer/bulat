@@ -91,7 +91,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">Статьи пока не добавлены</td>
+                    <td colspan="6" class="text-center">Статьи пока не добавлены</td>
                 </tr>
             @endforelse
         </table>

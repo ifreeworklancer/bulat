@@ -38,7 +38,7 @@ class CategoriesController extends Controller
 		$category = Category::create()->makeTranslation();
 
 		if ($request->hasFile('image')) {
-			$category->addMediaFromRequest('image')->toMediaCollection('catalog');
+			$category->addMediaFromRequest('image')->toMediaCollection('category');
 		}
 
 		return \redirect()->route('admin.categories.edit', $category);
@@ -63,8 +63,8 @@ class CategoriesController extends Controller
 		$category->updateTranslation();
 
 		if ($request->hasFile('image')) {
-			$category->clearMediaCollection('catalog');
-			$category->addMediaFromRequest('image')->toMediaCollection('catalog');
+			$category->clearMediaCollection('category');
+			$category->addMediaFromRequest('image')->toMediaCollection('category');
 		}
 
 		return \back();

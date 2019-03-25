@@ -13,7 +13,8 @@ import Flickity from 'flickity'
     const $slider = new Flickity($homeSlider, {
       prevNextButtons: false,
       pageDots: false,
-      wrapAround: true
+      wrapAround: true,
+      autoPlay: 3000
     });
 
     $dots.forEach(($dot, index) => {

@@ -23,6 +23,9 @@ class Category extends Model implements HasMedia
 
 	protected $filtrable = 'category';
 
+	/**
+	 * @return BelongsToMany
+	 */
 	public function products(): BelongsToMany
 	{
 		return $this->belongsToMany(Product::class);

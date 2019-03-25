@@ -17,6 +17,7 @@
             <tr class="small">
                 <th>#</th>
                 <th>Название</th>
+                <th class="text-center">Товаров в категории</th>
                 <th>Дата создания</th>
                 <th></th>
             </tr>
@@ -30,6 +31,7 @@
                             {{ $category->translate('title') }}
                         </a>
                     </td>
+                    <td>{{ $category->products()->count() }}</td>
                     <td width="150">{{ $category->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
                     <td width="100">
                         <a href="{{ route('admin.categories.edit', $category) }}"

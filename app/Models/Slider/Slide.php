@@ -58,4 +58,13 @@ class Slide extends Model implements HasMedia
 	{
 		return $this->getFirstMediaUrl('slides', 'banner');
 	}
+
+	protected static function boot()
+	{
+		parent::boot();
+
+		self::addGlobalScope('ordered', function (Builder $builder) {
+			$builder->orderBy('created_at');
+		});
+	}
 }

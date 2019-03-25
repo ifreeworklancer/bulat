@@ -2,6 +2,7 @@
 
 namespace App\Models\Slider;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Image\Manipulations;
@@ -56,5 +57,14 @@ class Slide extends Model implements HasMedia
 	public function getBannerAttribute(): string
 	{
 		return $this->getFirstMediaUrl('slides', 'banner');
+	}
+
+	protected static function boot()
+	{
+		parent::boot();
+
+		self::addGlobalScope('ordered', function (Builder $builder) {
+			$builder->latest('id');
+		});
 	}
 }

@@ -51,14 +51,12 @@
       }
     },
     methods: {
-      uploadFile(file, i) {
-        setTimeout(() => {
-          axios.post('/admin/media/upload', file)
-            .then(({data}) => {
-              this.images.push(data);
-              this.loading = false;
-            });
-        }, 100 * ++i)
+      uploadFile(file) {
+        axios.post('/admin/media/upload', file)
+          .then(({data}) => {
+            this.images.push(data);
+            this.loading = false;
+          });
       },
 
       handleImages(event) {
@@ -70,8 +68,7 @@
           const formData = new FormData();
           let file = fileList[i];
           formData.set('image', file);
-
-          this.uploadFile(formData, i);
+          this.uploadFile(formData);
         }
       },
 

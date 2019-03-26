@@ -53,16 +53,15 @@
     },
     methods: {
       uploadFiles() {
-        this.loading = true;
-
         this.imagesToUpload.forEach(f => {
+          this.loading = true;
+
           axios.post('/admin/media/upload', f)
             .then(({data}) => {
               this.images.push(data);
+              this.loading = false;
             });
         });
-
-        this.loading = false;
       },
 
       handleImages(event) {

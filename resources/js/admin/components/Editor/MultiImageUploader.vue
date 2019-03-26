@@ -52,7 +52,7 @@
       }
     },
     methods: {
-      uploadFile() {
+      uploadFiles() {
         this.loading = true;
 
         this.imagesToUpload.forEach(f => {

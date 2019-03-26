@@ -41,7 +41,7 @@ class ProductsController extends Controller
 		return \view('admin.products.index', [
 			'products' => $products->paginate(20),
 			'categories' => Category::latest('id')->get(),
-			'tags' => $tags
+			'tags' => $tags,
 		]);
 	}
 
@@ -74,6 +74,7 @@ class ProductsController extends Controller
 				Media::find($media)->update([
 					'model_type' => Product::class,
 					'model_id' => $product->id,
+					'collection_name' => 'products',
 				]);
 			}
 		}
@@ -112,6 +113,7 @@ class ProductsController extends Controller
 				Media::find($media)->update([
 					'model_type' => Product::class,
 					'model_id' => $product->id,
+					'collection_name' => 'products',
 				]);
 			}
 		}

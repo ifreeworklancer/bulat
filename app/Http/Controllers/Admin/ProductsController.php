@@ -23,6 +23,8 @@ class ProductsController extends Controller
 		$tags = collect([]);
 		$products = Product::with(['categories', 'translates']);
 
+		dd($products->count());
+
 		if ($request->filled('category')) {
 			$ids = explode(',', $request->input('category'));
 			$tags = Category::whereIn('slug', $ids)->get();

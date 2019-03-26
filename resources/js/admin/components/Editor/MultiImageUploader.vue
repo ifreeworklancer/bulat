@@ -6,7 +6,7 @@
                      :style="{backgroundImage: `url(${image.src})`}">
                     <a @click.prevent="removeImage(index, image.remove)" v-if="image !== ''"
                        class="btn btn-danger btn-delete d-flex justify-content-center align-items-center">
-                        <i class="i-trash text-white"></i>
+                        <i class="i-trash text-white m-0"></i>
                     </a>
                 </div>
             </div>

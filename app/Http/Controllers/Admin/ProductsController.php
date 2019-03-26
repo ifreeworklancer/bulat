@@ -74,7 +74,6 @@ class ProductsController extends Controller
 				Media::find($media)->update([
 					'model_type' => Product::class,
 					'model_id' => $product->id,
-					'collection_name' => 'products',
 				]);
 			}
 		}
@@ -113,7 +112,6 @@ class ProductsController extends Controller
 				Media::find($media)->update([
 					'model_type' => Product::class,
 					'model_id' => $product->id,
-					'collection_name' => 'products',
 				]);
 			}
 		}

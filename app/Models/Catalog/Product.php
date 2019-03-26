@@ -107,7 +107,7 @@ class Product extends Model implements HasMedia
 	 */
 	public function getImagesListAttribute()
 	{
-		return ImageResource::collection($this->getMedia('products'));
+		return ImageResource::collection($this->getMedia('uploads'));
 	}
 
 	/**
@@ -115,8 +115,8 @@ class Product extends Model implements HasMedia
 	 */
 	public function getPreviewAttribute(): string
 	{
-		return $this->hasMedia('products')
-			? $this->getFirstMediaUrl('products', 'preview')
+		return $this->hasMedia('uploads')
+			? $this->getFirstMediaUrl('uploads', 'preview')
 			: asset('images/no-image.png');
 	}
 
@@ -125,8 +125,8 @@ class Product extends Model implements HasMedia
 	 */
 	public function getBannerAttribute(): string
 	{
-		return $this->hasMedia('products')
-			? $this->getFirstMediaUrl('products', 'banner')
+		return $this->hasMedia('uploads')
+			? $this->getFirstMediaUrl('uploads', 'banner')
 			: asset('images/no-image.png');
 	}
 

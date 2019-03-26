@@ -51,16 +51,16 @@
       }
     },
     methods: {
-      uploadFile(file, timeout) {
+      uploadFile(file) {
         this.loading = true;
+        const formData = new FormData();
+        formData.set('image', file);
 
-        setTimeout(() => {
-          axios.post('/admin/media/upload', file)
-            .then(({data}) => {
-              this.images.push(data);
-              this.loading = false;
-            });
-        }, timeout)
+        axios.post('/admin/media/upload', formData)
+          .then(({data}) => {
+            this.images.push(data);
+            this.loading = false;
+          });
       },
 
       handleImages(event) {
@@ -69,10 +69,7 @@
         if (!fileList.length) return;
 
         for (let i = 0; i < event.target.files.length; i++) {
-          const formData = new FormData();
-          let file = fileList[i];
-          formData.set('image', file);
-          this.uploadFile(formData, 1000 * (i+10));
+          this.uploadFile(fileList[i]);
         }
       },
 

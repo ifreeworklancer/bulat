@@ -47,17 +47,22 @@
     data() {
       return {
         images: this.src || [],
+        imagesToUpload: [],
         loading: false
       }
     },
     methods: {
-      uploadFile(formData) {
+      uploadFile() {
         this.loading = true;
-        axios.post('/admin/media/upload', formData)
-          .then(({data}) => {
-            this.images.push(data);
-            this.loading = false;
-          });
+
+        this.imagesToUpload.forEach(f => {
+          axios.post('/admin/media/upload', f)
+            .then(({data}) => {
+              this.images.push(data);
+            });
+        });
+
+        this.loading = false;
       },
 
       handleImages(event) {
@@ -69,8 +74,10 @@
           const formData = new FormData();
           let file = fileList[i];
           formData.set('image', file);
-          this.uploadFile(formData);
+          this.imagesToUpload.push(formData);
         }
+
+        this.uploadFiles();
       },
 
       removeImage(index, route) {

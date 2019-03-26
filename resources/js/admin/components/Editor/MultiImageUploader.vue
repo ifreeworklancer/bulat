@@ -68,7 +68,10 @@
           const formData = new FormData();
           let file = fileList[i];
           formData.set('image', file);
-          this.uploadFile(formData);
+
+          setTimeout(() => {
+            this.uploadFile(formData);
+          }, 1000 * ++i);
         }
       },
 

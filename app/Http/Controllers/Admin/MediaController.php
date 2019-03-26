@@ -19,8 +19,6 @@ class MediaController extends Controller
 	{
 		$media = null;
 
-		dd($request->file('image'));
-
 		if ($request->hasFile('image')) {
 			/** @var MediaUpload $media */
 			$media = MediaUpload::create();

@@ -260,7 +260,7 @@
     .lds-flickr {
         margin: 0 auto;
         width: 47px !important;
-        height: 47px !important;
+        height: 32px !important;
         -webkit-transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
         transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
     }

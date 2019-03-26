@@ -16,8 +16,15 @@
             <input type="file" accept="image/*" multiple @change="handleImages">
 
             <div class="text-center">
-                Загрузить изображения
-                <div v-if="tooltip">({{ tooltip }})</div>
+                <template v-if="!loading">Загрузить изображения</template>
+
+                <div class="lds-css ng-scope" v-if="loading">
+                    <div style="width:100%;height:100%" class="lds-flickr">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
         </label>
 
@@ -39,7 +46,8 @@
     },
     data() {
       return {
-        images: this.src || []
+        images: this.src || [],
+        loading: false
       }
     },
     methods: {
@@ -51,6 +59,7 @@
       },
 
       handleImages(event) {
+        this.loading = true;
         const fileList = event.target.files;
 
         if (!fileList.length) return;
@@ -59,9 +68,10 @@
           const formData = new FormData();
           let file = fileList[i];
           formData.set('image', file);
-
           this.uploadFile(formData);
         }
+
+        this.loading = false;
       },
 
       removeImage(index, route) {
@@ -133,5 +143,125 @@
 
     .material-icons {
         font-size: 14px;
+    }
+
+    @keyframes lds-flickr-opacity {
+        0% {
+            -webkit-transform: translate(0 0);
+            transform: translate(0 0);
+            opacity: 1;
+        }
+        49.99% {
+            opacity: 1;
+            -webkit-transform: translate(80px, 0);
+            transform: translate(80px, 0);
+        }
+        50% {
+            opacity: 0;
+            -webkit-transform: translate(80px, 0);
+            transform: translate(80px, 0);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    }
+
+    @-webkit-keyframes lds-flickr-opacity {
+        0% {
+            -webkit-transform: translate(0 0);
+            transform: translate(0 0);
+            opacity: 1;
+        }
+        49.99% {
+            opacity: 1;
+            -webkit-transform: translate(80px, 0);
+            transform: translate(80px, 0);
+        }
+        50% {
+            opacity: 0;
+            -webkit-transform: translate(80px, 0);
+            transform: translate(80px, 0);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    }
+
+    @keyframes lds-flickr {
+        0% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+        50% {
+            -webkit-transform: translate(80px, 0);
+            transform: translate(80px, 0);
+        }
+        100% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    }
+
+    @-webkit-keyframes lds-flickr {
+        0% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+        50% {
+            -webkit-transform: translate(80px, 0);
+            transform: translate(80px, 0);
+        }
+        100% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    }
+
+    .lds-flickr {
+        position: relative;
+    }
+
+    .lds-flickr div {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        top: 60px;
+        left: 20px;
+    }
+
+    .lds-flickr div:nth-child(1) {
+        background: #a12d2b;
+        -webkit-animation: lds-flickr 1.8s linear infinite;
+        animation: lds-flickr 1.8s linear infinite;
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+    }
+
+    .lds-flickr div:nth-child(2) {
+        background: #be8039;
+        -webkit-animation: lds-flickr 1.8s linear infinite;
+        animation: lds-flickr 1.8s linear infinite;
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+    }
+
+    .lds-flickr div:nth-child(3) {
+        background: #a12d2b;
+        -webkit-animation: lds-flickr-opacity 1.8s linear infinite;
+        animation: lds-flickr-opacity 1.8s linear infinite;
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+    }
+
+    .lds-flickr {
+        width: 47px !important;
+        height: 47px !important;
+        -webkit-transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
+        transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
     }
 </style>

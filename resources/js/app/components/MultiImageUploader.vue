@@ -39,7 +39,8 @@
     },
     data() {
       return {
-        images: this.src || []
+        images: this.src || [],
+        loading: false
       }
     },
     methods: {

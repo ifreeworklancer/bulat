@@ -5,6 +5,7 @@ namespace App\Models\Catalog;
 use App\Http\Resources\ImageResource;
 use App\Models\Additional\Favorite;
 use App\Traits\SluggableTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -143,5 +144,14 @@ class Product extends Model implements HasMedia
 	public function getInFavoritesAttribute(): bool
 	{
 		return (bool)$this->favorites()->where('user_id', Auth::user()->id)->count();
+	}
+
+	protected static function boot()
+	{
+		parent::boot();
+
+		self::addGlobalScope('ordered', function (Builder $builder) {
+			$builder->latest();
+		});
 	}
 }

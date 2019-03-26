@@ -21,7 +21,7 @@ class ProductsController extends Controller
 	public function index(Request $request): View
 	{
 		$tags = collect([]);
-		$products = Product::latest('id')->with(['categories', 'translates']);
+		$products = Product::with(['categories', 'translates']);
 
 		if ($request->filled('category')) {
 			$ids = explode(',', $request->input('category'));

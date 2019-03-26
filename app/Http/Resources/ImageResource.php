@@ -17,7 +17,7 @@ class ImageResource extends JsonResource
         return [
         	'id' => $this->id,
 			'src' => $this->getFullUrl(),
-			'remove' => route('admin.media.delete', $this->id)
+			'remove' => route('admin.media.destroy', $this->id)
 		];
     }
 }

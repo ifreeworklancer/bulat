@@ -58,4 +58,12 @@ Route::group([
 
 	Route::post('subscribe', 'SubscribeController')->name('subscribe');
 
+	Route::group([
+		'as' => 'media.',
+		'prefix' => 'media',
+	], function () {
+		Route::post('upload', 'MediaController@upload')->name('upload');
+		Route::delete('{media}/delete', 'MediaController@destroy')->name('destroy');
+	});
+
 });

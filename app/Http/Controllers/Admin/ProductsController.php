@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Spatie\MediaLibrary\Models\Media;
 
 class ProductsController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductsController extends Controller
 		if ($request->filled('category')) {
 			$ids = explode(',', $request->input('category'));
 			$tags = Category::whereIn('slug', $ids)->get();
-			$products = $products->whereHas('categories', function ($q) use ($ids) {
+			$products = $products->whereHas('categories', function (Builder $q) use ($ids) {
 				$q->whereIn('slug', $ids);
 			});
 		}
@@ -57,8 +58,6 @@ class ProductsController extends Controller
 	/**
 	 * @param ProductSavingRequest $request
 	 * @return RedirectResponse
-	 * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
-	 * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
 	 */
 	public function store(ProductSavingRequest $request): RedirectResponse
 	{
@@ -70,9 +69,12 @@ class ProductsController extends Controller
 		$product->makeTranslation();
 		$product->categories()->attach($request->input('categories', []));
 
-		if ($request->has('files')) {
-			foreach ($request->input('files') as $file) {
-				$product->addMediaFromBase64($file)->toMediaCollection('products');
+		if ($request->has('media')) {
+			foreach ($request->media as $media) {
+				Media::find($media)->update([
+					'model_type' => Product::class,
+					'model_id' => $product->id,
+				]);
 			}
 		}
 
@@ -95,8 +97,6 @@ class ProductsController extends Controller
 	 * @param ProductSavingRequest $request
 	 * @param Product $product
 	 * @return RedirectResponse
-	 * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
-	 * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
 	 */
 	public function update(ProductSavingRequest $request, Product $product): RedirectResponse
 	{
@@ -107,9 +107,12 @@ class ProductsController extends Controller
 			'is_published' => $request->has('is_published'),
 		]);
 
-		if ($request->has('files')) {
-			foreach ($request->input('files') as $file) {
-				$product->addMediaFromBase64($file)->toMediaCollection('products');
+		if ($request->has('media')) {
+			foreach ($request->media as $media) {
+				Media::find($media)->update([
+					'model_type' => Product::class,
+					'model_id' => $product->id,
+				]);
 			}
 		}
 

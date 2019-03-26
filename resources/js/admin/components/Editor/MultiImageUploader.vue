@@ -6,13 +6,13 @@
                      :style="{backgroundImage: `url(${image.src})`}">
                     <a @click.prevent="removeImage(index, image.remove)" v-if="image !== ''"
                        class="btn btn-danger btn-delete d-flex justify-content-center align-items-center">
-                        <i class="i-trash text-white"></i>
+                        <i class="material-icons">delete</i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <label class="position-relative image-uploader d-block rounded bg-light p-4">
+        <label class="position-relative image-uploader d-block rounded bg-dark p-4">
             <input type="file" accept="image/*" multiple @change="handleImages">
 
             <div class="text-center">
@@ -21,8 +21,7 @@
             </div>
         </label>
 
-        <input type="hidden" :name="`${name}[]`" v-for="image in images" :value="image.src"
-               v-if="images.length && image.remove === null">
+        <input type="hidden" name="media[]" v-for="m in images" :key="m.id" :value="m.id">
     </div>
 </template>
 
@@ -33,10 +32,10 @@
       name: {
         type: String,
         default() {
-          return 'files';
+          return 'images';
         }
       },
-      tooltip: String
+      tooltip: String,
     },
     data() {
       return {
@@ -44,22 +43,27 @@
       }
     },
     methods: {
+      async uploadFile(formData) {
+        await axios.post('/admin/media/upload', formData)
+          .then(({data}) => {
+            this.images.push(data);
+          });
+      },
+
       handleImages(event) {
-        if (event.target.files && event.target.files[0]) {
-          for (let i = 0; i < event.target.files.length; i++) {
-            const reader = new FileReader();
+        const fileList = event.target.files;
 
-            reader.onload = function (e) {
-              this.images.push({
-                src: e.target.result,
-                remove: null,
-              });
-            }.bind(this);
+        if (!fileList.length) return;
 
-            reader.readAsDataURL(event.target.files[i]);
-          }
+        for (let i = 0; i < event.target.files.length; i++) {
+          const formData = new FormData();
+          let file = fileList[i];
+          formData.set('image', file);
+
+          this.uploadFile(formData);
         }
       },
+
       removeImage(index, route) {
         if (!!route) {
           axios.delete(route);
@@ -67,12 +71,6 @@
 
         this.images.splice(index, 1);
       }
-    },
-    mounted() {
-      // if (this.src) {
-      //     const images = JSON.parse(this.src);
-      //     this.images.push(...images);
-      // }
     }
   }
 </script>
@@ -131,5 +129,9 @@
             position: absolute;
             left: -9999px;
         }
+    }
+
+    .material-icons {
+        font-size: 14px;
     }
 </style>

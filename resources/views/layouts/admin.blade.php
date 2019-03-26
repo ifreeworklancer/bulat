@@ -26,6 +26,22 @@
 </head>
 <body>
 <div id="app">
+    @if (session()->has('message'))
+        <div class="notification alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
+    @if (session()->has('errors'))
+        <div class="notification alert alert-danger">
+            <ol class="mb-0">
+                @foreach(session()->get('errors') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ol>
+        </div>
+    @endif
+
     @includeIf('partials.admin.header')
     @includeIf('partials.admin.aside')
 

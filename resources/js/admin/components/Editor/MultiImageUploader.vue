@@ -51,9 +51,9 @@
       }
     },
     methods: {
-      async uploadFile(formData) {
+      uploadFile(formData) {
         this.loading = true;
-        await axios.post('/admin/media/upload', formData)
+        axios.post('/admin/media/upload', formData)
           .then(({data}) => {
             this.images.push(data);
             this.loading = false;

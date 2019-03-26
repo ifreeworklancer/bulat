@@ -72,7 +72,7 @@
           const formData = new FormData();
           let file = fileList[i];
           formData.set('image', file);
-          this.uploadFile(formData, 1000 * i++);
+          this.uploadFile(formData, 1000 * (i+1));
         }
       },
 

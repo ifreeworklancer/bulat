@@ -52,14 +52,15 @@
     },
     methods: {
       async uploadFile(formData) {
+        this.loading = true;
         await axios.post('/admin/media/upload', formData)
           .then(({data}) => {
             this.images.push(data);
+            this.loading = false;
           });
       },
 
       handleImages(event) {
-        this.loading = true;
         const fileList = event.target.files;
 
         if (!fileList.length) return;
@@ -70,8 +71,6 @@
           formData.set('image', file);
           this.uploadFile(formData);
         }
-
-        this.loading = false;
       },
 
       removeImage(index, route) {

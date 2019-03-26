@@ -29,6 +29,12 @@ Route::group([
 	Route::resource('questions', 'QuestionsController')->except(['show']);
 	Route::resource('answers', 'AnswersController')->except(['show']);
 
-	Route::delete('media/{media}', 'MediaController@destroy')->name('media.delete');
+	Route::group([
+		'as' => 'media.',
+		'prefix' => 'media',
+	], function () {
+		Route::post('upload', 'MediaController@upload')->name('upload');
+		Route::delete('{media}/delete', 'MediaController@destroy')->name('destroy');
+	});
 
 });

@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <label class="position-relative image-uploader d-block rounded bg-dark p-4">
+        <label class="position-relative image-uploader d-block rounded bg-light p-4">
             <input type="file" accept="image/*" multiple @change="handleImages">
 
             <div class="text-center">

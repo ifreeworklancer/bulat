@@ -100,6 +100,10 @@ class ProductsController extends Controller
 	 */
 	public function update(ProductSavingRequest $request, Product $product): RedirectResponse
 	{
+		if ($request->has('regenerate')) {
+			$product->slug = null;
+		}
+
 		$product->updateTranslation();
 		$product->categories()->sync($request->input('categories'));
 		$product->update([

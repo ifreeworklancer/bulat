@@ -76,7 +76,15 @@
                 </div>
             </div>
 
-            <div class="mt-4 d-flex align-items-center">
+            <div class="mt-4">
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input"
+                           id="regenerate" name="regenerate">
+                    <label class="custom-control-label" for="regenerate">Сгеннерировать новый слаг</label>
+                </div>
+            </div>
+
+            <div class="mt-3 d-flex align-items-center">
                 <button class="btn btn-primary">Сохранить</button>
 
                 <div class="custom-control custom-checkbox ml-3">

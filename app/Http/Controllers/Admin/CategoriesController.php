@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Catalog\Category;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -61,6 +62,11 @@ class CategoriesController extends Controller
 	public function update(Request $request, Category $category): RedirectResponse
 	{
 		$category->updateTranslation();
+
+		if ($request->has('regenerate')) {
+			$category->slug = SlugService::createSlug(Category::class, 'slug', $request->get('en')['title']);
+			$category->save();
+		}
 
 		if ($request->hasFile('image')) {
 			$category->clearMediaCollection('category');

@@ -61,19 +61,19 @@ class CategoriesController extends Controller
 	 */
 	public function update(Request $request, Category $category): RedirectResponse
 	{
-		$category->updateTranslation();
-
 		if ($request->has('regenerate')) {
-			$category->slug = SlugService::createSlug(Category::class, 'slug', $request->get('en')['title']);
-			$category->save();
+			$category->slug = null;
+			$category->update();
 		}
+
+		$category->updateTranslation();
 
 		if ($request->hasFile('image')) {
 			$category->clearMediaCollection('category');
 			$category->addMediaFromRequest('image')->toMediaCollection('category');
 		}
 
-		return \back();
+		return \redirect()->route('admin.categories.edit', $category);
 	}
 
 	/**

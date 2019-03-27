@@ -37,7 +37,7 @@
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"
                            id="regenerate" name="regenerate">
-                    <label class="custom-control-label" for="regenerate">Сгеннерировать новый слаг</label>
+                    <label class="custom-control-label" for="regenerate">Сгенерировать новый слаг</label>
                 </div>
             </div>
 

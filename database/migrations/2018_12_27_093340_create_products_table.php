@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->float('price');
             $table->boolean('is_published')->default(1);
 			$table->integer('views_count')->default(0);

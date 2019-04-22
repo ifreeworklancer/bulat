@@ -27,11 +27,15 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: -20px;
     color: $body-color;
     transform: scaleY(-1);
     transform-origin: center top;
     transition: 0.65s;
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      top: 0;
+    }
 
     &.is-visible {
       transform: scale(1);

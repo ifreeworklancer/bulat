@@ -22,36 +22,23 @@
 
                     <div class="position-relative mb-5">
                         <img data-src="{{ $product->banner }}" class="lozad" alt="{{ $product->translate('title') }}">
-
-                        <div class="infobar d-flex">
-                            <div class="infobar-item">
-                                <div class="infobar-item__heading">@lang('pages.product.price')</div>
-                                <div class="infobar-item__body">
-                                    <div class="price">{{ number_format($product->price, 0, ',', ' ') }}</div>
-                                    @lang('common.currency')
-                                </div>
-                            </div>
-
-                            @auth
-                                <div class="infobar-item">
-                                    <div class="infobar-item__heading">@lang('common.favorites')</div>
-                                    <div class="infobar-item__body">
-                                        <i class="material-icons favorites-icon" onclick="togglefavorites()">
-                                            {{ $product->in_favorites ? 'star' : 'star_border' }}
-                                        </i>
-                                    </div>
-                                </div>
-                            @endauth
-                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 pl-md-4">
-                    <div class="d-flex align-items-center mb-4">
+                    <div class="d-flex align-items-start align-items-lg-end mb-4">
                         <div>
                             <small class="text-muted mr-3">@lang('pages.product.sku')</small>
                             {{ $product->sku }}
+                            <div>
+                                <div class="price mt-4">
+                                    <small class="text-muted">@lang('pages.product.price')</small>
+                                    {{ number_format($product->price, 0, ',', ' ') }}
+                                    @lang('common.currency')
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="ml-auto">
                             @if (!$processing)
@@ -70,7 +57,7 @@
                         </div>
                     </div>
 
-                    <div class="text-primary">
+                    <div class="text-white">
                         <p class="lead">{{ $product->translate('description') }}</p>
                         {!! $product->body !!}
 
@@ -136,14 +123,14 @@
 
 @push('scripts')
     <script>
-      function togglefavorites() {
-        const el = event.target;
-        event.preventDefault();
+        function togglefavorites() {
+            const el = event.target;
+            event.preventDefault();
 
-        axios.post('{{ route('app.catalog.favorites', $product) }}')
-          .then(function (response) {
-            el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
-          });
-      }
+            axios.post('{{ route('app.catalog.favorites', $product) }}')
+                .then(function (response) {
+                    el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
+                });
+        }
     </script>
 @endpush

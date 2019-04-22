@@ -5,7 +5,7 @@
         <h5>{{ $product->translate('title') }}</h5>
 
         @if ($product->hasTranslation('description'))
-            <p class="text-body smaller">{{ str_limit($product->translate('description'), 50) }}</p>
+            <p class="smaller">{{ str_limit($product->translate('description'), 50) }}</p>
         @endif
 
         <h6 class="mb-0">

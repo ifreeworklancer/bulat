@@ -1,5 +1,10 @@
 .article-preview {
   @extend .product-preview;
+  color: $dark;
+
+  h5 {
+    color: $dark;
+  }
 
   &.no-shadow {
     box-shadow: none !important;
@@ -25,10 +30,13 @@
   }
 
   &:hover {
-    box-shadow: 0 5px 60px -20px rgba($primary, 0.25);
+    box-shadow: 0 5px 60px -20px rgba($primary, 0.9);
+    color: $dark;
+
     .article-preview__image {
       transform: scale(1.05);
     }
+
     h5 {
       color: $gold;
     }
@@ -76,7 +84,7 @@
       bottom: 0;
       width: 1000px;
       content: '';
-      background-color: $gray-100;
+      background-color: $primary;
       z-index: -1;
       opacity: 0;
       transition: 0.35s;
@@ -86,16 +94,6 @@
       height: 50px;
       overflow: hidden;
       position: relative;
-
-      &::after {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 20px;
-        content: '';
-        background: linear-gradient(to top, #fff 25%, transparent);
-      }
     }
 
     .read-more {

@@ -53,6 +53,10 @@
     &-item {
       height: 75px;
 
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        padding: 0 25px;
+      }
+
       &:hover {
         background-color: lighten($primary, 10%);
       }
@@ -66,16 +70,32 @@
       flex-direction: column;
       justify-content: center;
       height: 100%;
+      font-size: 14px;
 
       &[data-search] {
         width: 75px;
         text-align: center;
+        font-size: 25px;
       }
     }
   }
 
   .navbar {
-    padding: 0;
+    padding: 15px 0;
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding: 0;
+    }
+
+    &--center {
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
 
     &--left {
       background-color: $primary;

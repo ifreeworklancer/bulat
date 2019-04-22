@@ -1,7 +1,7 @@
 <header id="app-header" class="{{ $header_class ?? '' }}">
-    <div class="container-fluid container-fluid--header">
-        <div class="d-flex">
-            <div class="navbar navbar--left flex-nowrap">
+    <div class="container-fluid container-fluid--header h-100">
+        <div class="d-flex align-items-center h-100">
+            <div class="navbar navbar--center navbar--left flex-nowrap">
                 <nav class="nav align-items-center flex-nowrap">
                     <a href="{{ url('/') }}" class="nav-link nav-link--logo d-lg-none">
                         <svg width="40" height="40">

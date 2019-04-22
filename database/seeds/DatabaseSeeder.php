@@ -16,11 +16,16 @@ class DatabaseSeeder extends Seeder
 			UsersTableSeeder::class,
 			PagesTableSeeder::class,
 			SlidersTableSeeder::class,
-//			CategoriesTableSeeder::class,
-//			ProductsTableSeeder::class,
-//			GroupsTableSeeder::class,
-//			TagsTableSeeder::class,
-//			ArticlesTableSeeder::class,
 		]);
+
+		if (config('app.env') === 'local') {
+		    $this->call([
+                CategoriesTableSeeder::class,
+                ProductsTableSeeder::class,
+                GroupsTableSeeder::class,
+                TagsTableSeeder::class,
+                ArticlesTableSeeder::class,
+            ]);
+        }
 	}
 }

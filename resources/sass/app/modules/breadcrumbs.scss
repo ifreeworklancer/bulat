@@ -1,5 +1,13 @@
 .breadcrumbs {
   font-family: $font-family-base;
+  background: $breadcrumb-bg;
+
+  li {
+    a {
+      color: $body-color !important;
+    }
+  }
+
   a:hover {
     text-decoration: underline;
   }

@@ -5,7 +5,7 @@
                 <nav class="nav align-items-center flex-nowrap">
                     <a href="{{ url('/') }}" class="nav-link nav-link--logo d-lg-none">
                         <svg width="40" height="40">
-                            <use xlink:href="#helmet"></use>
+                            <use xlink:href="#logo"></use>
                         </svg>
                     </a>
 
@@ -13,7 +13,7 @@
                         <li class="nav-item">
                             <a href="{{ url('/') }}" class="nav-link nav-link--logo">
                                 <svg width="40" height="40">
-                                    <use xlink:href="#helmet"></use>
+                                    <use xlink:href="#logo"></use>
                                 </svg>
                             </a>
                         </li>

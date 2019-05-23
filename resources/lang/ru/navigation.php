@@ -9,6 +9,7 @@ return [
 		'contacts' => 'Контакты',
 		'questionary' => 'Анкета',
 		'dashboard' => 'Панель управления',
+		'terms' => 'Условие использования',
 	],
 
 	'profile' => [

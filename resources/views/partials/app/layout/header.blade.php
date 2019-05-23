@@ -78,7 +78,7 @@
                         </a>
                     </div>
                 @endauth
-                {{--
+
                 <div class="locale-selector mt-1 ml-auto ml-lg-3 mt-lg-0">
                     @foreach(config('app.locales') as $locale)
                         @if (app()->getLocale() === $locale)
@@ -89,7 +89,6 @@
                         @endif
                     @endforeach
                 </div>
-                --}}
             </div>
         </div>
     </div>

@@ -11,7 +11,6 @@ Route::group([
 	Route::get('about', 'PagesController@about')->name('about');
 	Route::get('contacts', 'PagesController@contacts')->name('contacts');
 	Route::get('terms-and-conditions', 'PagesController@termsAndConditions')->name('terms');
-	Route::get('locale/{lang}', 'LocaleController@switch')->name('locale');
 	Route::view('thanks', 'app.pages.thanks')->name('thanks');
 
 	Route::get('search', 'SearchController@index')->name('search');
@@ -56,5 +55,8 @@ Route::group([
 	});
 
 	Route::post('subscribe', 'SubscribeController')->name('subscribe');
+
+    Route::get('{lang}', 'LocaleController@switch')->name('locale')
+        ->where('lang', '('.implode('|', config('app.locales')).')');
 
 });

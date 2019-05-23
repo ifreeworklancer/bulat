@@ -26,10 +26,6 @@ class Navigation
 			(object)[
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),
-			],
-			(object)[
-				'name' => trans('navigation.header.terms'),
-				'route' => route('app.terms')
 			]
 		];
 
@@ -44,6 +40,41 @@ class Navigation
 
 		return array_merge($items, $questionary);
 	}
+
+    public function frontendFooter()
+    {
+        $questionary = [];
+
+        $items = [
+            (object)[
+                'name' => trans('navigation.header.catalog'),
+                'route' => route('app.catalog.index'),
+            ],
+            (object)[
+                'name' => trans('navigation.header.about'),
+                'route' => route('app.about'),
+            ],
+            (object)[
+                'name' => trans('navigation.header.contacts'),
+                'route' => route('app.contacts'),
+            ],
+			(object)[
+				'name' => trans('navigation.header.terms'),
+				'route' => route('app.terms')
+			]
+        ];
+
+        if (Auth::check() && Question::count()) {
+            $questionary = [
+                (object)[
+                    'name' => trans('navigation.header.questionary'),
+                    'route' => route('app.questionary.index')
+                ]
+            ];
+        }
+
+        return array_merge($items, $questionary);
+    }
 
 	public function backend()
 	{

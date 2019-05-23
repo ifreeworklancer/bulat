@@ -15,7 +15,7 @@
 
             <div class="flex-grow-1">
                 <nav class="row font-weight-bold mb-5">
-                    @foreach(app('nav')->frontend() as $item)
+                    @foreach(app('nav')->frontendFooter() as $item)
                         <div class="col">
                             <a href="{{ $item->route }}">
                                 {!! $item->name !!}

@@ -4,7 +4,7 @@ return [
 	'home' => [
 		'title' => 'Главная',
 		'categories' => [
-			'title' => 'В нашем арсенале',
+			'title' => 'В нашем ассортименте',
 			'button' => 'Весь каталог',
 		],
 		'articles' => [

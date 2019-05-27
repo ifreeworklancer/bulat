@@ -6,7 +6,7 @@
         
         <div class="row categories">
             @foreach($categories as $category)
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-lg-4">
                     <a href="{{ route('app.catalog.index', ['category' => $category->slug]) }}" class="category">
                         <figure class="category__image mb-3 lozad"
                                 data-background-image="{{ $category->preview }}"></figure>

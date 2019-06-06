@@ -90,17 +90,11 @@ class Article extends Model implements HasMedia
 			 ->sharpen(10);
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getPreviewAttribute(): string
 	{
 		return $this->getFirstMediaUrl('articles', 'preview');
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getBannerAttribute(): string
 	{
 		return $this->getFirstMediaUrl('articles', 'banner');

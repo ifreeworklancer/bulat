@@ -51,7 +51,7 @@ class TagsController extends Controller
 		$tag = Tag::create($request->only('group_id'));
 		$tag->makeTranslation();
 
-		return \redirect()->route('admin.articles.tags.edit', $tag);
+		return \redirect()->route('admin.tags.edit', $tag);
 	}
 
 	/**
@@ -80,7 +80,7 @@ class TagsController extends Controller
 		$tag->update($request->only('group_id'));
 		$tag->updateTranslation();
 
-		return \redirect()->route('admin.articles.tags.edit', $tag);
+		return \redirect()->route('admin.tags.edit', $tag);
 	}
 
 	/**
@@ -91,6 +91,6 @@ class TagsController extends Controller
 	public function destroy(Tag $tag): RedirectResponse
 	{
 		$tag->delete();
-		return \redirect()->route('admin.articles.tags.index');
+		return \redirect()->route('admin.tags.index');
 	}
 }

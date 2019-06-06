@@ -24,7 +24,7 @@
 @includeIf('partials.app.layout.header')
 <main id="app" v-cloak>
     <div class="container container--auth d-flex flex-column justify-content-center">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-6">
                 @yield('content')
             </div>

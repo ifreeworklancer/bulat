@@ -45,7 +45,7 @@ class Slide extends Model implements HasMedia
 
 	public function getThumbAttribute()
 	{
-		return $this->getFirstMedia('slides', 'thumb');
+		return $this->getFirstMediaUrl('slides', 'thumb');
 	}
 
 	public function getBannerAttribute(): string

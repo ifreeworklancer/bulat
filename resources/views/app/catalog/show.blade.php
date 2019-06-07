@@ -105,9 +105,9 @@
                 <div class="mt-5">
                     <h5>@lang('pages.product.all_photos')</h5>
 
-                    <div class="row no-gutters">
+                    <div class="row no-gutters align-items-center">
                         @foreach($product->getMedia('uploads') as $photo)
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-sm-3 col-md-4 col-lg-2">
                                 <a href="{{ $photo->getUrl('banner') }}"
                                    data-fancybox="gallery"
                                    class="product-item__gallery-item lozad"

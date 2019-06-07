@@ -4,15 +4,15 @@ return [
     'header' => [
         'home' => 'Головна',
         'catalog' => 'Каталог',
-        'articles' => 'статті',
+        'articles' => 'Статті',
         'about' => 'Про нас',
         'contacts' => 'Контакти',
         'questionary' => 'Анкета',
         'dashboard' => 'Панель управління',
-        'terms' => 'Умова використання',
+        'terms' => 'Умови використання',
     ],
     'profile' => [
-        'profile' => 'профіль',
+        'profile' => 'Профіль',
         'favorites' => 'Вибране',
         'history' => 'Історія покупок',
         'applications' => 'Заявки на оцінку',

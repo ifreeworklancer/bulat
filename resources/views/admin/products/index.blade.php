@@ -85,7 +85,7 @@
                         @endforelse
                     </td>
                     <td class="text-center">{{ $product->views_count }}</td>
-                    <td width="150">{{ $product->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
+                    <td width="150" class="small">{{ $product->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
                     <td width="100">
                         <a href="{{ route('admin.products.edit', $product) }}"
                            class="btn btn-warning btn-squire">

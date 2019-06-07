@@ -41339,19 +41339,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (function () {
-  var $homeCarousel = document.getElementById('home-slider');
+  var $carousel = document.querySelector('.slider');
   var $dots = [];
   var $arrows = [];
 
-  if ($homeCarousel) {
-    var $homeSlider = $homeCarousel.querySelector('.slider');
-    $dots = Array.from($homeCarousel.querySelectorAll('.slider-nav-dot'));
-    $arrows = Array.from($homeCarousel.querySelectorAll('.slider-nav-arrow'));
-    var $slider = new flickity__WEBPACK_IMPORTED_MODULE_0___default.a($homeSlider, {
+  if ($carousel) {
+    $dots = Array.from(document.querySelectorAll('.slider-nav-dot'));
+    $arrows = Array.from(document.querySelectorAll('.slider-nav-arrow'));
+    var $slider = new flickity__WEBPACK_IMPORTED_MODULE_0___default.a($carousel, {
       prevNextButtons: false,
       pageDots: false,
       wrapAround: true,
-      autoPlay: 3000
+      autoPlay: 6000,
+      pauseAutoPlayOnHover: true
     });
     $dots.forEach(function ($dot, index) {
       $dot.addEventListener('click', function () {

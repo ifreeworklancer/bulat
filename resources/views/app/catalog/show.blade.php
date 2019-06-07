@@ -20,9 +20,36 @@
                 <div class="col-md-6">
                     <h1 class="h5">{{ $product->translate('title') }}</h1>
 
-                    <div class="position-relative mb-5">
-                        <img data-src="{{ $product->banner }}" class="lozad" alt="{{ $product->translate('title') }}">
-                    </div>
+                    @if ($product->hasMedia('uploads'))
+                        <div id="product-slider">
+                            <div class="slider mb-5">
+                                @foreach($product->getMedia('uploads') as $media)
+                                    <figure class="lozad slide m-0"
+                                            data-background-image="{{ $media->getFullUrl('banner') }}"></figure>
+                                @endforeach
+                            </div>
+
+                            <div class="slider-nav mx-auto">
+                                <div class="slider-nav-arrow" data-direction="previous">
+                                    <i class="material-icons">
+                                        keyboard_arrow_left
+                                    </i>
+                                </div>
+                                <ul class="slider-nav-dots">
+                                    @foreach($product->getMedia('uploads') as $slide)
+                                        <li class="text-center slider-nav-dot {{ $loop->index === 0 ? 'is-active' : '' }}">
+                                            <span>{{ sprintf('%02d', $loop->iteration) }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                <div class="slider-nav-arrow" data-direction="next">
+                                    <i class="material-icons">
+                                        keyboard_arrow_right
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="col-md-6 pl-md-4">
@@ -107,7 +134,7 @@
 
                 <div class="row justify-content-center">
                     @foreach($popular as $item)
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             @include('partials.app.catalog.preview', ['product' => $item])
                         </div>
                     @endforeach
@@ -123,14 +150,14 @@
 
 @push('scripts')
     <script>
-        function togglefavorites() {
-            const el = event.target;
-            event.preventDefault();
+      function togglefavorites() {
+        const el = event.target;
+        event.preventDefault();
 
-            axios.post('{{ route('app.catalog.favorites', $product) }}')
-                .then(function (response) {
-                    el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
-                });
-        }
+        axios.post('{{ route('app.catalog.favorites', $product) }}')
+            .then(function (response) {
+              el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
+            });
+      }
     </script>
 @endpush

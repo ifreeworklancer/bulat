@@ -80,7 +80,7 @@ class CatalogController extends Controller
 		return \view('app.catalog.show', [
 			'page' => $this->page,
 			'product' => $product,
-			'popular' => Product::orderByDesc('views_count')->take(3)->get(),
+			'popular' => Product::orderByDesc('views_count')->take(4)->get(),
 			'processing' => (bool)$processing,
 		]);
 	}

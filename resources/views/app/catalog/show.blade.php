@@ -20,6 +20,7 @@
                 <div class="col-md-6">
                     <h1 class="h5">{{ $product->translate('title') }}</h1>
 
+                    <!--
                     @if ($product->hasMedia('uploads'))
                         <div id="product-slider">
                             <div class="slider mb-5">
@@ -50,6 +51,8 @@
                             </div>
                         </div>
                     @endif
+                    -->
+                    <img data-src="{{ $product->banner }}" class="lozad" alt="{{ $product->translate('title') }}">
                 </div>
 
                 <div class="col-md-6 pl-md-4">
@@ -64,7 +67,6 @@
                                 @lang('common.currency')
                             </h4>
                         </div>
-
 
                         <div class="ml-auto">
                             @if (!$processing)
@@ -99,12 +101,12 @@
                 </div>
             </div>
 
-            @if($product->hasMedia('products'))
+            @if($product->hasMedia('uploads') && ($product->getMedia('uploads')->count() > 1))
                 <div class="mt-5">
                     <h5>@lang('pages.product.all_photos')</h5>
 
                     <div class="row no-gutters">
-                        @foreach($product->getMedia('products') as $photo)
+                        @foreach($product->getMedia('uploads') as $photo)
                             <div class="col-md-6 col-lg-4">
                                 <a href="{{ $photo->getUrl('banner') }}"
                                    data-fancybox="gallery"

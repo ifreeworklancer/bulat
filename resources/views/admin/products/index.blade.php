@@ -6,9 +6,16 @@
         <div class="d-flex align-items-center mb-5">
             <h1 class="h3 mb-0">Товары</h1>
             <div class="ml-4">
-                <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-                    Создать новый товар
-                </a>
+                @if (\App\Models\Catalog\Category::count())
+                    <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
+                        Создать новый товар
+                    </a>
+                @else
+                    Нужно
+                    <a href="{{ route('admin.categories.create') }}">
+                        Создать категорию
+                    </a>
+                @endif
 
                 @if (count(request()->query()) && (count(request()->except('page'))))
                     <a href="{{ route('admin.products.index') }}" class="btn btn-dark ml-4">

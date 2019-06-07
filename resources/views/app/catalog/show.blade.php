@@ -55,15 +55,14 @@
                 <div class="col-md-6 pl-md-4">
                     <div class="d-flex align-items-start align-items-lg-end mb-4">
                         <div>
-                            <small class="text-muted mr-3">@lang('pages.product.sku')</small>
+                            <small class="text-muted mr-3">@lang('pages.product.sku'):</small>
                             {{ $product->sku }}
-                            <div>
-                                <div class="price mt-4">
-                                    <small class="text-muted">@lang('pages.product.price')</small>
-                                    {{ number_format($product->price, 0, ',', ' ') }}
-                                    @lang('common.currency')
-                                </div>
-                            </div>
+
+                            <h4 class="price mt-4">
+                                <small class="text-muted">@lang('pages.product.price'):</small>
+                                {{ number_format($product->price, 0, ',', ' ') }}
+                                @lang('common.currency')
+                            </h4>
                         </div>
 
 

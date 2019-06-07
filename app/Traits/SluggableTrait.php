@@ -37,7 +37,6 @@ trait SluggableTrait
 	 */
 	public function getSlugTitleAttribute(): string
 	{
-	    dd(request()->all());
-		return request()->get('ua')['title'];
+		return request()->get('uk')['title'];
 	}
 }

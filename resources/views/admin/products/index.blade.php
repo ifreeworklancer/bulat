@@ -12,7 +12,7 @@
                     </a>
                 @else
                     Нужно
-                    <a href="{{ route('admin.categories.create') }}">
+                    <a href="{{ route('admin.categories.create') }}" class="btn btn-outline-primary">
                         Создать категорию
                     </a>
                 @endif

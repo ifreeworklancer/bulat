@@ -23,7 +23,7 @@
                         </a>
                     </td>
                     <td width="50">
-                        <a href="{{ route('admin.pages.edit', $article) }}"
+                        <a href="{{ route('admin.pages.edit', $page) }}"
                            class="btn btn-warning btn-squire">
                             <i class="i-pencil"></i>
                         </a>

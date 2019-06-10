@@ -44,9 +44,8 @@ class Category extends Model implements HasMedia
 			 ->sharpen(10);
 
 		$this->addMediaConversion('preview')
-			 ->fit(Manipulations::FIT_CROP, 368, 368)
 			 ->width(368)
-			 ->height(368)
+			 ->height(720)
 			 ->sharpen(10);
 	}
 

@@ -61,7 +61,7 @@
                                         <input type="checkbox" class="custom-control-input"
                                                id="category-{{ $category->id }}" name="categories[]"
                                                value="{{ $category->id }}">
-                                        <label class="custom-control-label nowrap"
+                                        <label class="custom-control-label"
                                                for="category-{{ $category->id }}">
                                             {{ $category->translate('title') }}
                                         </label>

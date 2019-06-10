@@ -93,9 +93,8 @@ class Product extends Model implements HasMedia
             ->sharpen(10);
 
         $this->addMediaConversion('preview')
-            ->fit(Manipulations::FIT_CROP, 368, 468)
-            ->width(368)
-            ->height(468)
+            ->width(480)
+            ->height(480)
             ->sharpen(10);
 
         $this->addMediaConversion('banner')
@@ -118,7 +117,7 @@ class Product extends Model implements HasMedia
     public function getPreviewAttribute(): string
     {
         return $this->hasMedia('uploads')
-            ? $this->getFirstMediaUrl('uploads', 'preview')
+            ? $this->getFirstMedia('uploads')->getFullUrl('preview')
             : asset('images/no-image.png');
     }
 
@@ -128,7 +127,7 @@ class Product extends Model implements HasMedia
     public function getBannerAttribute(): string
     {
         return $this->hasMedia('uploads')
-            ? $this->getFirstMediaUrl('uploads', 'banner')
+            ? $this->getFirstMedia('uploads')->getFullUrl('banner')
             : asset('images/no-image.png');
     }
 

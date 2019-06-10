@@ -38,9 +38,9 @@
 
                         <div class="ml-auto text-right">
                             @if ($product->in_stock)
-                                <div class="text-success">@lang('pages.product.in_stock')</div>
+                                <p class="text-success">@lang('pages.product.in_stock')</p>
                             @else
-                                <div class="text-danger">@lang('pages.product.out_of_stock')</div>
+                                <p class="text-danger">@lang('pages.product.out_of_stock')</p>
                             @endif
 
                             @if (!$processing)

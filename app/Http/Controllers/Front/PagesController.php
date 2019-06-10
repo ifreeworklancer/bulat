@@ -41,7 +41,7 @@ class PagesController extends Controller
 
     public function warranty(): View
     {
-        $page = Page::whereSlug('warranty')->first();
+        $page = Page::whereSlug('payment-and-delivery')->first();
         return view('app.pages.default', compact('page'));
     }
 }

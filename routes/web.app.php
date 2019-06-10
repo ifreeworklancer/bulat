@@ -10,7 +10,7 @@ Route::group([
 	Route::get('/', 'PagesController@index')->name('home');
 	Route::get('about', 'PagesController@about')->name('about');
 	Route::get('contacts', 'PagesController@contacts')->name('contacts');
-	Route::get('warranty', 'PagesController@warranty')->name('warranty');
+	Route::get('payment-and-delivery', 'PagesController@warranty')->name('warranty');
 	Route::get('terms-and-conditions', 'PagesController@termsAndConditions')->name('terms');
 	Route::view('thanks', 'app.pages.thanks')->name('thanks');
 

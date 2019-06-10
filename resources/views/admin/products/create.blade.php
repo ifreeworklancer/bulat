@@ -51,6 +51,7 @@
                         @endif
                     </div>
 
+                    <div class="form-group">
                     @if ($categories->count())
                         <label>Категории</label>
                         <div class="d-flex flex-wrap">
@@ -69,6 +70,15 @@
                             @endforeach
                         </div>
                     @endif
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="stock" name="is_stock" checked>
+                            <label class="custom-control-label" for="stock">Есть в наличии</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 

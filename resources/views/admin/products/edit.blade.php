@@ -15,7 +15,8 @@
                                 <div class="form-group{{ $errors->has($lang.'.title') ? ' is-invalid' : '' }}">
                                     <label for="title">Название товара</label>
                                     <input type="text" class="form-control" id="title" name="{{$lang}}[title]"
-                                           value="{{ old($lang.'.title') ?? $product->translate('title', $lang) }}" required>
+                                           value="{{ old($lang.'.title') ?? $product->translate('title', $lang) }}"
+                                           required>
                                     @if($errors->has($lang.'.title'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first($lang.'.title') }}
@@ -54,25 +55,35 @@
                         @endif
                     </div>
 
-                    @if ($categories->count())
-                        <label>Категории</label>
+                    <div class="form-group">
+                        @if ($categories->count())
+                            <label>Категории</label>
 
-                        <div class="d-flex flex-wrap">
-                            @foreach($categories as $category)
-                                <div class="border py-1 px-2 mr-3 mb-2 rounded">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="category-{{ $category->id }}" name="categories[]"
-                                               value="{{ $category->id }}" {{ $product->categories->pluck('id')->contains($category->id) ? 'checked' : '' }}>
-                                        <label class="custom-control-label nowrap"
-                                               for="category-{{ $category->id }}">
-                                            {{ $category->translate('title') }}
-                                        </label>
+                            <div class="d-flex flex-wrap">
+                                @foreach($categories as $category)
+                                    <div class="border py-1 px-2 mr-3 mb-2 rounded">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="category-{{ $category->id }}" name="categories[]"
+                                                   value="{{ $category->id }}" {{ $product->categories->pluck('id')->contains($category->id) ? 'checked' : '' }}>
+                                            <label class="custom-control-label nowrap"
+                                                   for="category-{{ $category->id }}">
+                                                {{ $category->translate('title') }}
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="stock" name="is_stock" {{ $product->in_stock ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="stock">Есть в наличии</label>
                         </div>
-                    @endif
+                    </div>
                 </div>
             </div>
 

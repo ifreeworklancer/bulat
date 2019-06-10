@@ -23,6 +23,10 @@ class Navigation
 				'name' => trans('navigation.header.about'),
 				'route' => route('app.about'),
 			],
+            (object)[
+               'name' => trans('navigation.header.warranty'),
+               'route' => route('app.warranty')
+            ],
 			(object)[
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),

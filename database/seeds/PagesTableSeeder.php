@@ -30,7 +30,7 @@ class PagesTableSeeder extends Seeder
             foreach (config('app.locales') as $lang) {
                 $page->translates()->updateOrCreate([
                     'lang' => $lang,
-                    'title' => trans('pages.'.$slug.'.title'),
+                    'title' => trans('pages.'.$slug.'.title', [], $lang),
                 ]);
             }
         }

@@ -12,10 +12,6 @@
     background-position: 50% 50%;
     background-size: cover;
     transition: 1s ease;
-
-    @media (min-width: map_get($grid-breakpoints, md)) {
-      height: rem-calc(270);
-    }
   }
 
   &:hover {

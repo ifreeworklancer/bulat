@@ -36,7 +36,7 @@
                             </h4>
                         </div>
 
-                        <div class="ml-auto">
+                        <div class="ml-auto text-right">
                             @if ($product->in_stock)
                                 <div class="text-success">@lang('pages.product.in_stock')</div>
                             @else

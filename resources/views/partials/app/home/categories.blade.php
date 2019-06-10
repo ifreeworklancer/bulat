@@ -9,7 +9,7 @@
                 <div class="col-lg-4">
                     <a href="{{ route('app.catalog.index', ['category' => $category->slug]) }}" class="category">
                         <figure class="category__image mb-3 lozad"
-                                data-background-image="{{ $category->preview }}"></figure>
+                                data-background-image="{{ $category->getFirstMedia('category')->getFullUrl() }}"></figure>
 
                         <h5 class="mb-0 text-center">{{ $category->translate('title') }}</h5>
                     </a>

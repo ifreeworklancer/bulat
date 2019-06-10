@@ -39,7 +39,7 @@
                     </block-editor>
                 </div>
 
-                <div class="col">
+                <div class="col-lg-3">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
                         <label for="price">Цена</label>
                         <input type="number" min="0.01" step="0.01" class="form-control" id="price" name="price"

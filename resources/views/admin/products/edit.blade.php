@@ -43,7 +43,7 @@
                     </block-editor>
                 </div>
 
-                <div class="col">
+                <div class="col-lg-3">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
                         <label for="price">Цена</label>
                         <input type="number" min="0.01" step="0.01" class="form-control" id="price" name="price"
@@ -87,14 +87,6 @@
                 </div>
             </div>
 
-            <div class="mt-4">
-                <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input"
-                           id="regenerate" name="regenerate">
-                    <label class="custom-control-label" for="regenerate">Сгенерировать новый слаг</label>
-                </div>
-            </div>
-
             <div class="mt-3 d-flex align-items-center">
                 <button class="btn btn-primary">Сохранить</button>
 
@@ -103,6 +95,14 @@
                            id="published" name="is_published"
                             {{ $product->is_published ? 'checked' : '' }}>
                     <label class="custom-control-label" for="published">Опубликовать</label>
+                </div>
+
+                <div class="ml-4">
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input"
+                               id="regenerate" name="regenerate">
+                        <label class="custom-control-label" for="regenerate">Сгенерировать новый слаг</label>
+                    </div>
                 </div>
             </div>
         </form>

@@ -29,6 +29,7 @@ class Product extends Model implements HasMedia
         'price',
         'is_published',
         'views_count',
+        'in_stock'
     ];
 
     protected $casts = [

@@ -10,7 +10,7 @@ return [
         'questionary' => 'Анкета',
         'dashboard' => 'Панель управління',
         'terms' => 'Умови використання',
-        'warranty' => 'Оплата і гарантії'
+        'warranty' => 'Оплата і доставка'
     ],
     'profile' => [
         'profile' => 'Профіль',

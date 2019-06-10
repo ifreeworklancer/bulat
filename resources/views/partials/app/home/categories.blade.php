@@ -3,7 +3,7 @@
         <h2 class="h1 text-center mb-5">
             @lang('pages.home.categories.title')
         </h2>
-        
+
         <div class="row categories">
             @foreach($categories as $category)
                 <div class="col-lg-4">
@@ -16,7 +16,7 @@
                 </div>
             @endforeach
         </div>
-        
+
         <div class="text-center mt-5">
             <a href="{{ route('app.catalog.index') }}" class="btn btn-primary h4 px-4 py-3 mb-0">
                 <i class="material-icons mr-2">all_inclusive</i>

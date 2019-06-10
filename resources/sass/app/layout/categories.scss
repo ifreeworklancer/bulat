@@ -8,7 +8,7 @@
   margin-bottom: $grid-gutter-width * 1.5;
 
   &__image {
-    height: rem-calc(320);
+    padding-top: 67%;
     background-position: 50% 50%;
     background-size: cover;
     transition: 1s ease;

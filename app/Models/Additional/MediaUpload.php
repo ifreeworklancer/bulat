@@ -31,8 +31,8 @@ class MediaUpload extends Model implements HasMedia
 			 ->sharpen(10);
 
 		$this->addMediaConversion('banner')
-			 ->width(1920)
-			 ->height(1920)
+			 ->width(1200)
+			 ->height(1200)
 			 ->sharpen(10);
 	}
 }

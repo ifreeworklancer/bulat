@@ -35,7 +35,7 @@
                     @endguest
 
                     <div class="form-group">
-                        <label for="message">@lang('forms.message')</label>
+                        <label for="message">@lang('forms.message.question')</label>
                         <textarea class="form-control" id="message" name="message">{{ old('message') }}</textarea>
                     </div>
 

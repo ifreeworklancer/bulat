@@ -20,38 +20,6 @@
                 <div class="col-md-6">
                     <h1 class="h5">{{ $product->translate('title') }}</h1>
 
-                    <!--
-                    @if ($product->hasMedia('uploads'))
-                        <div id="product-slider">
-                            <div class="slider mb-5">
-                                @foreach($product->getMedia('uploads') as $media)
-                                    <figure class="lozad slide m-0"
-                                            data-background-image="{{ $media->getFullUrl('banner') }}"></figure>
-                                @endforeach
-                            </div>
-
-                            <div class="slider-nav mx-auto">
-                                <div class="slider-nav-arrow" data-direction="previous">
-                                    <i class="material-icons">
-                                        keyboard_arrow_left
-                                    </i>
-                                </div>
-                                <ul class="slider-nav-dots">
-                                    @foreach($product->getMedia('uploads') as $slide)
-                                        <li class="text-center slider-nav-dot {{ $loop->index === 0 ? 'is-active' : '' }}">
-                                            <span>{{ sprintf('%02d', $loop->iteration) }}</span>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                <div class="slider-nav-arrow" data-direction="next">
-                                    <i class="material-icons">
-                                        keyboard_arrow_right
-                                    </i>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                    -->
                     <img data-src="{{ $product->banner }}" class="lozad" alt="{{ $product->translate('title') }}">
                 </div>
 

@@ -14,7 +14,7 @@ class AddInStockFieldToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('in_stock');
+            $table->boolean('in_stock')->default(0)->after('price');
         });
     }
 

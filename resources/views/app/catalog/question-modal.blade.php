@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                         <label for="message">@lang('forms.message.question')</label>
-                        <textarea class="form-control" id="message" name="message">{{ old('message') }}</textarea>
+                        <textarea class="form-control border" id="message" name="message">{{ old('message') }}</textarea>
                     </div>
 
                     <button class="btn btn-primary">@lang('forms.buttons.question')</button>

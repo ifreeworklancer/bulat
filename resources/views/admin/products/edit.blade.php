@@ -82,7 +82,7 @@
             <div class="form-group my-4">
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"
-                           id="stock" name="is_stock" {{ $product->in_stock ? 'checked' : '' }}>
+                           id="stock" name="in_stock" {{ $product->in_stock ? 'checked' : '' }}>
                     <label class="custom-control-label" for="stock">Есть в наличии</label>
                 </div>
             </div>

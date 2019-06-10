@@ -65,7 +65,7 @@ class ProductsController extends Controller
 		$product = Product::create([
 			'price' => $request->input('price'),
 			'is_published' => $request->has('is_published'),
-            'is_stock' => $request->has('is_stock')
+            'in_stock' => $request->has('in_stock')
 		]);
 		$product->makeTranslation();
 		$product->categories()->attach($request->input('categories', []));
@@ -110,7 +110,7 @@ class ProductsController extends Controller
 		$product->update([
 			'price' => $request->input('price'),
 			'is_published' => $request->has('is_published'),
-            'is_stock' => $request->has('is_stock')
+            'in_stock' => $request->has('in_stock')
 		]);
 
 		if ($request->has('media')) {

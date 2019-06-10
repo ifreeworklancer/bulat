@@ -22,7 +22,9 @@ class MediaController extends Controller
 		if ($request->hasFile('image')) {
 			/** @var MediaUpload $media */
 			$media = MediaUpload::create();
-			$media->addMediaFromRequest('image')->toMediaCollection('uploads');
+			$media->addMediaFromRequest('image')
+                ->usingFileName(create_file_name($request->file('image')))
+                ->toMediaCollection('uploads');
 		}
 
 		return response()->json($media ? new ImageResource($media->getFirstMedia('uploads')) : null);

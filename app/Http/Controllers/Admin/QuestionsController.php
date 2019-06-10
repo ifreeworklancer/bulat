@@ -83,7 +83,7 @@ class QuestionsController extends Controller
         /** @var Question $question */
         $question->update($request->only('order'));
         $question->updateTranslation();
-//dd($request->all());
+
         if ($request->filled('variant')) {
             foreach ($question->variants as $variant) {
                 foreach (config('app.locales') as $lang) {

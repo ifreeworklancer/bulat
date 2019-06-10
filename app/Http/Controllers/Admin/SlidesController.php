@@ -53,7 +53,9 @@ class SlidesController extends Controller
 		$slide = Slide::create($this->handleRequest($request));
 
 		if ($request->hasFile('image')) {
-			$slide->addMediaFromRequest('image')->toMediaCollection('slides');
+			$slide->addMediaFromRequest('image')
+                ->usingFileName(create_file_name($request->file('image')))
+                ->toMediaCollection('slides');
 		}
 
 		return \redirect()->route('admin.slides.edit', $slide);
@@ -71,7 +73,9 @@ class SlidesController extends Controller
 
 		if ($request->hasFile('image')) {
 			$slide->clearMediaCollection('slides');
-			$slide->addMediaFromRequest('image')->toMediaCollection('slides');
+			$slide->addMediaFromRequest('image')
+                ->usingFileName(create_file_name($request->file('image')))
+                ->toMediaCollection('slides');
 		}
 
 		return \back();

@@ -89,7 +89,7 @@ return [
         'ordered' => 'Уже заказано',
         'question' => 'Задать вопрос',
         'in_stock' => 'Есть в наличии',
-        'out_of_stock' => 'Нет в наличии'
+        'out_of_stock' => 'Под заказ'
     ],
 
     'questionary' => [

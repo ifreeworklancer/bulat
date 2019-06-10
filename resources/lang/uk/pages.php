@@ -77,7 +77,7 @@ return [
         'ordered' => 'вже замовлено',
         'question' => 'Задати питання',
         'in_stock' => 'Є в наявності',
-        'out_of_stock' => 'Немає в наявності',
+        'out_of_stock' => 'Під замовлення',
     ],
     'questionary' => [
         'title' => 'Анкета',

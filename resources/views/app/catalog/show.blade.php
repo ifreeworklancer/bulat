@@ -37,6 +37,12 @@
                         </div>
 
                         <div class="ml-auto">
+                            @if ($product->in_stock)
+                                <div class="text-success">@lang('pages.product.in_stock')</div>
+                            @else
+                                <div class="text-danger">@lang('pages.product.out_of_stock')</div>
+                            @endif
+
                             @if (!$processing)
                                 <button class="btn btn-primary h4 px-4 py-3 mb-0"
                                         data-toggle="modal"

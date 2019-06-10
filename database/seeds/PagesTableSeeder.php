@@ -18,6 +18,7 @@ class PagesTableSeeder extends Seeder
             'contacts',
             'catalog',
             'terms-and-conditions',
+            'warranty'
         ];
 
         foreach ($pages as $slug) {

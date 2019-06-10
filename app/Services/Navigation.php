@@ -145,6 +145,12 @@ class Navigation
 				'icon' => 'i-image',
 				'submenu' => null,
 			]),
+            new NavigationElement([
+                'name' => 'Страницы',
+                'route' => 'pages',
+                'icon' => 'i-book',
+                'submenu' => null,
+            ]),
 			new NavigationElement([
 				'name' => 'Пользователи',
 				'route' => 'users',

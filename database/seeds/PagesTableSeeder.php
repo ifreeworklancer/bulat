@@ -23,13 +23,13 @@ class PagesTableSeeder extends Seeder
 
         foreach ($pages as $slug) {
             /** @var Page $page */
-            $page = Page::create([
+            $page = Page::firstOrCreate([
                 'slug' => $slug,
             ]);
 
             foreach (config('app.locales') as $lang) {
                 app()->setLocale($lang);
-                $page->translates()->create([
+                $page->translates()->updateOrCreate([
                     'lang' => $lang,
                     'title' => trans('pages.'.$slug.'.title'),
                 ]);

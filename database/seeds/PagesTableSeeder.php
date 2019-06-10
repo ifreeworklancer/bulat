@@ -28,7 +28,6 @@ class PagesTableSeeder extends Seeder
             ]);
 
             foreach (config('app.locales') as $lang) {
-                app()->setLocale($lang);
                 $page->translates()->updateOrCreate([
                     'lang' => $lang,
                     'title' => trans('pages.'.$slug.'.title'),

@@ -99,8 +99,8 @@ class Product extends Model implements HasMedia
             ->sharpen(10);
 
         $this->addMediaConversion('banner')
-            ->width(620)
-            ->height(1000)
+            ->width(1200)
+            ->height(1200)
             ->sharpen(10);
     }
 

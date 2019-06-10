@@ -34,6 +34,7 @@ class Product extends Model implements HasMedia
 
     protected $casts = [
         'views_count' => 'integer',
+        'in_stock' => 'boolean'
     ];
 
     /**

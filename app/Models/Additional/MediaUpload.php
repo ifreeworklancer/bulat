@@ -24,11 +24,10 @@ class MediaUpload extends Model implements HasMedia
 			 ->height(100)
 			 ->sharpen(10);
 
-		$this->addMediaConversion('preview')
-			 ->fit(Manipulations::FIT_CROP, 368, 468)
-			 ->width(368)
-			 ->height(468)
-			 ->sharpen(10);
+        $this->addMediaConversion('preview')
+            ->width(480)
+            ->height(480)
+            ->sharpen(10);
 
 		$this->addMediaConversion('banner')
 			 ->width(1200)

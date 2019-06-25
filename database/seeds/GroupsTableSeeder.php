@@ -18,10 +18,10 @@ class GroupsTableSeeder extends Seeder
 		for ($i = 3; $i; $i--) {
 			$data = [
 				'ru' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
-				'en' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
+				'uk' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 			];
 
-			$slug = SlugService::createSlug(Group::class, 'slug', $data['en']['title']);
+			$slug = SlugService::createSlug(Group::class, 'slug', $data['uk']['title']);
 
 			/** @var \App\Models\Article\Group $group */
 			$group = \App\Models\Article\Group::create(['slug' => $slug]);

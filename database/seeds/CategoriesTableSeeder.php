@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Catalog\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Seeder;
 
@@ -12,26 +13,24 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-		$faker = Faker\Factory::create();
+        $faker = Faker\Factory::create();
 
-		for ($i = 6; $i; $i--) {
-			$data = [
-				'ru' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
-				'en' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
-			];
+        for ($i = 6; $i; $i--) {
+            $data = [
+                'ru' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
+                'uk' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
+            ];
 
-			$slug = SlugService::createSlug(\App\Models\Catalog\Category::class, 'slug', $data['en']['title']);
+            $slug = SlugService::createSlug(Category::class, 'slug', $data['ru']['title']);
 
-			$category = \App\Models\Catalog\Category::create(['slug' => $slug]);
+            $category = Category::create(['slug' => $slug]);
 
-			collect(config('app.locales'))->each(function ($lang) use ($category, $data) {
-				$category->translates()->create([
-					'lang' => $lang,
-					'title' => $data[$lang]['title'],
-				]);
-			});
-
-			$category->addMediaFromUrl($faker->imageUrl(1280, 768))->toMediaCollection('category');
-		}
+            collect(config('app.locales'))->each(function ($lang) use ($category, $data) {
+                $category->translates()->create([
+                    'lang' => $lang,
+                    'title' => $data[$lang]['title'],
+                ]);
+            });
+        }
     }
 }

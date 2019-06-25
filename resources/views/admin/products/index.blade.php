@@ -61,7 +61,7 @@
                 <th>Название</th>
                 <th>Категория</th>
                 <th>Просмотры</th>
-                <th>Дата создания</th>
+                <th class="text-center">Порядок</th>
                 <th></th>
             </tr>
             </thead>
@@ -85,7 +85,39 @@
                         @endforelse
                     </td>
                     <td class="text-center">{{ $product->views_count }}</td>
-                    <td width="150" class="small">{{ $product->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
+                    <td width="150" class="small">
+                        <div class="d-flex text-center mb-2">
+                            <form action="{{ route('admin.products.sort', [$product, 'up']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&uparrow;</button>
+                            </form>
+
+                            <form action="{{ route('admin.products.sort', [$product, 'down']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&downarrow;</button>
+                            </form>
+                        </div>
+
+                        <div class="d-flex text-center mb-2">
+                            <form action="{{ route('admin.products.sort', [$product, 'start']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&starf;</button>
+                            </form>
+
+                            <form action="{{ route('admin.products.sort', [$product, 'end']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&star;</button>
+                            </form>
+                        </div>
+                    </td>
                     <td width="100">
                         <a href="{{ route('admin.products.edit', $product) }}"
                            class="btn btn-warning btn-squire">

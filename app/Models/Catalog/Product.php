@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Auth;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Exceptions\InvalidManipulation;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -20,16 +22,22 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 use Talanoff\ImpressionAdmin\Traits\Translatable;
 
-class Product extends Model implements HasMedia
+class Product extends Model implements HasMedia, Sortable
 {
-    use SluggableTrait, Translatable, HasMediaTrait, SoftDeletes;
+    use SluggableTrait, SortableTrait, Translatable, HasMediaTrait, SoftDeletes;
+
+    public $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+    ];
 
     protected $fillable = [
         'slug',
         'price',
         'is_published',
         'views_count',
-        'in_stock'
+        'in_stock',
+        'sort_order'
     ];
 
     protected $casts = [
@@ -152,8 +160,8 @@ class Product extends Model implements HasMedia
     {
         parent::boot();
 
-        self::addGlobalScope('ordered', function (Builder $builder) {
-            $builder->latest();
+        self::addGlobalScope('sortById', function (Builder $builder) {
+            $builder->orderByDesc('in_stock')->orderBy('sort_order');
         });
     }
 }

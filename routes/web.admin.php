@@ -18,8 +18,11 @@ Route::group([
     Route::resource('groups', 'GroupsController')->except(['show']);
     Route::resource('tags', 'TagsController')->except(['show']);
 
-    Route::resource('categories', 'CategoriesController')->except(['show']);
     Route::resource('products', 'ProductsController')->except(['show']);
+    Route::post('products/order/{product}/{direction}', 'ProductsController@sortOrder')
+        ->name('products.sort');
+
+    Route::resource('categories', 'CategoriesController')->except(['show']);
     Route::resource('orders', 'OrdersController')->except(['create', 'destroy']);
 
     Route::resource('users', 'UsersController')->except(['create', 'store']);

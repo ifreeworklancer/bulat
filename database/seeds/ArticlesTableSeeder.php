@@ -23,13 +23,13 @@ class ArticlesTableSeeder extends Seeder
 					'title' => ucfirst($faker->words(rand(3, 8), true)),
 					'body' => '<p>' . implode('</p><p>', $faker->sentences(rand(10, 15))) . '</p>',
 				],
-				'en' => [
+				'uk' => [
 					'title' => ucfirst($faker->words(rand(3, 8), true)),
 					'body' => '<p>' . implode('</p><p>', $faker->sentences(rand(10, 15))) . '</p>',
 				],
 			];
 
-			$slug = SlugService::createSlug(Article::class, 'slug', $data['en']['title']);
+			$slug = SlugService::createSlug(Article::class, 'slug', $data['uk']['title']);
 
 			/** @var Article $article */
 			$article = Article::create([
@@ -46,10 +46,6 @@ class ArticlesTableSeeder extends Seeder
 			});
 
 			$article->tags()->attach(Tag::inRandomOrder()->take(rand(3, 6))->pluck('id')->all());
-
-			$article->clearMediaCollection('articles');
-			$article->addMediaFromUrl($faker->imageUrl(1920, 1080))
-					->toMediaCollection('articles');
 		}
 	}
 }

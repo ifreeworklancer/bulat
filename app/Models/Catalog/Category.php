@@ -44,9 +44,8 @@ class Category extends Model implements HasMedia
 			 ->sharpen(10);
 
 		$this->addMediaConversion('preview')
-			 ->fit(Manipulations::FIT_CROP, 368, 368)
-			 ->width(368)
-			 ->height(368)
+			 ->width(480)
+			 ->height(480)
 			 ->sharpen(10);
 	}
 
@@ -56,7 +55,7 @@ class Category extends Model implements HasMedia
 	public function getPreviewAttribute(): string
 	{
 		return $this->hasMedia('category')
-			? $this->getFirstMediaUrl('category', 'preview')
+			? $this->getFirstMedia('category')->getFullUrl('preview')
 			: asset('images/no-image.png');
 	}
 }

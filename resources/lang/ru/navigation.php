@@ -5,11 +5,12 @@ return [
 		'home' => 'Главная',
 		'catalog' => 'Каталог',
 		'articles' => 'Статьи',
-		'about' => 'О нас',
+		'about' => '<nobr>О нас</nobr>',
 		'contacts' => 'Контакты',
 		'questionary' => 'Анкета',
 		'dashboard' => 'Панель управления',
-		'terms' => 'Условие использования',
+		'terms' => 'Условия использования',
+        'warranty' => 'Оплата и доставка'
 	],
 
 	'profile' => [

@@ -23,6 +23,10 @@ class Navigation
 				'name' => trans('navigation.header.about'),
 				'route' => route('app.about'),
 			],
+            (object)[
+               'name' => trans('navigation.header.warranty'),
+               'route' => route('app.warranty')
+            ],
 			(object)[
 				'name' => trans('navigation.header.contacts'),
 				'route' => route('app.contacts'),
@@ -145,6 +149,12 @@ class Navigation
 				'icon' => 'i-image',
 				'submenu' => null,
 			]),
+            new NavigationElement([
+                'name' => 'Страницы',
+                'route' => 'pages',
+                'icon' => 'i-book',
+                'submenu' => null,
+            ]),
 			new NavigationElement([
 				'name' => 'Пользователи',
 				'route' => 'users',

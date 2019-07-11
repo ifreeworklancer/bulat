@@ -15,7 +15,8 @@
                                 <div class="form-group{{ $errors->has($lang.'.title') ? ' is-invalid' : '' }}">
                                     <label for="title">Название товара</label>
                                     <input type="text" class="form-control" id="title" name="{{$lang}}[title]"
-                                           value="{{ old($lang.'.title') ?? $product->translate('title', $lang) }}" required>
+                                           value="{{ old($lang.'.title') ?? $product->translate('title', $lang) }}"
+                                           required>
                                     @if($errors->has($lang.'.title'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first($lang.'.title') }}
@@ -42,7 +43,7 @@
                     </block-editor>
                 </div>
 
-                <div class="col">
+                <div class="col-lg-3">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
                         <label for="price">Цена</label>
                         <input type="number" min="0.01" step="0.01" class="form-control" id="price" name="price"
@@ -54,37 +55,39 @@
                         @endif
                     </div>
 
-                    @if ($categories->count())
-                        <label>Категории</label>
+                    <div class="form-group">
+                        @if ($categories->count())
+                            <label>Категории</label>
 
-                        <div class="d-flex flex-wrap">
-                            @foreach($categories as $category)
-                                <div class="border py-1 px-2 mr-3 mb-2 rounded">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="category-{{ $category->id }}" name="categories[]"
-                                               value="{{ $category->id }}" {{ $product->categories->pluck('id')->contains($category->id) ? 'checked' : '' }}>
-                                        <label class="custom-control-label nowrap"
-                                               for="category-{{ $category->id }}">
-                                            {{ $category->translate('title') }}
-                                        </label>
+                            <div class="d-flex flex-wrap">
+                                @foreach($categories as $category)
+                                    <div class="border py-1 px-2 mr-3 mb-2 rounded">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="category-{{ $category->id }}" name="categories[]"
+                                                   value="{{ $category->id }}" {{ $product->categories->pluck('id')->contains($category->id) ? 'checked' : '' }}>
+                                            <label class="custom-control-label"
+                                                   for="category-{{ $category->id }}">
+                                                {{ $category->translate('title') }}
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @endif
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
 
-            <div class="mt-4">
+            <div class="form-group my-4">
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"
-                           id="regenerate" name="regenerate">
-                    <label class="custom-control-label" for="regenerate">Сгенерировать новый слаг</label>
+                           id="stock" name="in_stock" {{ $product->in_stock ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="stock">Есть в наличии</label>
                 </div>
             </div>
 
-            <div class="mt-3 d-flex align-items-center">
+            <div class="d-flex align-items-center">
                 <button class="btn btn-primary">Сохранить</button>
 
                 <div class="custom-control custom-checkbox ml-3">
@@ -92,6 +95,14 @@
                            id="published" name="is_published"
                             {{ $product->is_published ? 'checked' : '' }}>
                     <label class="custom-control-label" for="published">Опубликовать</label>
+                </div>
+
+                <div class="ml-4">
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input"
+                               id="regenerate" name="regenerate">
+                        <label class="custom-control-label" for="regenerate">Сгенерировать новый слаг</label>
+                    </div>
                 </div>
             </div>
         </form>

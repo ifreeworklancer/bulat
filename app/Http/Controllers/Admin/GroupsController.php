@@ -39,7 +39,7 @@ class GroupsController extends Controller
 		$group = Group::create();
 		$group->makeTranslation();
 
-		return \redirect()->route('admin.articles.groups.edit', $group);
+		return \redirect()->route('admin.groups.edit', $group);
 	}
 
 	/**
@@ -65,7 +65,7 @@ class GroupsController extends Controller
 
 		$group->updateTranslation();
 
-		return \redirect()->route('admin.articles.groups.edit', $group);
+		return \redirect()->route('admin.groups.edit', $group);
 	}
 
 	/**
@@ -76,6 +76,6 @@ class GroupsController extends Controller
 	public function destroy(Group $group)
 	{
 		$group->delete();
-		return \redirect()->route('admin.articles.groups.index');
+		return \redirect()->route('admin.groups.index');
 	}
 }

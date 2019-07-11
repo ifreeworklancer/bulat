@@ -43,17 +43,11 @@ class Slide extends Model implements HasMedia
 			 ->sharpen(10);
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getThumbAttribute(): string
+	public function getThumbAttribute()
 	{
 		return $this->getFirstMediaUrl('slides', 'thumb');
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getBannerAttribute(): string
 	{
 		return $this->getFirstMediaUrl('slides', 'banner');

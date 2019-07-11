@@ -39,7 +39,7 @@
                     </block-editor>
                 </div>
 
-                <div class="col">
+                <div class="col-lg-3">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
                         <label for="price">Цена</label>
                         <input type="number" min="0.01" step="0.01" class="form-control" id="price" name="price"
@@ -51,6 +51,7 @@
                         @endif
                     </div>
 
+                    <div class="form-group">
                     @if ($categories->count())
                         <label>Категории</label>
                         <div class="d-flex flex-wrap">
@@ -60,7 +61,7 @@
                                         <input type="checkbox" class="custom-control-input"
                                                id="category-{{ $category->id }}" name="categories[]"
                                                value="{{ $category->id }}">
-                                        <label class="custom-control-label nowrap"
+                                        <label class="custom-control-label"
                                                for="category-{{ $category->id }}">
                                             {{ $category->translate('title') }}
                                         </label>
@@ -69,10 +70,19 @@
                             @endforeach
                         </div>
                     @endif
+                    </div>
                 </div>
             </div>
 
-            <div class="mt-4 d-flex align-items-center">
+            <div class="form-group my-4">
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input"
+                           id="stock" name="in_stock" checked>
+                    <label class="custom-control-label" for="stock">Есть в наличии</label>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
                 <button class="btn btn-primary">Сохранить</button>
 
                 <div class="custom-control custom-checkbox ml-3">

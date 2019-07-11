@@ -4,15 +4,16 @@ return [
     'header' => [
         'home' => 'Головна',
         'catalog' => 'Каталог',
-        'articles' => 'статті',
-        'about' => 'Про нас',
+        'articles' => 'Статті',
+        'about' => '<nobr>Про нас</nobr>',
         'contacts' => 'Контакти',
         'questionary' => 'Анкета',
         'dashboard' => 'Панель управління',
-        'terms' => 'Умова використання',
+        'terms' => 'Умови використання',
+        'warranty' => 'Оплата і доставка'
     ],
     'profile' => [
-        'profile' => 'профіль',
+        'profile' => 'Профіль',
         'favorites' => 'Вибране',
         'history' => 'Історія покупок',
         'applications' => 'Заявки на оцінку',

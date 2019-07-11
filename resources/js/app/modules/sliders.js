@@ -1,20 +1,20 @@
 import Flickity from 'flickity'
 
 (function () {
-  const $homeCarousel = document.getElementById('home-slider');
+  const $carousel = document.querySelector('.slider');
   let $dots = [];
   let $arrows = [];
 
-  if ($homeCarousel) {
-    const $homeSlider = $homeCarousel.querySelector('.slider');
-    $dots = Array.from($homeCarousel.querySelectorAll('.slider-nav-dot'));
-    $arrows = Array.from($homeCarousel.querySelectorAll('.slider-nav-arrow'));
+  if ($carousel) {
+    $dots = Array.from(document.querySelectorAll('.slider-nav-dot'));
+    $arrows = Array.from(document.querySelectorAll('.slider-nav-arrow'));
 
-    const $slider = new Flickity($homeSlider, {
+    const $slider = new Flickity($carousel, {
       prevNextButtons: false,
       pageDots: false,
       wrapAround: true,
-      autoPlay: 3000
+      autoPlay: 6000,
+      pauseAutoPlayOnHover: true
     });
 
     $dots.forEach(($dot, index) => {

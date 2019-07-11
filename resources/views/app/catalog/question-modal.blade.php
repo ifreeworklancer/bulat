@@ -12,8 +12,8 @@
 
                     @guest
                         <div class="form-group{{ $errors->has('name') ? ' is-invalid' : '' }}">
-                            <label for="name">@lang('forms.name')</label>
-                            <input type="text" class="form-control" id="name" name="name"
+                            <label for="name" class="small">@lang('forms.name')</label>
+                            <input type="text" class="form-control border" id="name" name="name"
                                    value="{{ old('name') }}" required>
                             @if($errors->has('name'))
                                 <div class="mt-1 text-danger">
@@ -23,8 +23,8 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('contact') ? ' is-invalid' : '' }}">
-                            <label for="contact">@lang('forms.contact')</label>
-                            <input type="text" class="form-control" id="contact" name="contact"
+                            <label for="contact" class="small">@lang('forms.contact')</label>
+                            <input type="text" class="form-control border" id="contact" name="contact"
                                    value="{{ old('contact') }}" required>
                             @if($errors->has('contact'))
                                 <div class="mt-1 text-danger">
@@ -35,8 +35,8 @@
                     @endguest
 
                     <div class="form-group">
-                        <label for="message">@lang('forms.message')</label>
-                        <textarea class="form-control" id="message" name="message">{{ old('message') }}</textarea>
+                        <label for="message" class="small">@lang('forms.message.question')</label>
+                        <textarea class="form-control border" id="message" name="message">{{ old('message') }}</textarea>
                     </div>
 
                     <button class="btn btn-primary">@lang('forms.buttons.question')</button>

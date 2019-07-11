@@ -50,17 +50,22 @@
                 <div class="col-md-6 pl-md-4">
                     <div class="d-flex align-items-start align-items-lg-end mb-4">
                         <div>
-                            <small class="text-muted mr-3">@lang('pages.product.sku')</small>
+                            <small class="text-muted mr-3">@lang('pages.product.sku'):</small>
                             {{ $product->sku }}
-                            <div>
-                                <div class="price mt-4">
-                                    <small class="text-muted">@lang('pages.product.price')</small>
-                                    {{ number_format($product->price, 0, ',', ' ') }}
-                                    @lang('common.currency')
-                                </div>
-                            </div>
+
+                            <h4 class="price mt-4">
+                                <small class="text-muted">@lang('pages.product.price'):</small>
+                                {{ number_format($product->price, 0, ',', ' ') }}
+                                @lang('common.currency')
+                            </h4>
                         </div>
 
+                        <div class="ml-auto text-right">
+                            @if ($product->in_stock)
+                                <p class="text-success">@lang('pages.product.in_stock')</p>
+                            @else
+                                <p class="text-danger">@lang('pages.product.out_of_stock')</p>
+                            @endif
 
                         <div class="ml-auto">
                             @if (!$processing)
@@ -112,7 +117,7 @@
 
                 <div class="row justify-content-center">
                     @foreach($popular as $item)
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-3">
                             @include('partials.app.catalog.preview', ['product' => $item])
                         </div>
                     @endforeach
@@ -128,14 +133,14 @@
 
 @push('scripts')
     <script>
-        function togglefavorites() {
-            const el = event.target;
-            event.preventDefault();
+      function togglefavorites() {
+        const el = event.target;
+        event.preventDefault();
 
-            axios.post('{{ route('app.catalog.favorites', $product) }}')
-                .then(function (response) {
-                    el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
-                });
-        }
+        axios.post('{{ route('app.catalog.favorites', $product) }}')
+            .then(function (response) {
+              el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
+            });
+      }
     </script>
 @endpush

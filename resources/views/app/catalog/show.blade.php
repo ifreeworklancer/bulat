@@ -21,7 +21,29 @@
                     <h1 class="h5">{{ $product->translate('title') }}</h1>
 
                     <div class="position-relative mb-5">
-                        <img data-src="{{ $product->banner }}" class="lozad" alt="{{ $product->translate('title') }}">
+                        <a href="{{ $product->banner }}">
+                            <img data-src="{{ $product->banner }}" class="lozad"
+                                 alt="{{ $product->translate('title') }}" data-fancybox="gallery"
+                                 data-background-image="{{ $product->banner }}">
+                        </a>
+
+                        @if($product->hasMedia('products'))
+                            <div class="mt-4">
+                                <h5>@lang('pages.product.all_photos')</h5>
+
+                                <div class="row no-gutters">
+                                    @foreach($product->getMedia('products') as $photo)
+                                        <div class="col-md-6 col-lg-4">
+                                            <a href="{{ $photo->getUrl('banner') }}"
+                                               data-fancybox="gallery"
+                                               class="product-item__gallery-item lozad"
+                                               data-background-image="{{$photo->getUrl('preview')}}">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -73,23 +95,6 @@
                 </div>
             </div>
 
-            @if($product->hasMedia('products'))
-                <div class="mt-5">
-                    <h5>@lang('pages.product.all_photos')</h5>
-
-                    <div class="row no-gutters">
-                        @foreach($product->getMedia('products') as $photo)
-                            <div class="col-md-6 col-lg-4">
-                                <a href="{{ $photo->getUrl('banner') }}"
-                                   data-fancybox="gallery"
-                                   class="product-item__gallery-item lozad"
-                                   data-background-image="{{$photo->getUrl('preview')}}">
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
         </div>
     </section>
 

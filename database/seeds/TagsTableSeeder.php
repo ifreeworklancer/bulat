@@ -18,6 +18,7 @@ class TagsTableSeeder extends Seeder
 		foreach (\App\Models\Article\Group::get() as $group) {
 			for ($i = rand(3, 6); $i; $i--) {
 				$data = [
+					'uk' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 					'ru' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 					'en' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 				];

@@ -19,6 +19,10 @@ class ArticlesTableSeeder extends Seeder
 
 		for ($i = 10; $i; $i--) {
 			$data = [
+                'uk' => [
+                    'title' => ucfirst($faker->words(rand(3, 8), true)),
+                    'body' => '<p>' . implode('</p><p>', $faker->sentences(rand(10, 15))) . '</p>',
+                ],
 				'ru' => [
 					'title' => ucfirst($faker->words(rand(3, 8), true)),
 					'body' => '<p>' . implode('</p><p>', $faker->sentences(rand(10, 15))) . '</p>',

@@ -17,6 +17,7 @@ class GroupsTableSeeder extends Seeder
 
 		for ($i = 3; $i; $i--) {
 			$data = [
+				'uk' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 				'ru' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 				'en' => ['title' => ucfirst($faker->words(rand(2, 3), true))],
 			];

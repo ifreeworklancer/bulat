@@ -17,6 +17,11 @@ class ProductsTableSeeder extends Seeder
 
 		for ($i = 0; $i < 30; $i++) {
 			$data = [
+                'uk' => [
+                    'title' => ucfirst($faker->words(rand(2, 3), true)),
+                    'description' => $faker->sentence(rand(6, 12)),
+                    'body' => $faker->sentences(rand(3, 5), true),
+                ],
 				'ru' => [
 					'title' => ucfirst($faker->words(rand(2, 3), true)),
 					'description' => $faker->sentence(rand(6, 12)),

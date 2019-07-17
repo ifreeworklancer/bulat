@@ -27,12 +27,12 @@
                                  data-background-image="{{ $product->banner }}">
                         </a>
 
-                        @if($product->hasMedia('products'))
+                        @if($product->hasMedia('uploads'))
                             <div class="mt-4">
                                 <h5>@lang('pages.product.all_photos')</h5>
 
                                 <div class="row no-gutters">
-                                    @foreach($product->getMedia('products') as $photo)
+                                    @foreach($product->getMedia('uploads') as $photo)
                                         <div class="col-md-4 col-lg-3">
                                             <a href="{{ $photo->getUrl('banner') }}"
                                                data-fancybox="gallery"

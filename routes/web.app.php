@@ -53,6 +53,6 @@ Route::group([
     Route::get('{lang}', 'LocaleController@switch')->name('locale')
         ->where('lang', '('.implode('|', config('app.locales')).')');
 
-    Route::get('{page}', 'PagesController@show')
+    Route::get('{page}', 'PagesController@show')->name('page')
         ->where('page', '(about|contacts|payment-and-delivery|terms-and-conditions)');
 });

@@ -29,7 +29,7 @@ class Navigation
             ],
 			(object)[
 				'name' => trans('navigation.header.contacts'),
-				'route' => url('contacts'),
+				'route' => url('/contacts'),
 			]
 		];
 

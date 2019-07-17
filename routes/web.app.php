@@ -6,11 +6,7 @@ Route::group([
 ], function () {
 
 	Route::get('/', 'PagesController@index')->name('home');
-	Route::get('{page}', 'PagesController@show')
-        ->where('page', '(about|contacts|payment-and-delivery|terms-and-conditions)');
-
 	Route::view('thanks', 'app.pages.thanks')->name('thanks');
-
 	Route::get('search', 'SearchController@index')->name('search');
 
 	Route::group([
@@ -57,4 +53,6 @@ Route::group([
     Route::get('{lang}', 'LocaleController@switch')->name('locale')
         ->where('lang', '('.implode('|', config('app.locales')).')');
 
+    Route::get('{page}', 'PagesController@show')
+        ->where('page', '(about|contacts|payment-and-delivery|terms-and-conditions)');
 });

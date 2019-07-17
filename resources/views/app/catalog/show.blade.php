@@ -32,7 +32,7 @@
                                 <h5>@lang('pages.product.all_photos')</h5>
 
                                 <div class="row no-gutters">
-                                    @foreach($product->getMedia('uploads') as $photo)
+                                    @foreach($product->getMedia('uploads')->slice(1) as $photo)
                                         <div class="col-md-4 col-lg-3">
                                             <a href="{{ $photo->getUrl('banner') }}"
                                                data-fancybox="gallery"

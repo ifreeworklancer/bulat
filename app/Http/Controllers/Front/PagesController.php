@@ -21,9 +21,8 @@ class PagesController extends Controller
         return \view('app.pages.home', compact('articles', 'slides', 'categories'));
     }
 
-    public function show($slug): View
+    public function show(Page $page): View
     {
-        $page = Page::where('slug', $slug)->first();
         return \view('app.pages.default', compact('page'));
     }
 }

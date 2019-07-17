@@ -21,27 +21,8 @@ class PagesController extends Controller
         return \view('app.pages.home', compact('articles', 'slides', 'categories'));
     }
 
-    public function about(): View
+    public function show(Page $page)
     {
-        $page = Page::whereSlug('about')->first();
         return \view('app.pages.default', compact('page'));
-    }
-
-    public function contacts(): View
-    {
-        $page = Page::whereSlug('contacts')->first();
-        return \view('app.pages.contacts', compact('page'));
-    }
-
-    public function termsAndConditions(): View
-    {
-        $page = Page::whereSlug('terms-and-conditions')->first();
-        return \view('app.pages.default', compact('page'));
-    }
-
-    public function warranty(): View
-    {
-        $page = Page::whereSlug('payment-and-delivery')->first();
-        return view('app.pages.default', compact('page'));
     }
 }

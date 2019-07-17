@@ -21,15 +21,15 @@ class Navigation
 			],
 			(object)[
 				'name' => trans('navigation.header.about'),
-				'route' => route('app.about'),
+				'route' => url('/about'),
 			],
             (object)[
                'name' => trans('navigation.header.warranty'),
-               'route' => route('app.warranty')
+               'route' => url('/payment-and-delivery')
             ],
 			(object)[
 				'name' => trans('navigation.header.contacts'),
-				'route' => route('app.contacts'),
+				'route' => url('/contacts'),
 			]
 		];
 
@@ -56,15 +56,15 @@ class Navigation
             ],
             (object)[
                 'name' => trans('navigation.header.about'),
-                'route' => route('app.about'),
+                'route' => url('/about'),
             ],
             (object)[
                 'name' => trans('navigation.header.contacts'),
-                'route' => route('app.contacts'),
+                'route' => url('/contacts'),
             ],
 			(object)[
 				'name' => trans('navigation.header.terms'),
-				'route' => route('app.terms')
+				'route' => url('terms-and-conditions')
 			]
         ];
 

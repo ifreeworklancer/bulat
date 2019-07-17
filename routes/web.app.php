@@ -1,17 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 Route::group([
 	'as' => 'app.',
 	'namespace' => 'Front',
 ], function () {
 
 	Route::get('/', 'PagesController@index')->name('home');
-	Route::get('about', 'PagesController@about')->name('about');
-	Route::get('contacts', 'PagesController@contacts')->name('contacts');
-	Route::get('payment-and-delivery', 'PagesController@warranty')->name('warranty');
-	Route::get('terms-and-conditions', 'PagesController@termsAndConditions')->name('terms');
+	Route::get('{page}', 'PagesController@show')
+        ->where('page', '(about|contacts|payment-and-delivery|terms-and-conditions)');
+
 	Route::view('thanks', 'app.pages.thanks')->name('thanks');
 
 	Route::get('search', 'SearchController@index')->name('search');

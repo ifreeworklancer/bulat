@@ -22,9 +22,9 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 use Talanoff\ImpressionAdmin\Traits\Translatable;
 
-class Product extends Model implements HasMedia, Sortable
+class Product extends Model implements HasMedia
 {
-    use SluggableTrait, SortableTrait, Translatable, HasMediaTrait, SoftDeletes;
+    use SluggableTrait, Translatable, HasMediaTrait, SoftDeletes;
 
     public $sortable = [
         'order_column_name' => 'sort_order',

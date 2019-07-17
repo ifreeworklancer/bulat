@@ -33,7 +33,7 @@
 
                                 <div class="row no-gutters">
                                     @foreach($product->getMedia('products') as $photo)
-                                        <div class="col-md-6 col-lg-4">
+                                        <div class="col-md-4 col-lg-3">
                                             <a href="{{ $photo->getUrl('banner') }}"
                                                data-fancybox="gallery"
                                                class="product-item__gallery-item lozad"
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="col-md-6 pl-md-4">
-                    <div class="d-flex align-items-start align-items-lg-end mb-4">
+                    <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-end mb-4">
                         <div>
                             <small class="text-muted mr-3">@lang('pages.product.sku'):</small>
                             {{ $product->sku }}
@@ -60,27 +60,28 @@
                             </h4>
                         </div>
 
-                        <div class="ml-auto text-right">
+                        <div class="ml-sm-auto text-right">
                             @if ($product->in_stock)
                                 <p class="text-success">@lang('pages.product.in_stock')</p>
                             @else
                                 <p class="text-danger">@lang('pages.product.out_of_stock')</p>
                             @endif
 
-                        <div class="ml-auto">
-                            @if (!$processing)
-                                <button class="btn btn-primary h4 px-4 py-3 mb-0"
-                                        data-toggle="modal"
-                                        data-target="#buyModal">
-                                    <i class="material-icons mr-2">account_balance_wallet</i>
-                                    @lang('pages.product.buy')
-                                </button>
-                            @else
-                                <div class="bg-secondary d-inline-flex align-items-center text-white py-2 px-3">
-                                    <i class="material-icons mr-2">check_box</i>
-                                    @lang('pages.product.ordered')
-                                </div>
-                            @endif
+                            <div class="ml-auto">
+                                @if (!$processing)
+                                    <button class="btn btn-primary h4 px-4 py-3 mb-0"
+                                            data-toggle="modal"
+                                            data-target="#buyModal">
+                                        <i class="material-icons mr-2">account_balance_wallet</i>
+                                        @lang('pages.product.buy')
+                                    </button>
+                                @else
+                                    <div class="bg-secondary d-inline-flex align-items-center text-white py-2 px-3">
+                                        <i class="material-icons mr-2">check_box</i>
+                                        @lang('pages.product.ordered')
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
 
@@ -99,7 +100,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -133,14 +133,14 @@
 
 @push('scripts')
     <script>
-      function togglefavorites() {
-        const el = event.target;
-        event.preventDefault();
+        function togglefavorites() {
+            const el = event.target;
+            event.preventDefault();
 
-        axios.post('{{ route('app.catalog.favorites', $product) }}')
-            .then(function (response) {
-              el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
-            });
-      }
+            axios.post('{{ route('app.catalog.favorites', $product) }}')
+                .then(function (response) {
+                    el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
+                });
+        }
     </script>
 @endpush

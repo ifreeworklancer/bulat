@@ -13,8 +13,8 @@ import Flickity from 'flickity'
       prevNextButtons: false,
       pageDots: false,
       wrapAround: true,
-      autoPlay: 6000,
-      pauseAutoPlayOnHover: true
+      autoPlay: 4000,
+      pauseAutoPlayOnHover: false
     });
 
     $dots.forEach(($dot, index) => {

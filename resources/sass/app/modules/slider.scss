@@ -104,7 +104,11 @@
   color: #fff;
 
   .slide {
-    padding-top: 760 / 1920 * 100%;
+    padding-top: 100%;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding-top: 760 / 1920 * 100%;
+    }
 
     h2 {
       color: currentColor;

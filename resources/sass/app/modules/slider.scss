@@ -100,8 +100,12 @@
 }
 
 #home-slider {
-  margin-top: -75px;
+  margin-top: -90px;
   color: #fff;
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    margin-top: -75px;
+  }
 
   .slide {
     padding-top: 100%;

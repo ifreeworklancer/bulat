@@ -70,10 +70,10 @@
                     @endif
                 @else
                     <div class="d-md-flex">
-                        <a href="{{ route('login') }}" class="mr-3">
+                        <a href="{{ route('login') }}" class="mb-2 mb-md-0 mr-md-0">
                             @lang('profile.login')
                         </a>
-                        <a href="{{ route('register') }}">
+                        <a href="{{ route('register') }}" class="mb-2 mb-md-0">
                             @lang('profile.register')
                         </a>
                     </div>

@@ -173,12 +173,7 @@ class CatalogController extends Controller
 				case 'most_viewed':
 					$products = $products->orderByDesc('views_count');
 					break;
-				default:
-					$products = $products->latest('id');
-					break;
 			}
-		} else {
-			$products = $products->latest('id');
 		}
 		return $products;
 	}

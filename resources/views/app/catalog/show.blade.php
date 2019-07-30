@@ -29,7 +29,7 @@
 
                         @if($product->hasMedia('uploads'))
                             <div class="mt-4">
-                                <h5>@lang('pages.product.all_photos')</h5>
+                                <h6>@lang('pages.product.all_photos')</h6>
 
                                 <div class="row no-gutters">
                                     @foreach($product->getMedia('uploads')->slice(1) as $photo)

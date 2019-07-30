@@ -69,7 +69,7 @@
                         </a>
                     @endif
                 @else
-                    <div class="d-flex">
+                    <div class="d-md-flex">
                         <a href="{{ route('login') }}" class="mr-3">
                             @lang('profile.login')
                         </a>

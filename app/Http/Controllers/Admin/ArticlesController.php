@@ -65,6 +65,7 @@ class ArticlesController extends Controller
     {
         /** @var Article $article */
         $article = Article::create([
+            'video' => $request->input('video'),
             'is_published' => $request->has('is_published'),
         ]);
         $article->makeTranslation();
@@ -104,6 +105,7 @@ class ArticlesController extends Controller
         }
 
         $article->update([
+            'video' => $request->input('video'),
             'is_published' => $request->has('is_published'),
         ]);
         $article->updateTranslation();

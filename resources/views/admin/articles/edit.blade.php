@@ -30,7 +30,11 @@
                             </fieldset>
                         @endforeach
                     </block-editor>
-
+                    <div class="form-group">
+                        <label for="video" class="mt-2">Видео</label>
+                        <input id="video" type="text" name="video"
+                               class="form-control"
+                               value="{{ old('video') ?? $article->video }}">
                     @if ($tags->count())
                         <div class="mt-5">
                             <h3>Тэги статьи</h3>

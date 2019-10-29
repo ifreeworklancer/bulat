@@ -44,6 +44,10 @@
                         <h1 class="h4">
                             {{ $article->translate('title') }}
                         </h1>
+                        @if($article->video)
+                            <div class="video-feedback" data-youtube="{{$article->video}}"></div>
+
+                        @endif
 
                         <div class="text-white">
                             {!! $article->translate('body') !!}

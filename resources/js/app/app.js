@@ -19,6 +19,7 @@ new Vue({
     require('./modules/sliders');
     require('./modules/search');
     require('./modules/menu');
+    require('./modules/youtube')
 
     const observer = lozad();
     observer.observe();

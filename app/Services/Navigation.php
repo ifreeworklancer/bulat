@@ -30,7 +30,11 @@ class Navigation
 			(object)[
 				'name' => trans('navigation.header.contacts'),
 				'route' => url('/contacts'),
-			]
+			],
+            (object)[
+                'name' => trans('navigation.header.articles'),
+                'route' => url('/articles'),
+            ],
 		];
 
 		if (Auth::check() && Question::count()) {

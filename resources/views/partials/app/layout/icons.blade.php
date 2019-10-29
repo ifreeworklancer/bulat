@@ -49,4 +49,9 @@
         <path d="m141.652344 322.496094 16-15.996094 11.3125 11.3125-15.996094 15.996094zm0 0"/>
         <path d="m173.652344 290.496094 88-87.996094 11.3125 11.3125-87.996094 88zm0 0"/>
     </svg>
+    <symbol id="play-btn" viewBox="0 0 55 55" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M28 46C38.4934 46 47 37.4934 47 27C47 16.5066 38.4934 8 28 8C17.5066 8 9 16.5066 9 27C9 37.4934 17.5066 46 28 46Z" fill="#DA2128" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M27.5 54C42.1355 54 54 42.1355 54 27.5C54 12.8645 42.1355 1 27.5 1C12.8645 1 1 12.8645 1 27.5C1 42.1355 12.8645 54 27.5 54Z" stroke="#DA2128" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M23 19L36 27.5L23 36V19Z" fill="white" />
+    </symbol>
 </svg>

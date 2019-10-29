@@ -42,7 +42,7 @@ class ProductsController extends Controller
 
         return \view('admin.products.index', [
             'products' => $products->paginate(20),
-            'categories' => Category::latest('id')->get(),
+            'categories' => Category::get(),
             'tags' => $tags,
         ]);
     }
@@ -53,7 +53,7 @@ class ProductsController extends Controller
     public function create(): View
     {
         return \view('admin.products.create', [
-            'categories' => Category::latest('id')->get(),
+            'categories' => Category::get(),
         ]);
     }
 
@@ -79,6 +79,7 @@ class ProductsController extends Controller
                     'model_id' => $product->id,
                 ]);
             }
+            Media::setNewOrder($request->input('media'));
         }
 
         return redirect()->route('admin.products.edit', $product);
@@ -92,7 +93,7 @@ class ProductsController extends Controller
     {
         return \view('admin.products.edit', [
             'product' => $product,
-            'categories' => Category::latest('id')->get(),
+            'categories' => Category::get(),
         ]);
     }
 
@@ -122,6 +123,7 @@ class ProductsController extends Controller
                     'model_id' => $product->id,
                 ]);
             }
+            Media::setNewOrder($request->input('media'));
         }
 
         return redirect()->route('admin.products.edit', $product);
@@ -140,8 +142,6 @@ class ProductsController extends Controller
 
     public function sortOrder(Product $product, $direction)
     {
-//        dd($product, $direction);
-
         switch ($direction) {
             case 'up':
                 $product->moveOrderUp();

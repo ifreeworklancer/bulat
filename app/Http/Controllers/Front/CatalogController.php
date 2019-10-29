@@ -39,7 +39,7 @@ class CatalogController extends Controller
 		return \view('app.catalog.index', [
 			'page' => $this->page,
 			'search' => $request->input('search'),
-			'categories' => Category::latest('id')->get(),
+			'categories' => Category::get(),
 			'products' => $products->paginate(24),
 		]);
 	}
@@ -56,7 +56,7 @@ class CatalogController extends Controller
 		return \view('app.catalog.all', [
 			'page' => $this->page,
 			'search' => $request->input('search'),
-			'categories' => Category::latest('id')->get(),
+			'categories' => Category::get(),
 			'products' => $products->get(),
 		]);
 	}

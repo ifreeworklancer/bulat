@@ -18,7 +18,7 @@
                 <th>#</th>
                 <th>Название</th>
                 <th class="text-center">Товаров в категории</th>
-                <th>Дата создания</th>
+                <th class="text-center">Порядок</th>
                 <th></th>
             </tr>
             </thead>
@@ -26,13 +26,45 @@
             @forelse($categories as $category)
                 <tr>
                     <td width="20">{{ $category->id }}</td>
-                    <td>
+                    <td width="280">
                         <a href="{{ route('admin.categories.edit', $category) }}" class="underline">
                             {{ $category->translate('title') }}
                         </a>
                     </td>
                     <td class="text-center small">{{ $category->products()->count() }}</td>
-                    <td width="150">{{ $category->created_at->formatLocalized('%d %b %Y, %H:%M') }}</td>
+                    <td width="150" class="small">
+                        <div class="d-flex text-center mb-2">
+                            <form action="{{ route('admin.categories.sort', [$category, 'up']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&uparrow;</button>
+                            </form>
+
+                            <form action="{{ route('admin.categories.sort', [$category, 'down']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&downarrow;</button>
+                            </form>
+                        </div>
+
+                        <div class="d-flex text-center mb-2">
+                            <form action="{{ route('admin.categories.sort', [$category, 'start']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&starf;</button>
+                            </form>
+
+                            <form action="{{ route('admin.categories.sort', [$category, 'end']) }}" method="post"
+                                  class="col-6 px-0">
+                                @csrf
+
+                                <button class="btn btn-sm p-0">&star;</button>
+                            </form>
+                        </div>
+                    </td>
                     <td width="100">
                         <a href="{{ route('admin.categories.edit', $category) }}"
                            class="btn btn-warning btn-squire">

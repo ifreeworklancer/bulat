@@ -18,7 +18,7 @@ class CategoriesController extends Controller
     public function index(): View
     {
         return \view('admin.categories.index', [
-            'categories' => Category::latest('id')->paginate(10),
+            'categories' => Category::paginate(10),
         ]);
     }
 
@@ -90,5 +90,29 @@ class CategoriesController extends Controller
     {
         $category->delete();
         return redirect()->route('admin.categories.index');
+    }
+
+    public function sortOrder(Category $category, $direction)
+    {
+//        dd($product, $direction);
+
+        switch ($direction) {
+            case 'up':
+                $category->moveOrderUp();
+                break;
+            case 'down':
+                $category->moveOrderDown();
+                break;
+            case 'start':
+                $category->moveToStart();
+                break;
+            case 'end':
+                $category->moveToEnd();
+                break;
+        }
+
+        $category->save();
+
+        return back();
     }
 }

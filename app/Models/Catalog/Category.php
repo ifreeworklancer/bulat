@@ -5,20 +5,29 @@ namespace App\Models\Catalog;
 use App\Traits\FiltrableTrait;
 use App\Traits\SluggableTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 use Talanoff\ImpressionAdmin\Traits\Translatable;
 
-class Category extends Model implements HasMedia
+class Category extends Model implements HasMedia, Sortable
 {
-	use SluggableTrait, Translatable, HasMediaTrait, FiltrableTrait;
+	use SluggableTrait, SortableTrait, Translatable, HasMediaTrait, FiltrableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+    ];
 
 	protected $fillable = [
 		'slug',
+        'sort_order'
 	];
 
 	protected $filtrable = 'category';
@@ -58,4 +67,12 @@ class Category extends Model implements HasMedia
 			? $this->getFirstMedia('category')->getFullUrl('preview')
 			: asset('images/no-image.png');
 	}
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::addGlobalScope('sortById', function (Builder $builder) {
+            $builder->orderBy('sort_order');
+        });
+    }
 }

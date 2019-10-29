@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row images-list mb-2" v-if="images.length">
+        <draggable v-model="images" class="row images-list mb-2">
             <div class="col-md-6 col-lg-4" v-for="(image, index) in images">
                 <div class="image-preview rounded"
                      :style="{backgroundImage: `url(${image.src})`}">
@@ -10,7 +10,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </draggable>
 
         <label class="position-relative image-uploader d-block rounded bg-light p-4">
             <input type="file" accept="image/*" multiple @change="handleImages">
@@ -33,7 +33,11 @@
 </template>
 
 <script>
+  import Draggable from 'vuedraggable'
   export default {
+    components: {
+      Draggable
+    },
     props: {
       src: Array,
       name: {

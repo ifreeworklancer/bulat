@@ -44,7 +44,7 @@ return [
     ],
 
     'articles' => [
-        'title' => 'Статьи',
+        'title' => 'Блог',
         'readmore' => 'Подробней',
         'popular' => 'Популярные статьи',
         'filters' => 'Фильтры',

@@ -4,7 +4,7 @@ return [
 	'header' => [
 		'home' => 'Главная',
 		'catalog' => 'Каталог',
-		'articles' => 'Статьи',
+		'articles' => 'Блог',
 		'about' => '<nobr>О нас</nobr>',
 		'contacts' => 'Контакты',
 		'questionary' => 'Анкета',

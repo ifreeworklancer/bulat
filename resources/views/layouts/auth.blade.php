@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>
-        @isset($page_title)
-            {{ $page_title . ' | ' }}
-        @endisset
-        {{ config('app.name') }}
-    </title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154760806-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154760806-1');
+    </script>
+
+
+    <title>{{ config('app.name') . (isset($page_title) ? ' | ' . $page_title : '') }}</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="preload" href="{{ asset('css/app.css') }}" as="style">

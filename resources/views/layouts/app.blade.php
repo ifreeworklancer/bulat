@@ -7,6 +7,16 @@
 
     <title>{{ config('app.name') . (isset($page_title) ? ' | ' . $page_title : '') }}</title>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154760806-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154760806-1');
+    </script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="preload" href="{{ asset('css/app.css') }}" as="style">
     <link rel="preload" href="{{ asset('js/app.js') }}" as="script">

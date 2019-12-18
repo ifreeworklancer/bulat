@@ -11,7 +11,7 @@
                         <figure class="category__image mb-3 lozad"
                                 data-background-image="{{ $category->preview }}"></figure>
 
-                        <h5 class="mb-0 text-center">{{ $category->translate('title') }}</h5>
+                        <h3 class="mb-0 h5 text-center">{{ $category->translate('title') }}</h3>
                     </a>
                 </div>
             @endforeach

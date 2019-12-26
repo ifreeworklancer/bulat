@@ -5,6 +5,11 @@
         <div class="product-preview__info p-3">
             <div class="mb-auto">
                 <h5 class="mb-1">{{ $product->translate('title') }}</h5>
+                @if ($product->in_stock)
+                    <p class="text-success">@lang('pages.product.in_stock')</p>
+                @else
+                    <p class="text-danger">@lang('pages.product.out_of_stock')</p>
+                @endif
 
                 @if ($product->hasTranslation('description'))
                     <p class="smaller text-muted mb-1">{{ str_limit($product->translate('description'), 50) }}</p>

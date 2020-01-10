@@ -9,3 +9,19 @@
     @includeWhen($articles->count(), 'partials.app.home.articles')
 
 @endsection
+
+@section('meta')
+    <meta property="og:type" content="product.group">
+    @foreach($categories as $category)
+        @includeIf('partials.app.layout.meta', ['meta' => $category->meta()->first()])
+        @if ($category->hasMedia('category'))
+            <meta property="og:image" content="{{ $product->preview }}">
+        @endif
+    @endforeach
+    @foreach($articles as $article)
+        @includeIf('partials.app.layout.meta', ['meta' => $article->meta()->first()])
+        @if ($article->hasMedia('articles'))
+            <meta property="og:image" content="{{ $article->preview }}">
+        @endif
+    @endforeach
+@endsection

@@ -3,6 +3,7 @@
 namespace App\Models\Article;
 
 use App\Models\Additional\Favorite;
+use App\Models\Meta;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -36,6 +37,14 @@ class Article extends Model implements HasMedia
 	{
 		return $this->belongsToMany(Tag::class);
 	}
+
+    /**
+     * @return MorphMany
+     */
+    public function meta(): MorphMany
+    {
+        return $this->morphMany(Meta::class, 'metable');
+    }
 
 	/**
 	 * @return MorphMany

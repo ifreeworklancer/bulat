@@ -38,6 +38,15 @@ class PagesController extends Controller
     {
         $page->updateTranslation();
 
+        if($request->has('meta')){
+            foreach ($request->get('meta') as $key => $meta) {
+                $page->meta()->updateOrCreate([
+                    'metable_id' => $page->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
         return back();
     }
 }

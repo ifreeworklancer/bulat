@@ -2,7 +2,9 @@
 
 namespace App\Models\Additional;
 
+use App\Models\Meta;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Talanoff\ImpressionAdmin\Traits\Translatable;
 
 class Page extends Model
@@ -22,4 +24,12 @@ class Page extends Model
 		'slug',
 		'props',
 	];
+
+    /**
+     * @return MorphMany
+     */
+    public function meta(): MorphMany
+    {
+        return $this->morphMany(Meta::class, 'metable');
+    }
 }

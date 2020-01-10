@@ -2,12 +2,14 @@
 
 namespace App\Models\Catalog;
 
+use App\Models\Meta;
 use App\Traits\FiltrableTrait;
 use App\Traits\SluggableTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
@@ -39,6 +41,14 @@ class Category extends Model implements HasMedia, Sortable
 	{
 		return $this->belongsToMany(Product::class);
 	}
+
+    /**
+     * @return MorphMany
+     */
+    public function meta(): MorphMany
+    {
+        return $this->morphMany(Meta::class, 'metable');
+    }
 
 	/**
 	 * @param Media|null $media

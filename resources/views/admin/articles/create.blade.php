@@ -33,46 +33,46 @@
                         <input id="video" type="text" name="video"
                                class="form-control"
                                value="{{ old('video') }}">
-                    @if ($tags->count())
-                        <div class="mt-5">
-                            <h3>Тэги статьи</h3>
+                        @if ($tags->count())
+                            <div class="mt-5">
+                                <h3>Тэги статьи</h3>
 
-                            @foreach($tags as $key => $group)
-                                <h4 class="mt-3">{{ $groups->find($key)->translate('title') }}</h4>
+                                @foreach($tags as $key => $group)
+                                    <h4 class="mt-3">{{ $groups->find($key)->translate('title') }}</h4>
 
-                                <div class="d-flex flex-wrap">
-                                    @foreach($group as $tag)
-                                        <div class="border py-1 px-2 mr-3 mb-2 rounded">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                       id="tag-{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-                                                <label class="custom-control-label nowrap"
-                                                       for="tag-{{ $tag->id }}">
-                                                    {{ $tag->translate('title') }}
-                                                </label>
+                                    <div class="d-flex flex-wrap">
+                                        @foreach($group as $tag)
+                                            <div class="border py-1 px-2 mr-3 mb-2 rounded">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                           id="tag-{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+                                                    <label class="custom-control-label nowrap"
+                                                           for="tag-{{ $tag->id }}">
+                                                        {{ $tag->translate('title') }}
+                                                    </label>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @endforeach
-                        </div>
-                    @endif
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+                    @includeIf('partials.admin.meta', ['meta' => null])
+                    <div class="col">
+                        <image-uploader></image-uploader>
+                    </div>
                 </div>
 
-                <div class="col">
-                    <image-uploader></image-uploader>
-                </div>
-            </div>
+                <div class="mt-4 d-flex align-items-center">
+                    <button class="btn btn-primary">Сохранить</button>
 
-            <div class="mt-4 d-flex align-items-center">
-                <button class="btn btn-primary">Сохранить</button>
-
-                <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input"
-                           id="published" name="is_published" checked>
-                    <label class="custom-control-label" for="published">Опубликовать</label>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input"
+                               id="published" name="is_published" checked>
+                        <label class="custom-control-label" for="published">Опубликовать</label>
+                    </div>
                 </div>
-            </div>
         </form>
     </section>
 

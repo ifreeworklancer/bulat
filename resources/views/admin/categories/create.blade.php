@@ -24,13 +24,14 @@
                             </fieldset>
                         @endforeach
                     </block-editor>
+
                 </div>
 
                 <div class="col-md">
                     <image-uploader></image-uploader>
                 </div>
             </div>
-
+            @includeIf('partials.admin.meta', ['meta' => null])
             <div class="mt-4">
                 <button class="btn btn-primary">Сохранить</button>
             </div>

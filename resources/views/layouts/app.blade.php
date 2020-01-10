@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
+    @yield('meta')
 </head>
 <body>
 @includeIf('partials.app.layout.icons')

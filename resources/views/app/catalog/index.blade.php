@@ -57,3 +57,13 @@
     </section>
 
 @endsection
+
+@section('meta')
+    <meta property="og:type" content="product.group">
+    @foreach($products as $product)
+        @includeIf('partials.app.layout.meta', ['meta' => $product->meta()->first()])
+        @if ($product->hasMedia('product'))
+            <meta property="og:image" content="{{ $product->preview }}">
+        @endif
+    @endforeach
+@endsection

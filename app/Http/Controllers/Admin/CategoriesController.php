@@ -44,7 +44,13 @@ class CategoriesController extends Controller
                 ->usingFileName(create_file_name($request->file('image')))
                 ->toMediaCollection('category');
         }
-
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $category->meta()->create([
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('admin.categories.edit', $category);
     }
 
@@ -78,6 +84,15 @@ class CategoriesController extends Controller
                 ->toMediaCollection('category');
         }
 
+        if($request->has('meta')){
+            foreach ($request->get('meta') as $key => $meta) {
+                $category->meta()->updateOrCreate([
+                    'metable_id' => $category->id
+                ], [
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('admin.categories.edit', $category);
     }
 

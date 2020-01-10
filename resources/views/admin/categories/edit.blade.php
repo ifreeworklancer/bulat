@@ -26,13 +26,14 @@
                             </fieldset>
                         @endforeach
                     </block-editor>
+
                 </div>
 
                 <div class="col-md">
                     <image-uploader src="{{ $category->getFirstMediaUrl('category') }}"></image-uploader>
                 </div>
             </div>
-
+            @includeIf('partials.admin.meta', ['meta' => $category->meta()->first()])
             <div class="mt-4">
                 <div class="custom-control custom-checkbox ml-3">
                     <input type="checkbox" class="custom-control-input"

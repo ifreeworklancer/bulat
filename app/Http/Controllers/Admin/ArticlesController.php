@@ -77,6 +77,13 @@ class ArticlesController extends Controller
                 ->toMediaCollection('articles');
         }
 
+        if ($request->has('meta')) {
+            foreach ($request->get('meta') as $key => $meta) {
+                $article->meta()->create([
+                    $key => $meta
+                ]);
+            }
+        }
         return redirect()->route('admin.articles.edit', $article);
     }
 
@@ -116,6 +123,16 @@ class ArticlesController extends Controller
             $article->addMediaFromRequest('image')
                 ->usingFileName(create_file_name($request->file('image')))
                 ->toMediaCollection('articles');
+        }
+
+        if($request->has('meta')){
+            foreach ($request->get('meta') as $key => $meta) {
+                $article->meta()->updateOrCreate([
+                    'metable_id' => $article->id
+                ], [
+                    $key => $meta
+                ]);
+            }
         }
 
         return redirect()->route('admin.articles.edit', $article);

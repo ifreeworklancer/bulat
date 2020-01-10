@@ -37,6 +37,7 @@
 
                         <multi-image-uploader class="mt-4"></multi-image-uploader>
                     </block-editor>
+                    @includeIf('partials.admin.meta', ['meta' => null])
                 </div>
 
                 <div class="col-lg-3">

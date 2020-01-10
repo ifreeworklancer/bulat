@@ -72,14 +72,21 @@
 
 @push('scripts')
     <script>
-      function togglefavorites() {
-        const el = event.target;
-        event.preventDefault();
+        function togglefavorites() {
+            const el = event.target;
+            event.preventDefault();
 
-        axios.post('{{ route('app.articles.favorites', $article) }}')
-          .then(function (response) {
-            el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
-          });
-      }
+            axios.post('{{ route('app.articles.favorites', $article) }}')
+                .then(function (response) {
+                    el.innerText = (response.data.status === 'added' ? 'star' : 'star_border');
+                });
+        }
     </script>
 @endpush
+
+@section('meta')
+    @includeIf('partials.app.layout.meta', ['meta' => $article->meta()->first()])
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="{{ $article->getFirstMedia('article')->getFullUrl() }}">
+    <meta property="article:author" content="Trina">
+@endsection

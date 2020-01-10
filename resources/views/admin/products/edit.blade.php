@@ -41,6 +41,7 @@
                                 class="mt-4"
                                 :src="{{ json_encode($product->images_list) }}"></multi-image-uploader>
                     </block-editor>
+                    @includeIf('partials.admin.meta', ['meta' => $product->meta()->first()])
                 </div>
 
                 <div class="col-lg-3">

@@ -17,8 +17,8 @@ class PagesController extends Controller
         $articles = Article::latest()->take(3)->get();
         $slides = optional(Slider::find(1))->slides;
         $categories = Category::has('products')->inRandomOrder()->get();
-
-        return \view('app.pages.home', compact('articles', 'slides', 'categories'));
+        $meta = Page::where('slug', 'about')->first();
+        return \view('app.pages.home', compact('articles', 'slides', 'categories', 'meta'));
     }
 
     public function show(Page $page): View

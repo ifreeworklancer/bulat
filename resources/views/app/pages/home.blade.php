@@ -12,6 +12,7 @@
 
 @section('meta')
     <meta property="og:type" content="product.group">
+    @includeIf('partials.app.layout.meta', ['meta' => $meta->meta()->first()])
     @foreach($categories as $category)
         @includeIf('partials.app.layout.meta', ['meta' => $category->meta()->first()])
         @if ($category->hasMedia('category'))

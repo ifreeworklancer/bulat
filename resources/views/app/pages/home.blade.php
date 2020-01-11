@@ -15,7 +15,7 @@
     @foreach($categories as $category)
         @includeIf('partials.app.layout.meta', ['meta' => $category->meta()->first()])
         @if ($category->hasMedia('category'))
-            <meta property="og:image" content="{{ $product->preview }}">
+            <meta property="og:image" content="{{ $category->preview }}">
         @endif
     @endforeach
     @foreach($articles as $article)

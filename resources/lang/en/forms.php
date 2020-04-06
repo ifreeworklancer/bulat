@@ -2,7 +2,7 @@
 
 return [
 	'name' => 'Your name',
-	'contact' => 'У-mail',
+	'contact' => 'E-mail',
 	'message' => 'Question?',
 
 	'buttons' => [

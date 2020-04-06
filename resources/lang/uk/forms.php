@@ -2,7 +2,7 @@
 
 return [
     'name' => 'Ваше ім\'я',
-    'contact' => 'E-mail',
+    'contact' => 'Номер телефону',
     'buttons' => [
         'buy' => 'купити',
         'question' => 'Задати питання',

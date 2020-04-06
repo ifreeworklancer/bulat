@@ -2,7 +2,7 @@
 
 return [
     'name' => 'Ваше имя',
-    'contact' => 'Номер телефона или Email',
+    'contact' => 'Номер телефона',
 
     'message' => [
         'order' => 'Сообщение <small class="text-muted">(не обязательно)</small>',

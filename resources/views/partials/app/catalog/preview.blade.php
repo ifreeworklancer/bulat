@@ -2,7 +2,7 @@
     <a href="{{ route('app.catalog.show', $product) }}" class="product-preview">
         <figure class="product-preview__image lozad"
                 data-background-image="{{ $product->preview }}"></figure>
-        <div class="product-preview__info p-1">
+        <div class="product-preview__info p-2">
             <div class="mb-auto">
                 <h5 class="mb-1">{{ $product->translate('title') }}</h5>
               {{--  @if ($product->in_stock)

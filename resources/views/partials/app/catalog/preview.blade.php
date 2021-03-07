@@ -15,7 +15,7 @@
                     <p class="smaller text-muted mb-1">{{ str_limit($product->translate('description'), 50) }}</p>
                 @endif--}}
             </div>
-            <div class="justify-content-between">
+            <div class="justify-content-between d-inline-flex">
                 <h6 class="mb-0 text-primary">
                     {{ $product->price }}
                     <small class="text-uppercase currency">

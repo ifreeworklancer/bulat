@@ -2,7 +2,7 @@
     <a href="{{ route('app.catalog.show', $product) }}" class="product-preview">
         <figure class="product-preview__image lozad"
                 data-background-image="{{ $product->preview }}"></figure>
-        <div class="product-preview__info p-3">
+        <div class="product-preview__info p-1">
             <div class="mb-auto">
                 <h5 class="mb-1">{{ $product->translate('title') }}</h5>
               {{--  @if ($product->in_stock)
@@ -23,9 +23,9 @@
                     </small>
                 </h6>
                 @if ($product->in_stock)
-                    <p class="text-success">@lang('pages.product.in_stock')</p>
+                    <p class="text-success mb-0">@lang('pages.product.in_stock')</p>
                 @else
-                    <p class="text-danger">@lang('pages.product.out_of_stock')</p>
+                    <p class="text-danger mb-0">@lang('pages.product.out_of_stock')</p>
                 @endif
             </div>
 

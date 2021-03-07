@@ -11,9 +11,9 @@
                     <p class="text-danger">@lang('pages.product.out_of_stock')</p>
                 @endif
 
-                @if ($product->hasTranslation('description'))
+               {{-- @if ($product->hasTranslation('description'))
                     <p class="smaller text-muted mb-1">{{ str_limit($product->translate('description'), 50) }}</p>
-                @endif
+                @endif--}}
             </div>
 
             <h6 class="mb-0 text-primary">

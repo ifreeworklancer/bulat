@@ -10,6 +10,14 @@
       border-color: darken($gold, 3%);
     }
   }
+  &-filter{
+    background-color: #646464f5;
+    border-color: darken(#646464f5, 3%);
+    &:hover {
+      background-color: $gold;
+      border-color: darken($gold, 3%);
+    }
+  }
 
   .material-icons {
     font-size: 1.25rem;

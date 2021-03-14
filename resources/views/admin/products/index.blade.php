@@ -58,8 +58,10 @@
             <thead>
             <tr class="small">
                 <th>#</th>
+                <th>Изобр.</th>
                 <th>Название</th>
                 <th>Категория</th>
+                <th>Цена</th>
                 <th>Просмотры</th>
                 <th class="text-center">Порядок</th>
                 <th></th>
@@ -69,6 +71,9 @@
             @forelse($products as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
+                    <td width="100">
+                        <img src="{{ $product->preview }}" width="120" alt="">
+                    </td>
                     <td width="280">
                         <a href="{{ route('admin.products.edit', $product) }}" class="underline">
                             {{ $product->translate('title') }}
@@ -84,6 +89,7 @@
                             ---
                         @endforelse
                     </td>
+                    <td class="text-center">{{ $product->price }}</td>
                     <td class="text-center">{{ $product->views_count }}</td>
                     <td width="150" class="small">
                         <div class="d-flex text-center mb-2">

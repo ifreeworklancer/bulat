@@ -69,6 +69,10 @@ class Navigation
 			(object)[
 				'name' => trans('navigation.header.terms'),
 				'route' => url('terms-and-conditions')
+			],
+            (object)[
+				'name' => trans('navigation.header.privacy-policy'),
+				'route' => url('privacy-policy')
 			]
         ];
 
